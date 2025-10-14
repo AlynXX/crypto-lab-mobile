@@ -11,10 +11,12 @@
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "expo": "~54.0.13",
+    "expo-clipboard": "^8.0.7",
     "expo-document-picker": "^14.0.7",
     "expo-file-system": "^19.0.17",
     "expo-sharing": "^14.0.7",
     "expo-status-bar": "~3.0.8",
+    "lorem-ipsum": "^2.0.8",
     "react": "19.1.0",
     "react-native": "0.81.4",
     "react-native-safe-area-context": "^5.6.1"

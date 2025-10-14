@@ -3,6 +3,7 @@
 // ============================================================================
 
 import CryptographicAlgorithm from './CryptographicAlgorithm';
+import { LoremIpsum } from 'lorem-ipsum';
 
 export default class RunningKeyCipher extends CryptographicAlgorithm {
   constructor() {
@@ -40,12 +41,41 @@ export default class RunningKeyCipher extends CryptographicAlgorithm {
     return 'Tekst (np. fragment książki) - klucz powinien być długi, zawierać tylko litery';
   }
 
-  encrypt(plaintext: string, key: string): string {
-    return this._process(plaintext, key, true);
+  /**
+   * Generuje klucz o długości tekstu z lorem ipsum
+   */
+  private generateKey(length: number): string {
+    const lorem = new LoremIpsum({
+      wordsPerSentence: { min: 5, max: 15 },
+      sentencesPerParagraph: { min: 3, max: 7 }
+    });
+    let key = '';
+    while (key.replace(/[^a-zA-Z]/g, '').length < length) {
+      key += lorem.generateSentences(1) + ' ';
+    }
+    // Skróć do odpowiedniej liczby liter
+    let onlyLetters = key.replace(/[^a-zA-Z]/g, '');
+    onlyLetters = onlyLetters.substring(0, length);
+    return onlyLetters;
   }
 
-  decrypt(ciphertext: string, key: string): string {
-    return this._process(ciphertext, key, false);
+  encrypt(plaintext: string, _key?: string): string {
+    // Generuj klucz automatycznie
+    const key = this.generateKey(plaintext.replace(/[^a-zA-Z]/g, '').length);
+    const ciphertext = this._process(plaintext, key, true);
+    // Zwróć klucz i zaszyfrowany tekst w formacie: <klucz>::<zaszyfrowany_tekst>
+    return `${key}::${ciphertext}`;
+  }
+
+  decrypt(ciphertext: string, _key?: string): string {
+    // Oczekujemy formatu: <klucz>::<zaszyfrowany_tekst>
+    const parts = ciphertext.split('::');
+    if (parts.length !== 2) {
+      throw new Error('Nieprawidłowy format zaszyfrowanego tekstu. Brak klucza.');
+    }
+    const key = parts[0];
+    const encrypted = parts[1];
+    return this._process(encrypted, key, false);
   }
 
   private _process(text: string, key: string, encrypt: boolean): string {

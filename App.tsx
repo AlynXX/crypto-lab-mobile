@@ -16,6 +16,7 @@ import {
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
+import * as Clipboard from 'expo-clipboard';
 import { registry } from './src/algorithms/AlgorithmRegistry';
 import AlgorithmSidebar from './src/components/AlgorithmSidebar';
 import { pickTextFile, saveTextFile } from './src/utils/fileUtils';
@@ -99,6 +100,21 @@ export default function App() {
     }
   };
 
+  const handleCopyToClipboard = async () => {
+    if (!outputText) {
+      Alert.alert('Błąd', 'Brak tekstu do skopiowania');
+      return;
+    }
+
+    try {
+      await Clipboard.setStringAsync(outputText);
+      Alert.alert('Sukces', 'Tekst skopiowany do schowka!');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
+      Alert.alert('Błąd', `Nie udało się skopiować: ${errorMessage}`);
+    }
+  };
+
   const handleDownload = async () => {
     if (!outputText) {
       Alert.alert('Błąd', 'Brak tekstu do zapisania');
@@ -108,6 +124,11 @@ export default function App() {
     try {
       const filename = `${operation}_${selectedAlgorithm}_${Date.now()}.txt`;
       await saveTextFile(outputText, filename);
+      Alert.alert(
+        'Plik gotowy', 
+        'Plik został utworzony. Wybierz "Zapisz do plików" aby zachować go na urządzeniu.',
+        [{ text: 'OK' }]
+      );
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
       Alert.alert('Błąd', errorMessage);
@@ -254,17 +275,19 @@ export default function App() {
             </View>
           </View>
 
-          {/* Key Input */}
-          <View style={styles.section}>
-            <Text style={styles.label}>Klucz</Text>
-            <TextInput
-              style={styles.input}
-              value={key}
-              onChangeText={setKey}
-              placeholder="Wprowadź klucz"
-              placeholderTextColor="#64748b"
-            />
-          </View>
+          {/* Key Input - ukryj dla Running Key Cipher */}
+          {selectedAlgorithm !== 'running-key' && (
+            <View style={styles.section}>
+              <Text style={styles.label}>Klucz</Text>
+              <TextInput
+                style={styles.input}
+                value={key}
+                onChangeText={setKey}
+                placeholder="Wprowadź klucz"
+                placeholderTextColor="#64748b"
+              />
+            </View>
+          )}
 
           {/* File Upload */}
           {mode === 'file' && (
@@ -308,11 +331,37 @@ export default function App() {
             <View style={styles.section}>
               <View style={styles.outputHeader}>
                 <Text style={styles.label}>Wynik</Text>
-                <TouchableOpacity style={styles.downloadButton} onPress={handleDownload}>
-                  <MaterialIcons name="download" size={16} color="#fff" />
-                  <Text style={styles.downloadButtonText}>Pobierz</Text>
-                </TouchableOpacity>
+                <View style={styles.outputActions}>
+                  <TouchableOpacity 
+                    style={styles.actionButton} 
+                    onPress={handleCopyToClipboard}
+                  >
+                    <MaterialIcons name="content-copy" size={16} color="#fff" />
+                    <Text style={styles.actionButtonText}>Kopiuj</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity 
+                    style={styles.actionButton} 
+                    onPress={handleDownload}
+                  >
+                    <MaterialIcons name="download" size={16} color="#fff" />
+                    <Text style={styles.actionButtonText}>Pobierz</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
+              {/* Info for Running Key Cipher */}
+              {selectedAlgorithm === 'running-key' && (
+                <View style={{ marginBottom: 8 }}>
+                  <Text style={{ color: '#a78bfa', fontSize: 13 }}>
+                    Wynik zawiera klucz oraz zaszyfrowany tekst w formacie:
+                  </Text>
+                  <Text style={{ color: '#cbd5e1', fontSize: 13 }}>
+                    {'<klucz>::<zaszyfrowany_tekst>'}
+                  </Text>
+                  <Text style={{ color: '#94a3b8', fontSize: 12 }}>
+                    Klucz to fragment przed dwukropkiem (::), szyfr po dwukropku.
+                  </Text>
+                </View>
+              )}
               <TextInput
                 style={[styles.textArea, styles.outputTextArea]}
                 value={outputText}
@@ -703,6 +752,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 8,
+  },
+  outputActions: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  actionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 6,
+    backgroundColor: '#334155',
+  },
+  actionButtonText: {
+    color: '#fff',
+    fontSize: 12,
   },
   downloadButton: {
     flexDirection: 'row',

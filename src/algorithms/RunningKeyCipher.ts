@@ -38,7 +38,7 @@ export default class RunningKeyCipher extends CryptographicAlgorithm {
   }
 
   getKeyRequirements(): string {
-    return 'Tekst (np. fragment książki) - klucz powinien być długi, zawierać tylko litery';
+    return 'Tekst (np. fragment książki) - użyto generatora lorem ipsum do stworzenia klucza';
   }
 
   /**

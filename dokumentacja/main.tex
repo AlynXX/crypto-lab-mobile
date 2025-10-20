@@ -1,0 +1,518 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{margin=2.5cm}
+
+% Styl listingów
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single
+}
+
+\title{Dokumentacja Projektu CryptoLab Mobile}
+\author{Agnieszka Ryś}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Cel projektu}
+Celem aplikacji \textbf{CryptoLab Mobile} jest edukacja w zakresie kryptografii. 
+Aplikacja mobilna pozwala szyfrować i deszyfrować teksty oraz pliki \texttt{.txt}, 
+sprawdzać poprawność kluczy oraz eksportować wyniki. 
+Wszystkie algorytmy są implementowane ręcznie, bez użycia gotowych bibliotek kryptograficznych.
+
+\section{Podstawy kryptografii klasycznej}
+
+\subsection*{Wprowadzenie}
+Kryptografia to dziedzina zajmująca się ochroną informacji poprzez jej przekształcanie w formę nieczytelną dla osób nieuprawnionych. 
+Jej historia sięga starożytności, gdzie stosowano proste metody szyfrowania, znane obecnie jako \textbf{kryptografia klasyczna}. 
+Celem było zapewnienie poufności korespondencji wojskowej, dyplomatycznej czy handlowej. 
+
+\subsection{Kryptografia symetryczna}
+W kryptografii symetrycznej ten sam klucz służy zarówno do szyfrowania, jak i deszyfrowania wiadomości. 
+Najważniejsze cechy:
+\begin{itemize}
+    \item wysoka szybkość działania,
+    \item konieczność bezpiecznej wymiany klucza,
+    \item podatność na ataki brute-force przy krótkich kluczach.
+\end{itemize}
+
+\subsection{Przykłady szyfrów klasycznych}
+\begin{itemize}
+    \item \textbf{Szyfr Cezara} -- przesunięcie liter alfabetu o stałą liczbę pozycji,
+    \item \textbf{Szyfr Vigenère'a} -- wieloalfabetyczny szyfr wykorzystujący słowo-klucz,
+    \item \textbf{Szyfr z kluczem bieżącym} -- rozwinięcie Vigenère'a z długim kluczem tekstowym,
+    \item \textbf{Szyfr podstawieniowy (monoalfabetyczny)} -- każdej literze alfabetu przypisana jest inna litera,
+    \item \textbf{Szyfr Playfair} -- operujący na parach liter,
+    \item \textbf{Szyfr transpozycyjny} -- zmienia kolejność znaków w wiadomości.
+\end{itemize}
+
+\subsection{Znaczenie w edukacji}
+Choć współcześnie klasyczne szyfry nie zapewniają realnego bezpieczeństwa, 
+stanowią doskonałe narzędzie dydaktyczne. 
+Pozwalają zrozumieć podstawowe pojęcia kryptografii, takie jak:
+\begin{itemize}
+    \item \textbf{klucz} -- parametr definiujący szyfrowanie,
+    \item \textbf{przestrzeń kluczy} -- zbiór możliwych wartości klucza,
+    \item \textbf{analiza częstości} -- klasyczna metoda łamania szyfrów,
+    \item \textbf{brute-force} -- przeszukiwanie wszystkich możliwych kluczy.
+\end{itemize}
+
+\section{Miejsce szyfru Cezara}
+Szyfr Cezara należy do najprostszych szyfrów podstawieniowych. 
+Choć jego bezpieczeństwo jest znikome, odgrywa on kluczową rolę w nauczaniu, 
+ponieważ wprowadza intuicyjnie pojęcia klucza, szyfrowania i deszyfrowania. 
+CryptoLab wykorzystuje go jako \textbf{pierwszy krok} w implementacji i analizie algorytmów kryptograficznych.
+
+
+\section{Technologie wykorzystane w projekcie}
+
+\begin{description}
+    \item[\textbf{React Native + Expo}] 
+    Główna platforma wykorzystana do tworzenia aplikacji mobilnych. 
+    React Native umożliwia budowanie natywnych aplikacji na systemy Android i iOS, wykorzystując składnię zbliżoną do Reacta. 
+    Expo zostało użyte jako narzędzie wspierające proces developmentu – upraszcza konfigurację środowiska, przyspiesza testowanie na urządzeniach mobilnych i zapewnia dostęp do bogatego ekosystemu bibliotek.
+
+    \item[\textbf{TypeScript}] 
+    Nadzbiór JavaScriptu wprowadzający system typów. 
+    Zastosowanie TypeScriptu pozwoliło na: 
+    \begin{itemize}
+        \item wcześniejsze wykrywanie błędów podczas kompilacji,
+        \item lepszą kontrolę nad strukturą danych i interfejsami,
+        \item zwiększoną czytelność oraz przewidywalność kodu,
+    \end{itemize}
+
+    \item[\textbf{Expo Document Picker, File System, Vector Icons}] 
+    Dodatkowe biblioteki środowiska Expo: 
+    \begin{itemize}
+        \item \texttt{expo-document-picker} – umożliwia wybór plików z pamięci urządzenia, 
+        \item \texttt{expo-file-system} – zapewnia dostęp do systemu plików (zapisywanie, odczyt, usuwanie plików),
+        \item \texttt{expo-vector-icons} – biblioteka ikon pozwalająca wzbogacić interfejs użytkownika.
+    \end{itemize}
+
+    \item[\textbf{Git}] 
+    System kontroli wersji użyty do zarządzania historią kodu. 
+    Pozwolił na prowadzenie szczegółowego changelogu, śledzenie postępów w projekcie oraz łatwe zarządzanie zmianami w kodzie źródłowym.
+
+    \item[\textbf{LaTeX}] 
+    System składu tekstu wykorzystany do przygotowania dokumentacji. 
+    Umożliwia on: 
+    \begin{itemize}
+        \item zachowanie spójności formatowania,
+        \item wygodne dodawanie fragmentów kodu źródłowego i zrzutów ekranu,
+        \item automatyczne generowanie spisów treści i numeracji.
+    \end{itemize}
+\end{description}
+
+\newpage
+
+\section{Architektura systemu}
+
+\subsection{Wzorzec projektowy}
+Aplikacja wykorzystuje \textbf{Strategy Pattern} dla algorytmów kryptograficznych. 
+Każdy algorytm dziedziczy z klasy abstrakcyjnej \texttt{CryptographicAlgorithm} i implementuje metody:
+\begin{itemize}
+    \item \texttt{encrypt(plaintext, key)} -- szyfruje tekst,
+    \item \texttt{decrypt(ciphertext, key)} -- deszyfruje tekst,
+    \item \texttt{validateKey(key)} -- sprawdza poprawność klucza,
+    \item \texttt{getKeyRequirements()} -- zwraca opis wymagań dla klucza.
+\end{itemize}
+
+Wszystkie algorytmy zarejestrowane są w \texttt{AlgorithmRegistry} (Singleton Pattern), 
+co umożliwia łatwe dodawanie nowych szyfrów bez modyfikacji głównej aplikacji.
+
+\subsection{Komponenty główne}
+\begin{itemize}
+    \item \textbf{App.tsx} -- główny komponent aplikacji, obsługuje interfejs użytkownika,
+    \item \textbf{AlgorithmSidebar.tsx} -- boczny panel z listą dostępnych algorytmów,
+    \item \textbf{AlgorithmRegistry.ts} -- rejestr i zarządzanie algorytmami,
+    \item \textbf{CryptographicAlgorithm.ts} -- klasa bazowa dla wszystkich algorytmów,
+    \item \textbf{fileUtils.ts} -- funkcje do obsługi operacji na plikach.
+\end{itemize}
+
+\section{Struktura projektu}
+\begin{lstlisting}
+crypto-lab-mobile/
+├── App.tsx                          (glowny komponent)
+├── package.json                     (zalezności projektu)
+├── tsconfig.json                    (konfiguracja TypeScriptu)
+├── app.json                         (konfiguracja Expo)
+├── src/
+│   ├── algorithms/
+│   │   ├── CryptographicAlgorithm.ts   (klasa bazowa)
+│   │   ├── CaesarCipher.ts             (szyfr Cezara)
+│   │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
+│   │   ├── RunningKeyCipher.ts         (szyfr z kluczem biezacym)
+│   │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
+│   ├── components/
+│   │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
+│   └── utils/
+│       └── fileUtils.ts                (obsluga plikow)
+└── assets/                          (zasoby graficzne)
+\end{lstlisting}
+\section{Implementacja szyfru Cezara}
+\subsection{Podstawy}
+Szyfr Cezara to prosty szyfr monoalfabetyczny, w którym litery przesuwane są o wartość klucza $k$. 
+Przestrzeń kluczy obejmuje wartości $1$--$25$. 
+Metoda jest podatna na ataki brute-force i analizę częstotliwości.
+
+\subsection{Model matematyczny}
+\begin{itemize}
+    \item Szyfrowanie: $E_k(x) = (x + k) \bmod 26$,
+    \item Deszyfrowanie: $D_k(x) = (x - k) \bmod 26$.
+\end{itemize}
+
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Obsługuje zarówno wielkie jak i małe litery,
+    \item Znaki niebędące literami pozostają bez zmian,
+    \item Klucz musi być liczbą całkowitą z zakresu 1--25,
+    \item Walidacja klucza zwraca szczegółową informację o błędach.
+\end{itemize}
+
+\newpage
+\section{Implementacja szyfru Vigenère'a}
+
+\subsection{Historia i znaczenie}
+Szyfr Vigenère'a został opracowany w XVI wieku przez Blaise de Vigenère'a. 
+Przez długi czas uważany był za niezniszczalny (\textit{le chiffre indéchiffrable}) 
+aż do jego przełamania przez Charles'a Babbage'a w XIX wieku.
+
+\subsection{Podstawy}
+Szyfr Vigenère'a to szyfr \textbf{polialfabetyczny}, który wykorzystuje słowo-klucz 
+do generowania serii przesunięć. W przeciwieństwie do szyfru Cezara, 
+każda litera tekstu może być szyfrowana z innym przesunięciem.
+
+\subsection{Model matematyczny}
+\begin{itemize}
+    \item Szyfrowanie: $E_{k}(x_i) = (x_i + k_{i \bmod |k|}) \bmod 26$,
+    \item Deszyfrowanie: $D_{k}(y_i) = (y_i - k_{i \bmod |k|}) \bmod 26$,
+    \item gdzie $k$ to słowo-klucz, a $|k|$ to jego długość.
+\end{itemize}
+
+\subsection{Przykład działania}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Tekst jawny & A & T & T & A & C & K \\
+\hline
+Klucz & L & E & M & O & N & L \\
+\hline
+Przesunięcia & +11 & +4 & +12 & +14 & +13 & +11 \\
+\hline
+Tekst zaszyfrowany & L & X & F & O & P & V \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Klucz może zawierać tylko litery (A-Z, a-z),
+    \item Klucz nie może być pusty,
+    \item Znaki niebędące literami w tekście źródłowym są przepisywane bez zmian,
+    \item Klucz automatycznie się powtarza dla długich tekstów,
+    \item Obsługuje zarówno wielkie jak i małe litery w tekście.
+\end{itemize}
+\newpage
+\section{Implementacja szyfru z kluczem bieżącym}
+
+\subsection{Historia i zastosowanie}
+Szyfr z kluczem bieżącym (Running Key Cipher) to rozwinięcie szyfru Vigenère'a. 
+Zamiast krótko słowa, wykorzystuje on klucz o długości co najmniej równej długości tekstu. 
+Gdy klucz jest naprawdę losowy i będzie użyty tylko raz, szyfr ten jest teoretycznie nie do złamania 
+(jest to wariant szyfru jednorazowego -- \textit{One-Time Pad}).
+
+\subsection{Podstawy}
+Algorytm jest w zasadzie identyczny z szyfrem Vigenère'a, ale z istotną różnicą: 
+klucz powinien być znacznie dłuższy niż tekst. W praktyce zastosowania edukacyjnego 
+aplikacja automatycznie generuje klucz z tekstu Lorem Ipsum.
+
+\subsection{Model matematyczny}
+\begin{itemize}
+    \item Szyfrowanie: $E_{k}(x_i) = (x_i + k_i) \bmod 26$,
+    \item Deszyfrowanie: $D_{k}(y_i) = (y_i - k_i) \bmod 26$,
+    \item gdzie $|k| \geq |x|$ (klucz jest co najmniej tak długi jak tekst).
+\end{itemize}
+
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Klucz może zawierać litery i spacje,
+    \item Klucz musi zawierać co najmniej 5 liter,
+    \item Aplikacja automatycznie generuje losowy klucz na bazie Lorem Ipsum,
+    \item Zaszyfrowany tekst zawiera klucz w formacie: \texttt{<klucz>::<tekst\_zaszyfrowany>},
+    \item Deszyfrowanie wymaga podania tekstu w poprawnym formacie.
+\end{itemize}
+
+\subsection{Bezpieczeństwo}
+\begin{itemize}
+    \item Gdy klucz jest losowy i używany tylko raz, szyfr jest teoretycznie bezpieczny,
+    \item Słaba strona: jeśli klucz jest krótszy niż tekst, powtarza się i traci bezpieczeństwo,
+    \item W aplikacji edukacyjne klucz jest generowany automatycznie i przechowywany w wynikach.
+\end{itemize}
+
+\newpage
+\section{Wybrane fragmenty kodu}
+\subsection{Klasa bazowa algorytmu}
+\begin{lstlisting}[language=TypeScript, caption={Klasa abstrakcyjna CryptographicAlgorithm}]
+export default class CryptographicAlgorithm {
+  name: string;
+  description: string;
+  category: string;
+
+  encrypt(plaintext: string, key: string): string {
+    throw new Error('Metoda encrypt() musi być zaimplementowana');
+  }
+
+  decrypt(ciphertext: string, key: string): string {
+    throw new Error('Metoda decrypt() musi być zaimplementowana');
+  }
+
+  validateKey(key: string): { valid: boolean; error?: string } {
+    throw new Error('Metoda validateKey() musi być zaimplementowana');
+  }
+
+  getKeyRequirements(): string {
+    throw new Error('Metoda getKeyRequirements() musi być zaimplementowana');
+  }
+}
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/szyfr_cezara.jpg}
+    \caption{Ekran główny aplikacji CryptoLab}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/lista_wyboru.jpg}
+    \caption{Lista z możliwością wyboru algorytmu}
+\end{figure}
+
+\subsection{Implementacja szyfru Cezara}
+\begin{lstlisting}[language=TypeScript, caption={Szczegóły implementacji CaesarCipher}]
+export default class CaesarCipher extends CryptographicAlgorithm {
+  constructor() {
+    super(
+      'Szyfr Cezara',
+      'Prosty szyfr substytucyjny z przesunięciem',
+      'Szyfry klasyczne'
+    );
+  }
+
+  validateKey(key: string): { valid: boolean; error?: string } {
+    const numKey = parseInt(key, 10);
+    if (isNaN(numKey) || numKey < 1 || numKey > 25) {
+      return { 
+        valid: false, 
+        error: 'Klucz musi być liczbą od 1 do 25' 
+      };
+    }
+    return { valid: true };
+  }
+
+  encrypt(plaintext: string, key: string): string {
+    return this._process(plaintext, parseInt(key, 10));
+  }
+
+  decrypt(ciphertext: string, key: string): string {
+    const shift = 26 - (parseInt(key, 10) % 26);
+    return this._process(ciphertext, shift);
+  }
+
+  private _process(text: string, shift: number): string {
+    return text.split('').map(char => {
+      if (/[A-Za-z]/.test(char)) {
+        const base = char === char.toUpperCase() ? 65 : 97;
+        return String.fromCharCode(
+          (char.charCodeAt(0) - base + shift) % 26 + base
+        );
+      }
+      return char;
+    }).join('');
+  }
+}
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/test_cezara.jpg}
+    \caption{Test szyfru Cezara}
+\end{figure}
+
+\newpage
+\subsection{Implementacja szyfru Vigenère'a}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy VigenereCipher}]
+export default class VigenereCipher extends CryptographicAlgorithm {
+  validateKey(key: string): { valid: boolean; error?: string } {
+    if (!key || key.trim().length === 0) {
+      return { valid: false, error: 'Klucz nie może być pusty' };
+    }
+    const hasOnlyLetters = /^[a-zA-Z]+$/.test(key);
+    if (!hasOnlyLetters) {
+      return { valid: false, error: 'Klucz może zawierać tylko litery' };
+    }
+    return { valid: true };
+  }
+
+  private _process(text: string, key: string, encrypt: boolean): string {
+    let result = '';
+    let keyIndex = 0;
+    const normalizedKey = key.toUpperCase();
+    
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      if (/[A-Za-z]/.test(char)) {
+        const base = char === char.toUpperCase() ? 65 : 97;
+        const textCode = char.charCodeAt(0) - base;
+        const keyCode = normalizedKey.charCodeAt(keyIndex % normalizedKey.length) - 65;
+        
+        const resultCode = encrypt 
+          ? (textCode + keyCode) % 26 
+          : (textCode - keyCode + 26) % 26;
+        
+        result += String.fromCharCode(resultCode + base);
+        keyIndex++;
+      } else {
+        result += char;
+      }
+    }
+    return result;
+  }
+}
+\end{lstlisting}
+
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/szyfr_vigenerea.jpg}
+    \caption{Ekran szyfru Vigenere'a}
+\end{figure}
+
+\subsection{Implementacja szyfru z kluczem bieżącym}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy RunningKeyCipher}]
+export default class RunningKeyCipher extends CryptographicAlgorithm {
+  constructor() {
+    super(
+      'Szyfr z kluczem bieżącym',
+      'Szyfr podobny do Vigenère\'a, ale używający klucza o długości tekstu',
+      'Szyfry klasyczne'
+    );
+  }
+
+  validateKey(key: string): { valid: boolean; error?: string } {
+    if (!key || key.trim().length === 0) {
+      return { valid: false, error: 'Klucz nie może być pusty' };
+    }
+    
+    // Sprawdź czy klucz zawiera tylko litery
+    const hasOnlyLetters = /^[a-zA-Z\s]+$/.test(key);
+    if (!hasOnlyLetters) {
+      return { valid: false, error: 'Klucz może zawierać tylko litery i spacje (A-Z, a-z)' };
+    }
+    
+    // Policz tylko litery w kluczu
+    const keyLettersCount = key.replace(/[^a-zA-Z]/g, '').length;
+    if (keyLettersCount < 5) {
+      return { 
+        valid: false, 
+        error: 'Klucz musi zawierać co najmniej 5 liter (może zawierać spacje)' 
+      };
+    }
+    
+    return { valid: true };
+  }
+
+  getKeyRequirements(): string {
+    return 'Tekst (np. fragment książki) - użyto generatora lorem ipsum do stworzenia klucza';
+  }
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/szyfr_vigenerea.jpg}
+    \caption{Ekran szyfru z kluczem bieżącym}
+\end{figure}
+
+\newpage
+\section{Podsumowanie}
+
+\subsection{Szyfr Cezara}
+Szyfr Cezara należy do najstarszych i najprostszych technik szyfrowania. 
+Jego główna idea polega na przesuwaniu liter alfabetu o ustaloną liczbę pozycji. 
+Mimo że w praktyce jest to jedynie przykład historyczny, implementacja szyfru pozwala lepiej zrozumieć podstawowe mechanizmy kryptografii, takie jak klucz, szyfrowanie i deszyfrowanie.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item bardzo prosta implementacja,
+    \item szybkie działanie,
+    \item dobre ćwiczenie dydaktyczne.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item niska odporność na ataki kryptograficzne,
+    \item atak brute-force łatwe przełamuje szyfr w sekundach,
+    \item podatny na analizę częstotliwości.
+\end{itemize}
+
+\subsection{Szyfr Vigenère'a}
+Szyfr Vigenère'a to znacznie bardziej zaawansowany szyfr polialfabetyczny. 
+Przez wieki uważany był za niezniszczalny, 
+ale ostatecznie został przełamany dzięki analizie częstotliwości długości okresu.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item znacznie bardziej bezpieczny niż szyfr Cezara,
+    \item odporne na prostą analizę częstotliwości,
+    \item wykorzystuje koncepcję słowa-klucza, co jest intuicyjne.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item niska odporność na ataki kryptograficzne (możliwy atak siłowy poprzez sprawdzenie wszystkich przesunięć),
+    \item brak zastosowania we współczesnych systemach bezpieczeństwa,
+    \item szyfr działa jedynie na ograniczonym zbiorze znaków (najczęściej alfabet łaciński).
+\end{itemize}
+
+\newpage
+\subsection{Szyfr z kluczem bieżącym}
+Szyfr z kluczem bieżącym to krok w kierunku szyfrowania jednorazowego.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item gdy klucz jest losowy i używany raz -- teoretycznie nie do złamania,
+    \item koncepcja zbliża się do rzeczywistego bezpieczeństwa informacyjnego,
+    \item edukacyjnie pokazuje znaczenie losowości klucza.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item wymaga przechowywania bardzo długich kluczy,
+    \item wymaga absolutnej losowości i jednorazowego użycia,
+    \item niepraktyczne w większości rzeczywistych zastosowań.
+\end{itemize}
+
+
+\section{Changelog}
+\label{sec:changelog}
+\begin{itemize}
+    \item \textbf{14.10.2025} Implementacja szyfru Cezara (szyfrowanie, deszyfrowanie, walidacja klucza) oraz podstawowe GUI.
+    \item \textbf{20.10.2025} Dodanie szyfru Vigenère'a i szyfru z kluczem bieżącym. \newline Ulepszenie interfejsu użytkownika. \newline 
+    Implementacja AlgorithmRegistry z wzorcem Singleton. 
+    \newline Ulepszenie walidacji kluczy z szczegółowymi komunikatami o błędach.
+\end{itemize}
+
+
+\end{document}

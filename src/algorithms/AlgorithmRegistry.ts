@@ -6,6 +6,7 @@ import CryptographicAlgorithm from './CryptographicAlgorithm';
 import CaesarCipher from './CaesarCipher';
 import VigenereCipher from './VigenereCipher';
 import RunningKeyCipher from './RunningKeyCipher';
+import AESCipher from './AESCipher';
 
 export interface AlgorithmInfo {
   id: string;
@@ -32,6 +33,7 @@ class AlgorithmRegistry {
     this.register('caesar', new CaesarCipher());
     this.register('vigenere', new VigenereCipher());
     this.register('running-key', new RunningKeyCipher());
+    this.register('aes', new AESCipher());
   }
 
   register(id: string, algorithm: CryptographicAlgorithm) {

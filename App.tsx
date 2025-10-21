@@ -20,11 +20,13 @@ import * as Clipboard from 'expo-clipboard';
 import { registry } from './src/algorithms/AlgorithmRegistry';
 import AlgorithmSidebar from './src/components/AlgorithmSidebar';
 import { pickTextFile, saveTextFile } from './src/utils/fileUtils';
+import AESCipher from './src/algorithms/AESCipher';
 
 export default function App() {
   const [mode, setMode] = useState<'text' | 'file'>('text');
   const [operation, setOperation] = useState<'encrypt' | 'decrypt'>('encrypt');
   const [selectedAlgorithm, setSelectedAlgorithm] = useState('caesar');
+  const [aesMode, setAesMode] = useState<'ECB' | 'CBC' | 'CTR'>('ECB');
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [key, setKey] = useState('3');
@@ -44,6 +46,8 @@ export default function App() {
         return 'LEMON';
       case 'running-key':
         return 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG';
+      case 'aes':
+        return AESCipher.DEFAULT_KEY;
       default:
         return '';
     }
@@ -68,6 +72,11 @@ export default function App() {
     if (!currentAlgo) {
       setError('Nie znaleziono wybranego algorytmu');
       return;
+    }
+
+    // Jeśli to AES, ustaw wybrany tryb
+    if (selectedAlgorithm === 'aes' && currentAlgo instanceof AESCipher) {
+      currentAlgo.setMode(aesMode);
     }
 
     const validation = currentAlgo.validateKey(key);
@@ -274,6 +283,85 @@ export default function App() {
               </TouchableOpacity>
             </View>
           </View>
+
+          {/* AES Mode Selection - pokaż tylko dla AES */}
+          {selectedAlgorithm === 'aes' && (
+            <View style={styles.section}>
+              <Text style={styles.label}>Tryb AES</Text>
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={[
+                    styles.aesModeButton,
+                    aesMode === 'ECB' && styles.aesModeButtonActive,
+                  ]}
+                  onPress={() => setAesMode('ECB')}
+                >
+                  <Text
+                    style={[
+                      styles.aesModeButtonText,
+                      aesMode === 'ECB' && styles.aesModeButtonTextActive,
+                    ]}
+                  >
+                    ECB
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.aesModeButton,
+                    aesMode === 'CBC' && styles.aesModeButtonActive,
+                  ]}
+                  onPress={() => setAesMode('CBC')}
+                  disabled={true}
+                >
+                  <Text
+                    style={[
+                      styles.aesModeButtonText,
+                      aesMode === 'CBC' && styles.aesModeButtonTextActive,
+                      { opacity: 0.5 }
+                    ]}
+                  >
+                    CBC
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.aesModeButton,
+                    aesMode === 'CTR' && styles.aesModeButtonActive,
+                  ]}
+                  onPress={() => setAesMode('CTR')}
+                  disabled={true}
+                >
+                  <Text
+                    style={[
+                      styles.aesModeButtonText,
+                      aesMode === 'CTR' && styles.aesModeButtonTextActive,
+                      { opacity: 0.5 }
+                    ]}
+                  >
+                    CTR
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.aesModeButton,
+                    aesMode === 'CTR' && styles.aesModeButtonActive,
+                  ]}
+                  onPress={() => setAesMode('CTR')}
+                  disabled={true}
+                >
+                  <Text
+                    style={[
+                      styles.aesModeButtonText,
+                      aesMode === 'CTR' && styles.aesModeButtonTextActive,
+                      { opacity: 0.5 }
+                    ]}
+                  >
+                    GCM
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          )}
 
           {/* Key Input - ukryj dla Running Key Cipher */}
           {selectedAlgorithm !== 'running-key' && (
@@ -680,6 +768,28 @@ const styles = StyleSheet.create({
     color: '#cbd5e1',
   },
   operationButtonTextActive: {
+    color: '#fff',
+  },
+  aesModeButton: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    backgroundColor: '#334155',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#475569',
+  },
+  aesModeButtonActive: {
+    backgroundColor: '#7c3aed',
+    borderColor: '#a78bfa',
+  },
+  aesModeButtonText: {
+    fontSize: 13,
+    color: '#cbd5e1',
+    fontWeight: '500',
+  },
+  aesModeButtonTextActive: {
     color: '#fff',
   },
   input: {

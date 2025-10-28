@@ -34,7 +34,10 @@
 Celem aplikacji \textbf{CryptoLab Mobile} jest edukacja w zakresie kryptografii. 
 Aplikacja mobilna pozwala szyfrować i deszyfrować teksty oraz pliki \texttt{.txt}, 
 sprawdzać poprawność kluczy oraz eksportować wyniki. 
-Wszystkie algorytmy są implementowane ręcznie, bez użycia gotowych bibliotek kryptograficznych.
+Aplikacja implementuje zarówno klasyczne szyfry historyczne (Cezara, Vigenère'a, szyfr z kluczem bieżącym), 
+jak i nowoczesny standard szyfrowania AES (Advanced Encryption Standard).
+Wszystkie algorytmy są implementowane ręcznie, bez użycia gotowych bibliotek kryptograficznych, 
+co pozwala na głębsze zrozumienie ich działania.
 
 \section{Podstawy kryptografii klasycznej}
 
@@ -72,6 +75,22 @@ Pozwalają zrozumieć podstawowe pojęcia kryptografii, takie jak:
     \item \textbf{analiza częstości} -- klasyczna metoda łamania szyfrów,
     \item \textbf{brute-force} -- przeszukiwanie wszystkich możliwych kluczy.
 \end{itemize}
+
+\subsection{Nowoczesna kryptografia symetryczna -- AES}
+Aplikacja CryptoLab zawiera również implementację \textbf{AES (Advanced Encryption Standard)}, 
+który jest standardem współczesnego szyfrowania symetrycznego. 
+W przeciwieństwie do szyfrów klasycznych, AES:
+\begin{itemize}
+    \item jest szyfrem \textbf{blokowym} (operuje na blokach 128 bitów),
+    \item wykorzystuje złożone operacje matematyczne (S-Box, MixColumns, ShiftRows),
+    \item oferuje różne długości kluczy (128, 192, 256 bitów),
+    \item obsługuje różne tryby pracy (ECB, CBC, CTR),
+    \item jest odporny na wszystkie znane praktyczne ataki kryptograficzne.
+\end{itemize}
+
+Dzięki implementacji zarówno szyfrów klasycznych, jak i nowoczesnego AES, 
+użytkownicy mogą porównać podejścia historyczne z obecnie stosowanymi rozwiązaniami 
+i zrozumieć ewolucję kryptografii.
 
 \section{Miejsce szyfru Cezara}
 Szyfr Cezara należy do najprostszych szyfrów podstawieniowych. 
@@ -158,6 +177,7 @@ crypto-lab-mobile/
 │   │   ├── CaesarCipher.ts             (szyfr Cezara)
 │   │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
 │   │   ├── RunningKeyCipher.ts         (szyfr z kluczem biezacym)
+│   │   ├── AESCipher.ts                (szyfr AES)
 │   │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
 │   ├── components/
 │   │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
@@ -266,6 +286,122 @@ aplikacja automatycznie generuje klucz z tekstu Lorem Ipsum.
 \end{itemize}
 
 \newpage
+\section{Implementacja szyfru AES}
+
+\subsection{Historia i znaczenie}
+AES (Advanced Encryption Standard) to symetryczny szyfr blokowy, który w 2001 roku został wybrany przez NIST (National Institute of Standards and Technology) jako następca przestarzałego algorytmu DES. 
+Został opracowany przez belgijskich kryptografów Joana Daemena i Vincenta Rijmena pod nazwą \textit{Rijndael}. 
+AES jest obecnie najpowszechniej stosowanym szyfrem symetrycznym na świecie -- chroni dane w protokołach SSL/TLS, systemach bankowych, szyfrowanych dyskach i wielu innych zastosowaniach.
+
+\subsection{Podstawy}
+AES to szyfr \textbf{blokowy}, który operuje na blokach danych o długości 128 bitów (16 bajtów). 
+W przeciwieństwie do szyfrów klasycznych, AES wykorzystuje skomplikowane operacje matematyczne na macierzach bajtów, 
+w tym podstawienia (S-Box), permutacje, mieszanie kolumn i dodawanie klucza rundowego.
+
+\subsection{Warianty AES}
+AES występuje w trzech wariantach, różniących się długością klucza:
+\begin{itemize}
+    \item \textbf{AES-128} -- klucz 128-bitowy (32 znaki hex), 10 rund szyfrowania,
+    \item \textbf{AES-192} -- klucz 192-bitowy (48 znaków hex), 12 rund szyfrowania,
+    \item \textbf{AES-256} -- klucz 256-bitowy (64 znaki hex), 14 rund szyfrowania.
+\end{itemize}
+
+Im dłuższy klucz, tym wyższe bezpieczeństwo, ale także nieznacznie wolniejsze działanie.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/strona_glownaAES.jpg}
+    \caption{Strona główna szyfru AES w aplikacji CryptoLab}
+    \label{fig:aes_main}
+\end{figure}
+Rysunek \ref{fig:aes_main} przedstawia interfejs użytkownika aplikacji CryptoLab Mobile dla szyfru AES.
+\subsection{Tryby pracy AES}
+Szyfr blokowy wymaga określenia \textbf{trybu pracy}, który definiuje sposób szyfrowania wielu bloków danych:
+
+\begin{description}
+    \item[\textbf{ECB (Electronic Codebook)}] 
+    Najprostszy tryb -- każdy blok szyfrowany jest niezależnie tym samym kluczem. 
+    \textbf{Niezalecany} w praktyce, ponieważ identyczne bloki tekstu jawnego dają identyczne bloki szyfrogramu, 
+    co może ujawnić wzorce w danych.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\textwidth]{img/ECB.jpg}
+        \caption{Tryb ECB w szyfrze AES}
+        \label{fig:ecb}
+    \end{figure}
+    Rysunek \ref{fig:ecb} przedstawia przykładowe szyfrowanie tekstu w trybiie ECB.
+    
+    \item[\textbf{CBC (Cipher Block Chaining)}] 
+    Każdy blok tekstu jawnego jest najpierw XOR-owany z poprzednim blokiem szyfrogramu przed zaszyfrowaniem. 
+    Wymaga wektora inicjalizującego (IV). Tryb ten ukrywa wzorce w danych i jest szeroko stosowany.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\textwidth]{img/CBC.jpg}
+        \caption{Tryb CBC w szyfrze AES}
+        \label{fig:cbc}
+    \end{figure}
+    Rysunek \ref{fig:cbc} przedstawia przykładowe deszyfrowanie tekstu w trybiie CBC.
+    \item[\textbf{CTR (Counter Mode)}] 
+    Przekształca szyfr blokowy w szyfr strumieniowy. 
+    Szyfruje kolejne wartości licznika, a wyniki XOR-uje z blokami tekstu jawnego. 
+    Umożliwia równoległe szyfrowanie i deszyfrowanie.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\textwidth]{img/CTR.jpg}
+        \caption{Tryb CTR w szyfrze AES}
+        \label{fig:ctr}
+    \end{figure}
+    Rysunek \ref{fig:ctr} przedstawia przykładowe szyfrowanie tekstu w trybiie CTR.
+\end{description}
+
+\subsection{Struktura algorytmu AES}
+Algorytm AES składa się z następujących kroków (dla każdej rundy):
+\begin{enumerate}
+    \item \textbf{SubBytes} -- podstawienie bajtów zgodnie z tablicą S-Box,
+    \item \textbf{ShiftRows} -- przesunięcie wierszy macierzy stanu,
+    \item \textbf{MixColumns} -- mieszanie kolumn macierzy (pomijane w ostatniej rundzie),
+    \item \textbf{AddRoundKey} -- dodanie klucza rundowego (operacja XOR).
+\end{enumerate}
+
+Przed pierwszą rundą wykonywana jest operacja \texttt{AddRoundKey} z kluczem początkowym.
+
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Obsługuje klucze w formacie szesnastkowym (hex),
+    \item Klucz musi mieć długość 32, 48 lub 64 znaki hex (AES-128/192/256),
+    \item Domyślny klucz: \texttt{2b7e151628aed2a6abf7158809cf4f3c} (AES-128),
+    \item Implementuje trzy tryby pracy: ECB, CBC, CTR,
+    \item Używa paddingu PKCS\#7 dla dopełnienia bloków,
+    \item Generuje losowy wektor inicjalizujący (IV) dla trybów CBC i CTR,
+    \item Wynik szyfrowania zwracany w formacie hex,
+    \item Pełna implementacja bez użycia zewnętrznych bibliotek kryptograficznych.
+\end{itemize}
+
+\subsection{Bezpieczeństwo}
+\begin{itemize}
+    \item AES jest uważany za \textbf{kryptograficznie bezpieczny} przy prawidłowym użyciu,
+    \item Nie znaleziono praktycznych ataków na pełny AES-128, AES-192 ani AES-256,
+    \item Teoretyczne ataki istnieją, ale wymagają zasobów przekraczających możliwości obecnej technologii,
+    \item Bezpieczeństwo zależy od:
+    \begin{itemize}
+        \item wyboru odpowiedniego trybu pracy (CBC lub CTR zamiast ECB),
+        \item użycia losowego IV dla trybów CBC i CTR,
+        \item odpowiedniej długości klucza (zalecane minimum: AES-128),
+        \item bezpiecznego przechowywania i dystrybucji klucza.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Zastosowania}
+AES jest wykorzystywany w:
+\begin{itemize}
+    \item szyfrowanie połączeń internetowych (HTTPS, SSL/TLS),
+    \item pełne szyfrowanie dysków (BitLocker, FileVault),
+    \item sieci bezprzewodowe (WPA2, WPA3),
+    \item aplikacje bankowe i systemy płatności,
+    \item komunikatory szyfrowane (Signal, WhatsApp),
+    \item archiwizacja danych (7-Zip, WinRAR z szyfrowaniem AES).
+\end{itemize}
+
+\newpage
 \section{Wybrane fragmenty kodu}
 \subsection{Klasa bazowa algorytmu}
 \begin{lstlisting}[language=TypeScript, caption={Klasa abstrakcyjna CryptographicAlgorithm}]
@@ -295,13 +431,16 @@ export default class CryptographicAlgorithm {
     \centering
     \includegraphics[width=0.3\textwidth]{img/szyfr_cezara.jpg}
     \caption{Ekran główny aplikacji CryptoLab}
+    \label{fig:main}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{img/lista_wyboru.jpg}
     \caption{Lista z możliwością wyboru algorytmu}
+    \label{fig:list}
 \end{figure}
 
+Rysunek \ref{fig:main} przedstawia ekran główny aplikacji CryptoLab Mobile, a rysunek \ref{fig:list} pokazuje listę dostępnych algorytmów kryptograficznych.
 \subsection{Implementacja szyfru Cezara}
 \begin{lstlisting}[language=TypeScript, caption={Szczegóły implementacji CaesarCipher}]
 export default class CaesarCipher extends CryptographicAlgorithm {
@@ -350,7 +489,9 @@ export default class CaesarCipher extends CryptographicAlgorithm {
     \centering
     \includegraphics[width=0.3\textwidth]{img/test_cezara.jpg}
     \caption{Test szyfru Cezara}
+    \label{fig:testc}
 \end{figure}
+Rysunek \ref{fig:testc} przedstawia przykładowy test szyfru Cezara w aplikacji CryptoLab Mobile.
 
 \newpage
 \subsection{Implementacja szyfru Vigenère'a}
@@ -399,8 +540,9 @@ export default class VigenereCipher extends CryptographicAlgorithm {
     \centering
     \includegraphics[width=0.3\textwidth]{img/szyfr_vigenerea.jpg}
     \caption{Ekran szyfru Vigenere'a}
+    \label{fig:szyfrv}
 \end{figure}
-
+Rysunek \ref{fig:szyfrv} przedstawia interfejs użytkownika szyfru Vigenère'a w aplikacji CryptoLab Mobile.
 \subsection{Implementacja szyfru z kluczem bieżącym}
 \begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy RunningKeyCipher}]
 export default class RunningKeyCipher extends CryptographicAlgorithm {
@@ -441,11 +583,78 @@ export default class RunningKeyCipher extends CryptographicAlgorithm {
 \end{lstlisting}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\textwidth]{img/szyfr_vigenerea.jpg}
+    \includegraphics[width=0.3\textwidth]{img/Szyfr_z_kb.jpg}
     \caption{Ekran szyfru z kluczem bieżącym}
+    \label{fig:szyfrk}
 \end{figure}
 
+Rysunek \ref{fig:szyfrk} przedstawia interfejs użytkownika szyfru z kluczem bieżącym w aplikacji CryptoLab Mobile.
+
 \newpage
+\subsection{Implementacja szyfru AES}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy AESCipher}]
+export default class AESCipher extends CryptographicAlgorithm {
+  private mode: AESMode;
+  public static readonly DEFAULT_KEY = '2b7e151628aed2a6abf7158809cf4f3c';
+
+  constructor() {
+    super(
+      'AES (Advanced Encryption Standard)',
+      'Symetryczny szyfr blokowy z możliwością wyboru trybu (ECB, CBC, CTR)',
+      'Szyfry symetryczne'
+    );
+    this.mode = 'ECB'; // Domyślny tryb
+  }
+
+  // Ustawia tryb pracy AES
+  setMode(mode: AESMode): void {
+    this.mode = mode;
+  }
+
+  validateKey(key: string): { valid: boolean; error?: string } {
+    if (!key || key.trim().length === 0) {
+      return { valid: false, error: 'Klucz nie może być pusty' };
+    }
+
+    // Sprawdź czy klucz jest w formacie hex
+    const hexPattern = /^[0-9a-fA-F]+$/;
+    if (!hexPattern.test(key)) {
+      return { 
+        valid: false, 
+        error: 'Klucz musi być ciągiem znaków szesnastkowych (0-9, A-F)' 
+      };
+    }
+
+    // Klucz musi mieć długość 32, 48 lub 64 znaków hex
+    if (key.length !== 32 && key.length !== 48 && key.length !== 64) {
+      return {
+        valid: false,
+        error: 'Klucz musi mieć długość 32 (AES-128), 48 (AES-192) lub 64 (AES-256)'
+      };
+    }
+
+    return { valid: true };
+  }
+
+  getKeyRequirements(): string {
+    return `Tryb: ${this.mode} | Klucz hex: 32 znaki (AES-128), 
+      48 (AES-192) lub 64 (AES-256)`;
+  }
+
+  // Główne metody szyfrowania wykorzystujące wybrany tryb
+  encrypt(plaintext: string, key: string): string {
+    if (this.mode === 'ECB') {
+      return this.encryptECB(plaintext, key);
+    } else if (this.mode === 'CBC') {
+      return this.encryptCBC(plaintext, key);
+    } else if (this.mode === 'CTR') {
+      return this.encryptCTR(plaintext, key);
+    }
+    throw new Error(`Tryb ${this.mode} nie jest obsługiwany`);
+  }
+}
+\end{lstlisting}
+
 \section{Podsumowanie}
 
 \subsection{Szyfr Cezara}
@@ -504,6 +713,37 @@ Szyfr z kluczem bieżącym to krok w kierunku szyfrowania jednorazowego.
     \item niepraktyczne w większości rzeczywistych zastosowań.
 \end{itemize}
 
+\subsection{Szyfr AES}
+AES (Advanced Encryption Standard) to nowoczesny szyfr symetryczny, który stanowi podstawę współczesnej kryptografii. 
+W przeciwieństwie do szyfrów klasycznych, AES jest używany w realnych systemach bezpieczeństwa na całym świecie.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item wysoki poziom bezpieczeństwa -- odporny na wszystkie znane praktyczne ataki,
+    \item elastyczność -- obsługa trzech długości kluczy (128, 192, 256 bitów),
+    \item różne tryby pracy (ECB, CBC, CTR) dostosowane do różnych zastosowań,
+    \item szybkie działanie przy zachowaniu bezpieczeństwa,
+    \item szeroko stosowany i przetestowany w praktyce,
+    \item standaryzowany przez NIST i akceptowany globalnie.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item znacznie bardziej złożona implementacja niż szyfry klasyczne,
+    \item wymaga zrozumienia trybów pracy i ich właściwości,
+    \item tryb ECB jest niebezpieczny i nie powinien być stosowany w praktyce,
+    \item wymaga bezpiecznego zarządzania kluczami i wektorami inicjalizującymi (IV),
+    \item jako szyfr symetryczny, wymaga bezpiecznego przekazania klucza obu stronom komunikacji.
+\end{itemize}
+
+\textbf{Zastosowanie edukacyjne:}
+\begin{itemize}
+    \item pokazuje różnicę między kryptografią klasyczną a nowoczesną,
+    \item wprowadza pojęcia: tryby pracy, padding, wektor inicjalizujący (IV),
+    \item demonstruje znaczenie wyboru odpowiedniego trybu pracy,
+    \item ilustruje jak działa rzeczywiste szyfrowanie stosowane w praktyce.
+\end{itemize}
+
 
 \section{Changelog}
 \label{sec:changelog}
@@ -512,6 +752,10 @@ Szyfr z kluczem bieżącym to krok w kierunku szyfrowania jednorazowego.
     \item \textbf{20.10.2025} Dodanie szyfru Vigenère'a i szyfru z kluczem bieżącym. \newline Ulepszenie interfejsu użytkownika. \newline 
     Implementacja AlgorithmRegistry z wzorcem Singleton. 
     \newline Ulepszenie walidacji kluczy z szczegółowymi komunikatami o błędach.
+    \item \textbf{28.10.2025} Implementacja szyfru AES (Advanced Encryption Standard) z obsługą trzech trybów pracy: ECB, CBC, CTR. \newline
+    Wsparcie dla kluczy AES-128, AES-192 i AES-256. \newline
+    Dodanie paddingu PKCS\#7 i obsługi wektorów inicjalizujących (IV). \newline
+    Pełna implementacja algorytmu AES bez użycia zewnętrznych bibliotek kryptograficznych.
 \end{itemize}
 
 

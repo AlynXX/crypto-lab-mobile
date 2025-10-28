@@ -3,35 +3,47 @@
 \contentsline {subsection}{\numberline {2.1}Kryptografia symetryczna}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Przykłady szyfrów klasycznych}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Znaczenie w edukacji}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Nowoczesna kryptografia symetryczna -- AES}{3}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Miejsce szyfru Cezara}{3}{section.3}%
 \contentsline {section}{\numberline {4}Technologie wykorzystane w projekcie}{3}{section.4}%
-\contentsline {section}{\numberline {5}Architektura systemu}{4}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Wzorzec projektowy}{4}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Komponenty główne}{4}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Struktura projektu}{4}{section.6}%
-\contentsline {section}{\numberline {7}Implementacja szyfru Cezara}{5}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Podstawy}{5}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Model matematyczny}{5}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Cechy implementacji}{5}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Implementacja szyfru Vigenère'a}{6}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Historia i znaczenie}{6}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Podstawy}{6}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Model matematyczny}{6}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Przykład działania}{6}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Cechy implementacji}{6}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Implementacja szyfru z kluczem bieżącym}{7}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Historia i zastosowanie}{7}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Podstawy}{7}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Model matematyczny}{7}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Cechy implementacji}{7}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Bezpieczeństwo}{7}{subsection.9.5}%
-\contentsline {section}{\numberline {10}Wybrane fragmenty kodu}{8}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Klasa bazowa algorytmu}{8}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Implementacja szyfru Cezara}{9}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Implementacja szyfru Vigenère'a}{11}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Implementacja szyfru z kluczem bieżącym}{12}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Podsumowanie}{14}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Szyfr Cezara}{14}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Szyfr Vigenère'a}{14}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Szyfr z kluczem bieżącym}{15}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Changelog}{15}{section.12}%
+\contentsline {section}{\numberline {5}Architektura systemu}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Wzorzec projektowy}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Komponenty główne}{5}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Struktura projektu}{5}{section.6}%
+\contentsline {section}{\numberline {7}Implementacja szyfru Cezara}{6}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Podstawy}{6}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Model matematyczny}{6}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Cechy implementacji}{6}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Implementacja szyfru Vigenère'a}{7}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Historia i znaczenie}{7}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Podstawy}{7}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Model matematyczny}{7}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Przykład działania}{7}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Cechy implementacji}{7}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Implementacja szyfru z kluczem bieżącym}{8}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Historia i zastosowanie}{8}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Podstawy}{8}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Model matematyczny}{8}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Cechy implementacji}{8}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Bezpieczeństwo}{8}{subsection.9.5}%
+\contentsline {section}{\numberline {10}Implementacja szyfru AES}{9}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Historia i znaczenie}{9}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Podstawy}{9}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Warianty AES}{9}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Tryby pracy AES}{10}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Struktura algorytmu AES}{10}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Cechy implementacji}{12}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Bezpieczeństwo}{13}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Zastosowania}{13}{subsection.10.8}%
+\contentsline {section}{\numberline {11}Wybrane fragmenty kodu}{14}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Klasa bazowa algorytmu}{14}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Implementacja szyfru Cezara}{15}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Implementacja szyfru Vigenère'a}{17}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Implementacja szyfru z kluczem bieżącym}{18}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Implementacja szyfru AES}{20}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Podsumowanie}{21}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Szyfr Cezara}{21}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Szyfr Vigenère'a}{21}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Szyfr z kluczem bieżącym}{22}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Szyfr AES}{22}{subsection.12.4}%
+\contentsline {section}{\numberline {13}Changelog}{23}{section.13}%

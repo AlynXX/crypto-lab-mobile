@@ -311,13 +311,11 @@ export default function App() {
                     aesMode === 'CBC' && styles.aesModeButtonActive,
                   ]}
                   onPress={() => setAesMode('CBC')}
-                  disabled={true}
                 >
                   <Text
                     style={[
                       styles.aesModeButtonText,
                       aesMode === 'CBC' && styles.aesModeButtonTextActive,
-                      { opacity: 0.5 }
                     ]}
                   >
                     CBC
@@ -329,34 +327,14 @@ export default function App() {
                     aesMode === 'CTR' && styles.aesModeButtonActive,
                   ]}
                   onPress={() => setAesMode('CTR')}
-                  disabled={true}
                 >
                   <Text
                     style={[
                       styles.aesModeButtonText,
                       aesMode === 'CTR' && styles.aesModeButtonTextActive,
-                      { opacity: 0.5 }
                     ]}
                   >
                     CTR
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[
-                    styles.aesModeButton,
-                    aesMode === 'CTR' && styles.aesModeButtonActive,
-                  ]}
-                  onPress={() => setAesMode('CTR')}
-                  disabled={true}
-                >
-                  <Text
-                    style={[
-                      styles.aesModeButtonText,
-                      aesMode === 'CTR' && styles.aesModeButtonTextActive,
-                      { opacity: 0.5 }
-                    ]}
-                  >
-                    GCM
                   </Text>
                 </TouchableOpacity>
               </View>

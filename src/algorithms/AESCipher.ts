@@ -103,17 +103,23 @@ export default class AESCipher extends CryptographicAlgorithm {
   encrypt(plaintext: string, key: string): string {
     if (this.mode === 'ECB') {
       return this.encryptECB(plaintext, key);
+    } else if (this.mode === 'CBC') {
+      return this.encryptCBC(plaintext, key);
+    } else if (this.mode === 'CTR') {
+      return this.encryptCTR(plaintext, key);
     }
-    // Tutaj można dodać obsługę innych trybów
-    throw new Error(`Tryb ${this.mode} nie jest jeszcze zaimplementowany`);
+    throw new Error(`Tryb ${this.mode} nie jest obsługiwany`);
   }
 
   decrypt(ciphertext: string, key: string): string {
     if (this.mode === 'ECB') {
       return this.decryptECB(ciphertext, key);
+    } else if (this.mode === 'CBC') {
+      return this.decryptCBC(ciphertext, key);
+    } else if (this.mode === 'CTR') {
+      return this.decryptCTR(ciphertext, key);
     }
-    // Tutaj można dodać obsługę innych trybów
-    throw new Error(`Tryb ${this.mode} nie jest jeszcze zaimplementowany`);
+    throw new Error(`Tryb ${this.mode} nie jest obsługiwany`);
   }
 
   // ========================================================================
@@ -176,6 +182,194 @@ export default class AESCipher extends CryptographicAlgorithm {
       return this.bytesToString(unpaddedBytes);
     } catch (error) {
       throw new Error(`Błąd deszyfrowania: ${error}`);
+    }
+  }
+
+  // ========================================================================
+  // TRYB CBC (Cipher Block Chaining)
+  // ========================================================================
+
+  private encryptCBC(plaintext: string, key: string): string {
+    // Konwertuj tekst do bajtów UTF-8
+    const plaintextBytes = this.stringToBytes(plaintext);
+    
+    // Dodaj padding PKCS#7
+    const paddedBytes = this.addPadding(plaintextBytes);
+    
+    // Konwertuj klucz hex na bajty
+    const keyBytes = this.hexToBytes(key);
+    
+    // Rozwiń klucz
+    const expandedKey = this.keyExpansion(keyBytes);
+    
+    // Generuj losowy IV (Initialization Vector) - 16 bajtów
+    const iv = this.generateRandomBytes(16);
+    
+    // Szyfruj bloki z użyciem CBC
+    const cipherBytes: number[] = [];
+    let previousBlock = iv;
+    
+    for (let i = 0; i < paddedBytes.length; i += 16) {
+      const block = paddedBytes.slice(i, i + 16);
+      
+      // XOR z poprzednim blokiem zaszyfrowanym (lub IV dla pierwszego bloku)
+      const xoredBlock = this.xorBlocks(block, previousBlock);
+      
+      // Szyfruj blok
+      const encryptedBlock = this.encryptBlock(xoredBlock, expandedKey);
+      cipherBytes.push(...encryptedBlock);
+      
+      // Zapisz zaszyfrowany blok jako poprzedni
+      previousBlock = encryptedBlock;
+    }
+    
+    // Zwróć IV + zaszyfrowane dane (IV jest potrzebny do deszyfrowania)
+    return this.bytesToHex([...iv, ...cipherBytes]);
+  }
+
+  private decryptCBC(ciphertext: string, key: string): string {
+    try {
+      // Konwertuj hex na bajty
+      const allBytes = this.hexToBytes(ciphertext);
+      
+      // Pierwszy blok to IV
+      if (allBytes.length < 32) { // Minimum: 16 bajtów IV + 16 bajtów danych
+        throw new Error('Nieprawidłowa długość szyfrogramu');
+      }
+      
+      const iv = allBytes.slice(0, 16);
+      const cipherBytes = allBytes.slice(16);
+      
+      // Sprawdź czy długość danych jest wielokrotnością 16
+      if (cipherBytes.length % 16 !== 0) {
+        throw new Error('Nieprawidłowa długość szyfrogramu');
+      }
+      
+      // Konwertuj klucz hex na bajty
+      const keyBytes = this.hexToBytes(key);
+      
+      // Rozwiń klucz
+      const expandedKey = this.keyExpansion(keyBytes);
+      
+      // Deszyfruj bloki z użyciem CBC
+      const plaintextBytes: number[] = [];
+      let previousBlock = iv;
+      
+      for (let i = 0; i < cipherBytes.length; i += 16) {
+        const block = cipherBytes.slice(i, i + 16);
+        
+        // Deszyfruj blok
+        const decryptedBlock = this.decryptBlock(block, expandedKey);
+        
+        // XOR z poprzednim blokiem zaszyfrowanym (lub IV dla pierwszego bloku)
+        const xoredBlock = this.xorBlocks(decryptedBlock, previousBlock);
+        plaintextBytes.push(...xoredBlock);
+        
+        // Zapisz zaszyfrowany blok jako poprzedni
+        previousBlock = block;
+      }
+      
+      // Usuń padding
+      const unpaddedBytes = this.removePadding(plaintextBytes);
+      
+      // Konwertuj na string
+      return this.bytesToString(unpaddedBytes);
+    } catch (error) {
+      throw new Error(`Błąd deszyfrowania CBC: ${error}`);
+    }
+  }
+
+  // ========================================================================
+  // TRYB CTR (Counter Mode)
+  // ========================================================================
+
+  private encryptCTR(plaintext: string, key: string): string {
+    // Konwertuj tekst do bajtów UTF-8
+    const plaintextBytes = this.stringToBytes(plaintext);
+    
+    // Konwertuj klucz hex na bajty
+    const keyBytes = this.hexToBytes(key);
+    
+    // Rozwiń klucz
+    const expandedKey = this.keyExpansion(keyBytes);
+    
+    // Generuj losowy nonce - 8 bajtów (pozostałe 8 bajtów to counter)
+    const nonce = this.generateRandomBytes(8);
+    
+    // Szyfruj używając CTR
+    const cipherBytes: number[] = [];
+    let counter = 0;
+    
+    for (let i = 0; i < plaintextBytes.length; i += 16) {
+      // Przygotuj blok countera: nonce (8 bajtów) + counter (8 bajtów)
+      const counterBlock = this.createCounterBlock(nonce, counter);
+      
+      // Szyfruj blok countera
+      const encryptedCounter = this.encryptBlock(counterBlock, expandedKey);
+      
+      // Pobierz blok danych (może być mniejszy niż 16 bajtów dla ostatniego bloku)
+      const blockSize = Math.min(16, plaintextBytes.length - i);
+      const dataBlock = plaintextBytes.slice(i, i + blockSize);
+      
+      // XOR danych z zaszyfrowanym counterem
+      for (let j = 0; j < blockSize; j++) {
+        cipherBytes.push(dataBlock[j] ^ encryptedCounter[j]);
+      }
+      
+      counter++;
+    }
+    
+    // Zwróć nonce + zaszyfrowane dane
+    return this.bytesToHex([...nonce, ...cipherBytes]);
+  }
+
+  private decryptCTR(ciphertext: string, key: string): string {
+    try {
+      // W trybie CTR szyfrowanie i deszyfrowanie to ta sama operacja
+      // Konwertuj hex na bajty
+      const allBytes = this.hexToBytes(ciphertext);
+      
+      // Pierwsze 8 bajtów to nonce
+      if (allBytes.length < 9) {
+        throw new Error('Nieprawidłowa długość szyfrogramu');
+      }
+      
+      const nonce = allBytes.slice(0, 8);
+      const cipherBytes = allBytes.slice(8);
+      
+      // Konwertuj klucz hex na bajty
+      const keyBytes = this.hexToBytes(key);
+      
+      // Rozwiń klucz
+      const expandedKey = this.keyExpansion(keyBytes);
+      
+      // Deszyfruj używając CTR (identyczna operacja jak szyfrowanie)
+      const plaintextBytes: number[] = [];
+      let counter = 0;
+      
+      for (let i = 0; i < cipherBytes.length; i += 16) {
+        // Przygotuj blok countera
+        const counterBlock = this.createCounterBlock(nonce, counter);
+        
+        // Szyfruj blok countera
+        const encryptedCounter = this.encryptBlock(counterBlock, expandedKey);
+        
+        // Pobierz blok danych
+        const blockSize = Math.min(16, cipherBytes.length - i);
+        const dataBlock = cipherBytes.slice(i, i + blockSize);
+        
+        // XOR danych z zaszyfrowanym counterem
+        for (let j = 0; j < blockSize; j++) {
+          plaintextBytes.push(dataBlock[j] ^ encryptedCounter[j]);
+        }
+        
+        counter++;
+      }
+      
+      // Konwertuj na string (bez usuwania paddingu - CTR nie używa paddingu)
+      return this.bytesToString(plaintextBytes);
+    } catch (error) {
+      throw new Error(`Błąd deszyfrowania CTR: ${error}`);
     }
   }
 
@@ -449,6 +643,36 @@ export default class AESCipher extends CryptographicAlgorithm {
   // ========================================================================
   // FUNKCJE POMOCNICZE
   // ========================================================================
+
+  // Generuj losowe bajty
+  private generateRandomBytes(length: number): number[] {
+    const bytes: number[] = [];
+    for (let i = 0; i < length; i++) {
+      bytes.push(Math.floor(Math.random() * 256));
+    }
+    return bytes;
+  }
+
+  // XOR dwóch bloków bajtów
+  private xorBlocks(block1: number[], block2: number[]): number[] {
+    const result: number[] = [];
+    for (let i = 0; i < block1.length; i++) {
+      result.push(block1[i] ^ block2[i]);
+    }
+    return result;
+  }
+
+  // Tworzenie bloku countera dla trybu CTR
+  private createCounterBlock(nonce: number[], counter: number): number[] {
+    const block: number[] = [...nonce];
+    
+    // Dodaj counter jako 8 bajtów (big-endian)
+    for (let i = 7; i >= 0; i--) {
+      block.push((counter >> (i * 8)) & 0xFF);
+    }
+    
+    return block;
+  }
 
   private arrayToState(array: number[]): number[][] {
     const state: number[][] = [[], [], [], []];

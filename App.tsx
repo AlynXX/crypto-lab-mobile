@@ -21,6 +21,7 @@ import { registry } from './src/algorithms/AlgorithmRegistry';
 import AlgorithmSidebar from './src/components/AlgorithmSidebar';
 import { pickTextFile, saveTextFile } from './src/utils/fileUtils';
 import AESCipher from './src/algorithms/AESCipher';
+import RSACipher from './src/algorithms/RSACipher';
 
 export default function App() {
   const [mode, setMode] = useState<'text' | 'file'>('text');
@@ -33,6 +34,9 @@ export default function App() {
   const [error, setError] = useState('');
   const [showDocs, setShowDocs] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showRSAKeysModal, setShowRSAKeysModal] = useState(false);
+  const [rsaPublicKey, setRsaPublicKey] = useState('');
+  const [rsaPrivateKey, setRsaPrivateKey] = useState('');
 
   const algorithms = registry.getAll();
   const currentAlgo = registry.get(selectedAlgorithm);
@@ -142,6 +146,39 @@ export default function App() {
       const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
       Alert.alert('Błąd', errorMessage);
     }
+  };
+
+  const handleGenerateRSAKeys = () => {
+    try {
+      const rsa = new RSACipher();
+      const keyPair = rsa.generateKeyPair();
+      const publicKey = rsa.formatPublicKey();
+      const privateKey = rsa.formatPrivateKey();
+      
+      setRsaPublicKey(publicKey);
+      setRsaPrivateKey(privateKey);
+      setShowRSAKeysModal(true);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
+      Alert.alert('Błąd', 'Nie udało się wygenerować kluczy: ' + errorMessage);
+    }
+  };
+
+  const handleCopyRSAKey = async (keyType: 'public' | 'private') => {
+    const keyToCopy = keyType === 'public' ? rsaPublicKey : rsaPrivateKey;
+    try {
+      await Clipboard.setStringAsync(keyToCopy);
+      Alert.alert('Sukces', `Klucz ${keyType === 'public' ? 'publiczny' : 'prywatny'} skopiowany do schowka!`);
+    } catch (err) {
+      Alert.alert('Błąd', 'Nie udało się skopiować klucza');
+    }
+  };
+
+  const handleUseRSAKey = (keyType: 'public' | 'private') => {
+    const keyToUse = keyType === 'public' ? rsaPublicKey : rsaPrivateKey;
+    setKey(keyToUse);
+    setShowRSAKeysModal(false);
+    Alert.alert('Sukces', `Klucz ${keyType === 'public' ? 'publiczny' : 'prywatny'} został ustawiony`);
   };
 
   return (
@@ -344,7 +381,18 @@ export default function App() {
           {/* Key Input - ukryj dla Running Key Cipher */}
           {selectedAlgorithm !== 'running-key' && (
             <View style={styles.section}>
-              <Text style={styles.label}>Klucz</Text>
+              <View style={styles.labelWithButton}>
+                <Text style={styles.label}>Klucz</Text>
+                {selectedAlgorithm === 'rsa' && (
+                  <TouchableOpacity 
+                    style={styles.generateKeysButton}
+                    onPress={handleGenerateRSAKeys}
+                  >
+                    <MaterialIcons name="vpn-key" size={16} color="#fff" />
+                    <Text style={styles.generateKeysButtonText}>Generuj klucze</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
               <TextInput
                 style={styles.input}
                 value={key}
@@ -467,6 +515,80 @@ export default function App() {
                   setShowSidebar(false);
                 }}
               />
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+
+      {/* RSA Keys Generator Modal */}
+      <Modal
+        visible={showRSAKeysModal}
+        transparent
+        animationType="slide"
+        onRequestClose={() => setShowRSAKeysModal(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Wygenerowane klucze RSA</Text>
+              <TouchableOpacity onPress={() => setShowRSAKeysModal(false)}>
+                <MaterialIcons name="close" size={24} color="#fff" />
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.rsaKeysContent}>
+              <View style={styles.rsaKeySection}>
+                <Text style={styles.rsaKeyLabel}>Klucz publiczny (do szyfrowania):</Text>
+                <View style={styles.rsaKeyBox}>
+                  <Text style={styles.rsaKeyText} selectable>{rsaPublicKey}</Text>
+                </View>
+                <View style={styles.rsaKeyActions}>
+                  <TouchableOpacity 
+                    style={styles.rsaKeyButton}
+                    onPress={() => handleCopyRSAKey('public')}
+                  >
+                    <MaterialIcons name="content-copy" size={16} color="#fff" />
+                    <Text style={styles.rsaKeyButtonText}>Kopiuj</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity 
+                    style={[styles.rsaKeyButton, styles.rsaKeyButtonPrimary]}
+                    onPress={() => handleUseRSAKey('public')}
+                  >
+                    <MaterialIcons name="check" size={16} color="#fff" />
+                    <Text style={styles.rsaKeyButtonText}>Użyj tego klucza</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={styles.rsaKeySection}>
+                <Text style={styles.rsaKeyLabel}>Klucz prywatny (do deszyfrowania):</Text>
+                <View style={styles.rsaKeyBox}>
+                  <Text style={styles.rsaKeyText} selectable>{rsaPrivateKey}</Text>
+                </View>
+                <View style={styles.rsaKeyActions}>
+                  <TouchableOpacity 
+                    style={styles.rsaKeyButton}
+                    onPress={() => handleCopyRSAKey('private')}
+                  >
+                    <MaterialIcons name="content-copy" size={16} color="#fff" />
+                    <Text style={styles.rsaKeyButtonText}>Kopiuj</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity 
+                    style={[styles.rsaKeyButton, styles.rsaKeyButtonPrimary]}
+                    onPress={() => handleUseRSAKey('private')}
+                  >
+                    <MaterialIcons name="check" size={16} color="#fff" />
+                    <Text style={styles.rsaKeyButtonText}>Użyj tego klucza</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={styles.rsaKeyInfo}>
+                <MaterialIcons name="info" size={20} color="#a78bfa" />
+                <Text style={styles.rsaKeyInfoText}>
+                  Zapisz oba klucze! Klucz publiczny służy do szyfrowania, 
+                  a klucz prywatny do deszyfrowania wiadomości.
+                </Text>
+              </View>
             </ScrollView>
           </View>
         </View>
@@ -933,5 +1055,90 @@ const styles = StyleSheet.create({
     color: '#cbd5e1',
     fontFamily: 'monospace',
     fontSize: 12,
+  },
+  // RSA Keys Generator styles
+  labelWithButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  generateKeysButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#a78bfa',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 6,
+    gap: 4,
+  },
+  generateKeysButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  rsaKeysContent: {
+    padding: 20,
+  },
+  rsaKeySection: {
+    marginBottom: 24,
+  },
+  rsaKeyLabel: {
+    color: '#e2e8f0',
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
+  rsaKeyBox: {
+    backgroundColor: '#0f172a',
+    padding: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#334155',
+    marginBottom: 12,
+  },
+  rsaKeyText: {
+    color: '#a78bfa',
+    fontSize: 13,
+    fontFamily: 'monospace',
+  },
+  rsaKeyActions: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  rsaKeyButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#334155',
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    gap: 6,
+  },
+  rsaKeyButtonPrimary: {
+    backgroundColor: '#a78bfa',
+  },
+  rsaKeyButtonText: {
+    color: '#fff',
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  rsaKeyInfo: {
+    flexDirection: 'row',
+    gap: 10,
+    backgroundColor: '#1e293b',
+    padding: 12,
+    borderRadius: 8,
+    borderLeftWidth: 3,
+    borderLeftColor: '#a78bfa',
+    marginTop: 8,
+  },
+  rsaKeyInfoText: {
+    flex: 1,
+    color: '#cbd5e1',
+    fontSize: 13,
+    lineHeight: 18,
   },
 });

@@ -93,6 +93,11 @@ export default class RSACipher extends CryptographicAlgorithm {
   }
 
   // Generuje parę kluczy RSA
+  // PRZYKŁAD UŻYCIA (w konsoli lub kodzie):
+  // const rsa = new RSACipher();
+  // const keys = rsa.generateKeyPair();
+  // console.log('Klucz publiczny:', rsa.formatPublicKey());  // np. "17,323"
+  // console.log('Klucz prywatny:', rsa.formatPrivateKey());  // np. "233,323"
   generateKeyPair(bitSize: number = 512): RSAKeyPair {
     // Dla celów edukacyjnych używamy małych liczb pierwszych
     // W praktyce RSA wymaga znacznie większych liczb (2048+ bitów)
@@ -189,7 +194,7 @@ export default class RSACipher extends CryptographicAlgorithm {
   }
 
   getKeyRequirements(): string {
-    return 'Klucz publiczny (szyfrowanie): "e,n" | Klucz prywatny (deszyfrowanie): "d,n" | Użyj przycisku "Generuj klucze" aby utworzyć nową parę kluczy';
+    return 'Klucz publiczny (szyfrowanie): "e,n" (np. "17,323") | Klucz prywatny (deszyfrowanie): "d,n" (np. "233,323") | Wykładnik i moduł rozdzielone przecinkiem';
   }
 
   encrypt(plaintext: string, key: string): string {

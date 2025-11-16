@@ -475,6 +475,47 @@ $$m = 2790^{2753} \bmod 3233 = 65$$
     \item Wynik w postaci liczb rozdzielonych spacjami.
 \end{itemize}
 
+\subsection{Jak wygenerować klucze RSA}
+Aplikacja mobilna posiada wbudowaną funkcję generowania kluczy RSA bezpośrednio w interfejsie użytkownika.
+
+\textbf{Generowanie kluczy w aplikacji (zalecane):}
+\begin{enumerate}
+    \item Wybierz algorytm RSA z listy
+    \item Kliknij przycisk \textbf{"Generuj klucze"} obok pola klucza
+    \item Aplikacja wyświetli okno z wygenerowanymi kluczami:
+    \begin{itemize}
+        \item Klucz publiczny (do szyfrowania)
+        \item Klucz prywatny (do deszyfrowania)
+    \end{itemize}
+    \item Możesz skopiować klucze lub bezpośrednio użyć jednego z nich
+    \item Zapisz oba klucze w bezpiecznym miejscu!
+\end{enumerate}
+
+\textbf{Opcja 1: Użycie przykładowych kluczy testowych}
+\begin{itemize}
+    \item Klucz publiczny: \texttt{17,323} (e=17, n=323)
+    \item Klucz prywatny: \texttt{233,323} (d=233, n=323)
+\end{itemize}
+
+\textbf{Opcja 2: Wygenerowanie własnych kluczy w konsoli przeglądarki}
+\begin{lstlisting}[language=JavaScript, caption={Generowanie kluczy RSA w konsoli}]
+// Skopiuj kod RSACipher do konsoli, a nastepnie:
+const rsa = new RSACipher();
+const keys = rsa.generateKeyPair();
+console.log('Klucz publiczny:', rsa.formatPublicKey());
+console.log('Klucz prywatny:', rsa.formatPrivateKey());
+\end{lstlisting}
+
+\textbf{Opcja 3: Obliczenie ręczne (cel edukacyjny)}
+\begin{enumerate}
+    \item Wybierz dwie małe liczby pierwsze, np. p=17, q=19
+    \item Oblicz n = p × q = 323
+    \item Oblicz φ(n) = (p-1)(q-1) = 16 × 18 = 288
+    \item Wybierz e takie, że NWD(e, 288) = 1, np. e=17
+    \item Oblicz d = e$^{-1}$ mod φ(n), np. d=233
+    \item Klucz publiczny: (17, 323), klucz prywatny: (233, 323)
+\end{enumerate}
+
 \subsection{Bezpieczeństwo}
 \begin{itemize}
     \item RSA jest bezpieczny przy użyciu odpowiednio dużych kluczy (2048+ bitów),
@@ -864,7 +905,38 @@ export default class RSACipher extends CryptographicAlgorithm {
   }
 }
 \end{lstlisting}
-
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/RSA.jpg}
+    \caption{Ekran szyfru RSA}
+    \label{fig:szyfrrsa}
+\end{figure}
+Rysunek \ref{fig:szyfrrsa} przedstawia interfejs użytkownika szyfru RSA w aplikacji CryptoLab Mobile.
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/RSA_keygen.jpg}
+    \caption{Generowanie kluczy RSA}
+    \label{fig:rsakeygen}
+\end{figure}
+Rysunek \ref{fig:rsakeygen} przedstawia ekran generowania kluczy RSA w aplikacji CryptoLab Mobile.
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/RSA_szyfrowanie.jpg}
+    \caption{Test szyfru RSA}
+    \label{fig:testrsa}
+\end{figure}
+Rysunek \ref{fig:testrsa} przedstawia przykładowy test szyfru RSA w aplikacji CryptoLab Mobile.
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/RSA_deszyfr.jpg}
+    \caption{Deszyfrowanie w szyfrze RSA}
+    \label{fig:deszyfrrsa}
+\end{figure}
+Rysunek \ref{fig:deszyfrrsa} przedstawia ekran deszyfrowania w szyfrze RSA w aplikacji CryptoLab Mobile.
 \newpage
 \section{Podsumowanie}
 
@@ -1015,7 +1087,8 @@ To połączenie zapewnia zarówno bezpieczeństwo RSA, jak i szybkość AES.
     Generowanie par kluczy publiczny/prywatny z losowymi liczbami pierwszymi. \newline
     Implementacja algorytmu Euklidesa, rozszerzonego algorytmu Euklidesa i szybkiego potęgowania modularnego. \newline
     Dodanie kategorii "Kryptografia asymetryczna" w rejestrze algorytmów. \newline
-    Wprowadzenie koncepcji szyfrowania hybrydowego w dokumentacji.
+    Wprowadzenie koncepcji szyfrowania hybrydowego w dokumentacji. \newline
+    \textbf{Dodanie GUI do generowania kluczy RSA} -- przycisk "Generuj klucze" z modalem wyświetlającym klucz publiczny i prywatny, możliwość kopiowania i bezpośredniego użycia kluczy w aplikacji.
 \end{itemize}
 
 

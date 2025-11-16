@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  28 OCT 2025 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  16 NOV 2025 17:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,72 +375,12 @@ No file main.toc.
 LaTeX Font Info:    Trying to load font information for OT4+cmtt on input line 35.
  (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/polski\ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
-) [2{C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/pltt.enc}]
-Overfull \hbox (0.92233pt too wide) in paragraph at lines 120--121
+) [2{C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/pltt.enc}] [3]
+Overfull \hbox (0.92233pt too wide) in paragraph at lines 121--122
 []\OT4/cmr/m/n/12 Dodatkowe bi-blio-te-ki �ro-do-wi-
  []
 
-[3] [4]
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:170: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ├── 
-                App.tsx                          (glowny komponent)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:170: LaTeX Error: Invalid UTF-8 byte "9C.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ├── 
-                App.tsx                          (glowny komponent)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:170: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ├── 
-                App.tsx                          (glowny komponent)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:170: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ├── 
-                App.tsx                          (glowny komponent)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
+[4]
 
 c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:171: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
 
@@ -449,7 +389,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.171 ├── 
-                package.json                     (zalezności projektu)
+                App.tsx                          (glowny komponent)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -464,7 +404,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.171 ├── 
-                package.json                     (zalezności projektu)
+                App.tsx                          (glowny komponent)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -479,7 +419,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.171 ├── 
-                package.json                     (zalezności projektu)
+                App.tsx                          (glowny komponent)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -494,37 +434,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.171 ├── 
-                package.json                     (zalezności projektu)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:171: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.171 ...ge.json                     (zalezności 
-                                                  projektu)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:171: LaTeX Error: Invalid UTF-8 byte "9B.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.171 ...ge.json                     (zalezności 
-                                                  projektu)
+                App.tsx                          (glowny komponent)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -539,7 +449,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.172 ├── 
-                tsconfig.json                    (konfiguracja TypeScriptu)
+                package.json                     (zalezności projektu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -554,7 +464,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.172 ├── 
-                tsconfig.json                    (konfiguracja TypeScriptu)
+                package.json                     (zalezności projektu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -569,7 +479,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.172 ├── 
-                tsconfig.json                    (konfiguracja TypeScriptu)
+                package.json                     (zalezności projektu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -584,7 +494,37 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.172 ├── 
-                tsconfig.json                    (konfiguracja TypeScriptu)
+                package.json                     (zalezności projektu)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:172: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 ...ge.json                     (zalezności 
+                                                  projektu)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:172: LaTeX Error: Invalid UTF-8 byte "9B.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 ...ge.json                     (zalezności 
+                                                  projektu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -599,7 +539,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.173 ├── 
-                app.json                         (konfiguracja Expo)
+                tsconfig.json                    (konfiguracja TypeScriptu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -614,7 +554,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.173 ├── 
-                app.json                         (konfiguracja Expo)
+                tsconfig.json                    (konfiguracja TypeScriptu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -629,7 +569,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.173 ├── 
-                app.json                         (konfiguracja Expo)
+                tsconfig.json                    (konfiguracja TypeScriptu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -644,7 +584,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.173 ├── 
-                app.json                         (konfiguracja Expo)
+                tsconfig.json                    (konfiguracja TypeScriptu)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -659,7 +599,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.174 ├── 
-                src/
+                app.json                         (konfiguracja Expo)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -674,7 +614,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.174 ├── 
-                src/
+                app.json                         (konfiguracja Expo)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -689,7 +629,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.174 ├── 
-                src/
+                app.json                         (konfiguracja Expo)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -704,52 +644,22 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.174 ├── 
+                app.json                         (konfiguracja Expo)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:175: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 ├── 
                 src/
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:175: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.175 │ 
-            ├── algorithms/
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:175: LaTeX Error: Invalid UTF-8 byte "82.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.175 │ 
-            ├── algorithms/
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:175: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.175 │   ├── 
-                      algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -763,8 +673,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.175 │   ├── 
-                      algorithms/
+l.175 ├── 
+                src/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -778,8 +688,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.175 │   ├── 
-                      algorithms/
+l.175 ├── 
+                src/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -793,8 +703,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.175 │   ├── 
-                      algorithms/
+l.175 ├── 
+                src/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -809,7 +719,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.176 │ 
-            │   ├── CryptographicAlgorithm.ts   (klasa bazowa)
+            ├── algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -824,7 +734,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.176 │ 
-            │   ├── CryptographicAlgorithm.ts   (klasa bazowa)
+            ├── algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -838,38 +748,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.176 │   │ 
-                  ├── CryptographicAlgorithm.ts   (klasa bazowa)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:176: LaTeX Error: Invalid UTF-8 byte "82.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.176 │   │ 
-                  ├── CryptographicAlgorithm.ts   (klasa bazowa)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:176: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.176 │   │   ├── 
-                            CryptographicAlgorithm.ts   (klasa bazowa)
+l.176 │   ├── 
+                      algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -883,8 +763,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.176 │   │   ├── 
-                            CryptographicAlgorithm.ts   (klasa bazowa)
+l.176 │   ├── 
+                      algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -898,8 +778,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.176 │   │   ├── 
-                            CryptographicAlgorithm.ts   (klasa bazowa)
+l.176 │   ├── 
+                      algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -913,8 +793,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.176 │   │   ├── 
-                            CryptographicAlgorithm.ts   (klasa bazowa)
+l.176 │   ├── 
+                      algorithms/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -929,7 +809,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │ 
-            │   ├── CaesarCipher.ts             (szyfr Cezara)
+            │   ├── CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -944,7 +824,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │ 
-            │   ├── CaesarCipher.ts             (szyfr Cezara)
+            │   ├── CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -959,7 +839,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │   │ 
-                  ├── CaesarCipher.ts             (szyfr Cezara)
+                  ├── CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -974,7 +854,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │   │ 
-                  ├── CaesarCipher.ts             (szyfr Cezara)
+                  ├── CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -989,7 +869,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │   │   ├── 
-                            CaesarCipher.ts             (szyfr Cezara)
+                            CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1004,7 +884,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │   │   ├── 
-                            CaesarCipher.ts             (szyfr Cezara)
+                            CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1019,7 +899,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │   │   ├── 
-                            CaesarCipher.ts             (szyfr Cezara)
+                            CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1034,7 +914,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.177 │   │   ├── 
-                            CaesarCipher.ts             (szyfr Cezara)
+                            CryptographicAlgorithm.ts   (klasa bazowa)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1049,7 +929,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │ 
-            │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
+            │   ├── CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1064,7 +944,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │ 
-            │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
+            │   ├── CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1079,7 +959,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │   │ 
-                  ├── VigenereCipher.ts           (szyfr Vigenere'a)
+                  ├── CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1094,7 +974,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │   │ 
-                  ├── VigenereCipher.ts           (szyfr Vigenere'a)
+                  ├── CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1109,7 +989,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │   │   ├── 
-                            VigenereCipher.ts           (szyfr Vigenere'a)
+                            CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1124,7 +1004,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │   │   ├── 
-                            VigenereCipher.ts           (szyfr Vigenere'a)
+                            CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1139,7 +1019,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │   │   ├── 
-                            VigenereCipher.ts           (szyfr Vigenere'a)
+                            CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1154,7 +1034,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.178 │   │   ├── 
-                            VigenereCipher.ts           (szyfr Vigenere'a)
+                            CaesarCipher.ts             (szyfr Cezara)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1169,7 +1049,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │ 
-            │   ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
+            │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1184,7 +1064,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │ 
-            │   ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
+            │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1199,7 +1079,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │   │ 
-                  ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
+                  ├── VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1214,7 +1094,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │   │ 
-                  ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
+                  ├── VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1229,7 +1109,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │   │   ├── 
-                            RunningKeyCipher.ts         (szyfr z kluczem bie...
+                            VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1244,7 +1124,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │   │   ├── 
-                            RunningKeyCipher.ts         (szyfr z kluczem bie...
+                            VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1259,7 +1139,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │   │   ├── 
-                            RunningKeyCipher.ts         (szyfr z kluczem bie...
+                            VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1274,7 +1154,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.179 │   │   ├── 
-                            RunningKeyCipher.ts         (szyfr z kluczem bie...
+                            VigenereCipher.ts           (szyfr Vigenere'a)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1289,7 +1169,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │ 
-            │   ├── AESCipher.ts                (szyfr AES)
+            │   ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1304,7 +1184,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │ 
-            │   ├── AESCipher.ts                (szyfr AES)
+            │   ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1319,7 +1199,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │   │ 
-                  ├── AESCipher.ts                (szyfr AES)
+                  ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1334,7 +1214,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │   │ 
-                  ├── AESCipher.ts                (szyfr AES)
+                  ├── RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1349,7 +1229,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │   │   ├── 
-                            AESCipher.ts                (szyfr AES)
+                            RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1364,7 +1244,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │   │   ├── 
-                            AESCipher.ts                (szyfr AES)
+                            RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1379,7 +1259,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │   │   ├── 
-                            AESCipher.ts                (szyfr AES)
+                            RunningKeyCipher.ts         (szyfr z kluczem bie...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1394,6 +1274,81 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.180 │   │   ├── 
+                            RunningKeyCipher.ts         (szyfr z kluczem bie...
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 │ 
+            │   ├── AESCipher.ts                (szyfr AES)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte "82.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 │ 
+            │   ├── AESCipher.ts                (szyfr AES)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 │   │ 
+                  ├── AESCipher.ts                (szyfr AES)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte "82.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 │   │ 
+                  ├── AESCipher.ts                (szyfr AES)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 │   │   ├── 
                             AESCipher.ts                (szyfr AES)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1402,89 +1357,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte "9C.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.181 │ 
-            │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte "82.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 │ 
-            │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 │   │ 
-                  └── AlgorithmRegistry.ts        (rejestr algorytmow)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte "82.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 │   │ 
-                  └── AlgorithmRegistry.ts        (rejestr algorytmow)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 │   │   └── 
-                            AlgorithmRegistry.ts        (rejestr algorytmow)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:181: LaTeX Error: Invalid UTF-8 byte "94.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 │   │   └── 
-                            AlgorithmRegistry.ts        (rejestr algorytmow)
+l.181 │   │   ├── 
+                            AESCipher.ts                (szyfr AES)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1498,8 +1378,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.181 │   │   └── 
-                            AlgorithmRegistry.ts        (rejestr algorytmow)
+l.181 │   │   ├── 
+                            AESCipher.ts                (szyfr AES)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1513,8 +1393,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.181 │   │   └── 
-                            AlgorithmRegistry.ts        (rejestr algorytmow)
+l.181 │   │   ├── 
+                            AESCipher.ts                (szyfr AES)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1529,7 +1409,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.182 │ 
-            ├── components/
+            │   ├── RSACipher.ts                (szyfr RSA)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1544,7 +1424,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.182 │ 
-            ├── components/
+            │   ├── RSACipher.ts                (szyfr RSA)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1558,8 +1438,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.182 │   ├── 
-                      components/
+l.182 │   │ 
+                  ├── RSACipher.ts                (szyfr RSA)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:182: LaTeX Error: Invalid UTF-8 byte "82.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.182 │   │ 
+                  ├── RSACipher.ts                (szyfr RSA)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:182: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.182 │   │   ├── 
+                            RSACipher.ts                (szyfr RSA)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1573,8 +1483,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.182 │   ├── 
-                      components/
+l.182 │   │   ├── 
+                            RSACipher.ts                (szyfr RSA)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1588,8 +1498,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.182 │   ├── 
-                      components/
+l.182 │   │   ├── 
+                            RSACipher.ts                (szyfr RSA)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1603,8 +1513,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.182 │   ├── 
-                      components/
+l.182 │   │   ├── 
+                            RSACipher.ts                (szyfr RSA)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1619,7 +1529,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │ 
-            │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
+            │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1634,7 +1544,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │ 
-            │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
+            │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1649,7 +1559,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │   │ 
-                  └── AlgorithmSidebar.tsx        (panel z algorytmami)
+                  └── AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1664,7 +1574,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │   │ 
-                  └── AlgorithmSidebar.tsx        (panel z algorytmami)
+                  └── AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1679,7 +1589,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │   │   └── 
-                            AlgorithmSidebar.tsx        (panel z algorytmami)
+                            AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1694,7 +1604,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │   │   └── 
-                            AlgorithmSidebar.tsx        (panel z algorytmami)
+                            AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1709,7 +1619,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │   │   └── 
-                            AlgorithmSidebar.tsx        (panel z algorytmami)
+                            AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1724,7 +1634,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.183 │   │   └── 
-                            AlgorithmSidebar.tsx        (panel z algorytmami)
+                            AlgorithmRegistry.ts        (rejestr algorytmow)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1739,7 +1649,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.184 │ 
-            └── utils/
+            ├── components/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1754,7 +1664,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.184 │ 
-            └── utils/
+            ├── components/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1768,8 +1678,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.184 │   └── 
-                      utils/
+l.184 │   ├── 
+                      components/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1777,29 +1687,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:184: LaTeX Error: Invalid UTF-8 byte "94.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:184: LaTeX Error: Invalid UTF-8 byte "9C.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.184 │   └── 
-                      utils/
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:184: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.184 │   └── 
-                      utils/
+l.184 │   ├── 
+                      components/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1813,8 +1708,23 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.184 │   └── 
-                      utils/
+l.184 │   ├── 
+                      components/
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:184: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.184 │   ├── 
+                      components/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1829,7 +1739,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.185 │ 
-                └── fileUtils.ts                (obsluga plikow)
+            │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1844,7 +1754,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.185 │ 
-                └── fileUtils.ts                (obsluga plikow)
+            │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1858,8 +1768,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.185 │       └── 
-                          fileUtils.ts                (obsluga plikow)
+l.185 │   │ 
+                  └── AlgorithmSidebar.tsx        (panel z algorytmami)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:185: LaTeX Error: Invalid UTF-8 byte "82.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.185 │   │ 
+                  └── AlgorithmSidebar.tsx        (panel z algorytmami)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:185: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.185 │   │   └── 
+                            AlgorithmSidebar.tsx        (panel z algorytmami)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1873,8 +1813,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.185 │       └── 
-                          fileUtils.ts                (obsluga plikow)
+l.185 │   │   └── 
+                            AlgorithmSidebar.tsx        (panel z algorytmami)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1888,8 +1828,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.185 │       └── 
-                          fileUtils.ts                (obsluga plikow)
+l.185 │   │   └── 
+                            AlgorithmSidebar.tsx        (panel z algorytmami)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1903,8 +1843,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.185 │       └── 
-                          fileUtils.ts                (obsluga plikow)
+l.185 │   │   └── 
+                            AlgorithmSidebar.tsx        (panel z algorytmami)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1918,8 +1858,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.186 └── 
-                assets/                          (zasoby graficzne)
+l.186 │ 
+            └── utils/
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:186: LaTeX Error: Invalid UTF-8 byte "82.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 │ 
+            └── utils/
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:186: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 │   └── 
+                      utils/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1933,8 +1903,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.186 └── 
-                assets/                          (zasoby graficzne)
+l.186 │   └── 
+                      utils/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1948,8 +1918,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.186 └── 
-                assets/                          (zasoby graficzne)
+l.186 │   └── 
+                      utils/
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1963,7 +1933,157 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.186 └── 
+l.186 │   └── 
+                      utils/
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:187: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 │ 
+                └── fileUtils.ts                (obsluga plikow)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:187: LaTeX Error: Invalid UTF-8 byte "82.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 │ 
+                └── fileUtils.ts                (obsluga plikow)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:187: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 │       └── 
+                          fileUtils.ts                (obsluga plikow)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:187: LaTeX Error: Invalid UTF-8 byte "94.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 │       └── 
+                          fileUtils.ts                (obsluga plikow)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:187: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 │       └── 
+                          fileUtils.ts                (obsluga plikow)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:187: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 │       └── 
+                          fileUtils.ts                (obsluga plikow)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:188: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 └── 
+                assets/                          (zasoby graficzne)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:188: LaTeX Error: Invalid UTF-8 byte "94.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 └── 
+                assets/                          (zasoby graficzne)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:188: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 └── 
+                assets/                          (zasoby graficzne)
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:188: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 └── 
                 assets/                          (zasoby graficzne)
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1972,71 +2092,157 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 190.
+(Font)              <12> on input line 192.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 190.
+(Font)              <8> on input line 192.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 190.
+(Font)              <6> on input line 192.
 [5] [6{C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plms.enc}] [7{C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plit.enc}] [8]
-<img/strona_glownaAES.jpg, id=98, 1084.05pt x 2348.775pt>
+<img/strona_glownaAES.jpg, id=99, 1084.05pt x 2348.775pt>
 File: img/strona_glownaAES.jpg Graphic file (type jpg)
 <use img/strona_glownaAES.jpg>
-Package pdftex.def Info: img/strona_glownaAES.jpg  used on input line 312.
+Package pdftex.def Info: img/strona_glownaAES.jpg  used on input line 314.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
  [9]
 
-LaTeX Warning: Reference `fig:aes_main' on page 10 undefined on input line 316.
+LaTeX Warning: Reference `fig:aes_main' on page 10 undefined on input line 318.
 
-<img/ECB.jpg, id=107, 1084.05pt x 2348.775pt>
+<img/ECB.jpg, id=108, 1084.05pt x 2348.775pt>
 File: img/ECB.jpg Graphic file (type jpg)
 <use img/ECB.jpg>
-Package pdftex.def Info: img/ECB.jpg  used on input line 327.
+Package pdftex.def Info: img/ECB.jpg  used on input line 329.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
 
-LaTeX Warning: Reference `fig:ecb' on page 10 undefined on input line 331.
+LaTeX Warning: Reference `fig:ecb' on page 10 undefined on input line 333.
 
-<img/CBC.jpg, id=108, 1084.05pt x 2348.775pt>
+<img/CBC.jpg, id=109, 1084.05pt x 2348.775pt>
 File: img/CBC.jpg Graphic file (type jpg)
 <use img/CBC.jpg>
-Package pdftex.def Info: img/CBC.jpg  used on input line 338.
+Package pdftex.def Info: img/CBC.jpg  used on input line 340.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
 
-LaTeX Warning: Reference `fig:cbc' on page 10 undefined on input line 342.
+LaTeX Warning: Reference `fig:cbc' on page 10 undefined on input line 344.
 
-<img/CTR.jpg, id=109, 1084.05pt x 2348.775pt>
+<img/CTR.jpg, id=110, 1084.05pt x 2348.775pt>
 File: img/CTR.jpg Graphic file (type jpg)
 <use img/CTR.jpg>
-Package pdftex.def Info: img/CTR.jpg  used on input line 349.
+Package pdftex.def Info: img/CTR.jpg  used on input line 351.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
 
-LaTeX Warning: Reference `fig:ctr' on page 10 undefined on input line 353.
+LaTeX Warning: Reference `fig:ctr' on page 10 undefined on input line 355.
 
 [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.361     \item \textbf
+l.363     \item \textbf
                        {MixColumns} -- mieszanie kolumn macierzy (pomijane w... <./img/strona_glownaAES.jpg>] [11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.361     \item \textbf
+l.363     \item \textbf
                        {MixColumns} -- mieszanie kolumn macierzy (pomijane w...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.361     \item \textbf
+l.363     \item \textbf
                        {MixColumns} -- mieszanie kolumn macierzy (pomijane w... <./img/ECB.jpg> <./img/CBC.jpg>] [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.382     \item N
+l.384     \item N
                  ie znaleziono praktycznych ataków na pełny AES-128, AES-1... <./img/CTR.jpg>]
-Overfull \hbox (0.25949pt too wide) in paragraph at lines 383--384
+Overfull \hbox (0.25949pt too wide) in paragraph at lines 385--386
 []\OT4/cmr/m/n/12 Teoretyczne ata-ki ist-nie-j�, ale wy-ma-ga-j� za-so-b�w prze-kra-cza-j�-cych mo�-li-wo-�ci obec-
  []
 
-[13] (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+[13]
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:449: LaTeX Error: Environment align* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.449 \begin{align*}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:450: Misplaced alignment tab character &.
+l.450 n &
+         = 61 \cdot 53 = 3233 \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:450: Missing $ inserted.
+<inserted text> 
+                $
+l.450 n &= 61 \cdot
+                    53 = 3233 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:451: Misplaced alignment tab character &.
+l.451 \phi(n) &
+               = 60 \cdot 52 = 3120 \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:452: Misplaced alignment tab character &.
+l.452 e &
+         = 17 \quad (\gcd(17, 3120) = 1) \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:453: Misplaced alignment tab character &.
+l.453 d &
+         = 2753 \quad (17 \cdot 2753 \equiv 1 \pmod{3120})
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:454: LaTeX Error: \begin{document} ended by \end{align*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \end{align*}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:454: Missing $ inserted.
+<inserted text> 
+                $
+l.454 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[14] [15] [16] (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
 File: lstlang2.sty 2023/02/27 1.9 listings language file
@@ -2044,39 +2250,39 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:407: Package Listings Error: Couldn't load requested language.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:535: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.407 ...asa abstrakcyjna CryptographicAlgorithm}]
+l.535 ...asa abstrakcyjna CryptographicAlgorithm}]
                                                   
 The following languages weren't loadable:
     ,typescript$
 This may cause errors in the sequel.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:407: Package Listings Error: language typescript undefined.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:535: Package Listings Error: language typescript undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.407 ...asa abstrakcyjna CryptographicAlgorithm}]
+l.535 ...asa abstrakcyjna CryptographicAlgorithm}]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 407.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 535.
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:414: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:542: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.414 ...ow new Error('Metoda encrypt() musi być 
+l.542 ...ow new Error('Metoda encrypt() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2085,13 +2291,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:414: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:542: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.414 ...ow new Error('Metoda encrypt() musi być 
+l.542 ...ow new Error('Metoda encrypt() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2100,13 +2306,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:418: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:546: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.418 ...ow new Error('Metoda decrypt() musi być 
+l.546 ...ow new Error('Metoda decrypt() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2115,13 +2321,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:418: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:546: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.418 ...ow new Error('Metoda decrypt() musi być 
+l.546 ...ow new Error('Metoda decrypt() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2130,13 +2336,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:422: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:550: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.422 ...ew Error('Metoda validateKey() musi być 
+l.550 ...ew Error('Metoda validateKey() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2145,13 +2351,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:422: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:550: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.422 ...ew Error('Metoda validateKey() musi być 
+l.550 ...ew Error('Metoda validateKey() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2160,13 +2366,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:426: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:554: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.426 ...r('Metoda getKeyRequirements() musi być 
+l.554 ...r('Metoda getKeyRequirements() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2175,13 +2381,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:426: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:554: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.426 ...r('Metoda getKeyRequirements() musi być 
+l.554 ...r('Metoda getKeyRequirements() musi być 
                                                   zaimplementowana');
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2189,27 +2395,27 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-<img/szyfr_cezara.jpg, id=140, 813.0375pt x 1761.58125pt>
+<img/szyfr_cezara.jpg, id=169, 813.0375pt x 1761.58125pt>
 File: img/szyfr_cezara.jpg Graphic file (type jpg)
 <use img/szyfr_cezara.jpg>
-Package pdftex.def Info: img/szyfr_cezara.jpg  used on input line 432.
+Package pdftex.def Info: img/szyfr_cezara.jpg  used on input line 560.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
-<img/lista_wyboru.jpg, id=141, 813.0375pt x 1761.58125pt>
+<img/lista_wyboru.jpg, id=170, 813.0375pt x 1761.58125pt>
 File: img/lista_wyboru.jpg Graphic file (type jpg)
 <use img/lista_wyboru.jpg>
-Package pdftex.def Info: img/lista_wyboru.jpg  used on input line 438.
+Package pdftex.def Info: img/lista_wyboru.jpg  used on input line 566.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
-[14
+[17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.442 
+l.570 
        <./img/szyfr_cezara.jpg>]
 
-LaTeX Warning: Reference `fig:main' on page 15 undefined on input line 443.
+LaTeX Warning: Reference `fig:main' on page 18 undefined on input line 571.
 
 
-LaTeX Warning: Reference `fig:list' on page 15 undefined on input line 443.
+LaTeX Warning: Reference `fig:list' on page 18 undefined on input line 571.
 
 (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -2219,38 +2425,38 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:445: Package Listings Error: Couldn't load requested language.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.445 ...{Szczegóły implementacji CaesarCipher}]
+l.573 ...{Szczegóły implementacji CaesarCipher}]
                                                   
 The following languages weren't loadable:
     ,typescript$
 This may cause errors in the sequel.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:445: Package Listings Error: language typescript undefined.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: Package Listings Error: language typescript undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.445 ...{Szczegóły implementacji CaesarCipher}]
+l.573 ...{Szczegóły implementacji CaesarCipher}]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:450: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:578: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.450 ...sty szyfr substytucyjny z przesunięciem'
+l.578 ...sty szyfr substytucyjny z przesunięciem'
                                                   ,
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2259,13 +2465,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:450: LaTeX Error: Invalid UTF-8 byte "99.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:578: LaTeX Error: Invalid UTF-8 byte "99.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.450 ...sty szyfr substytucyjny z przesunięciem'
+l.578 ...sty szyfr substytucyjny z przesunięciem'
                                                   ,
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2274,13 +2480,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:460: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:588: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.460         error: 'Klucz musi być 
+l.588         error: 'Klucz musi być 
                                       liczbą od 1 do 25'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2289,13 +2495,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:460: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:588: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.460         error: 'Klucz musi być 
+l.588         error: 'Klucz musi być 
                                       liczbą od 1 do 25'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2304,13 +2510,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:460: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:588: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.460         error: 'Klucz musi być liczbą 
+l.588         error: 'Klucz musi być liczbą 
                                               od 1 do 25'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2319,13 +2525,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:460: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:588: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.460         error: 'Klucz musi być liczbą 
+l.588         error: 'Klucz musi być liczbą 
                                               od 1 do 25'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2333,26 +2539,26 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[15
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.470   decrypt(
+l.598   decrypt(
                 ciphertext: string, key: string): string { <./img/lista_wyboru.jpg>]
-<img/test_cezara.jpg, id=200, 813.0375pt x 1761.58125pt>
+<img/test_cezara.jpg, id=229, 813.0375pt x 1761.58125pt>
 File: img/test_cezara.jpg Graphic file (type jpg)
 <use img/test_cezara.jpg>
-Package pdftex.def Info: img/test_cezara.jpg  used on input line 490.
+Package pdftex.def Info: img/test_cezara.jpg  used on input line 618.
 (pdftex.def)             Requested size: 136.57462pt x 295.88988pt.
 
 
-LaTeX Warning: Reference `fig:testc' on page 16 undefined on input line 494.
+LaTeX Warning: Reference `fig:testc' on page 19 undefined on input line 622.
 
-[16
+[19
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.496 \newpage
+l.624 \newpage
                <./img/test_cezara.jpg>] (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
@@ -2361,38 +2567,38 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:498: Package Listings Error: Couldn't load requested language.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:626: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.498 ...caption={Fragmenty klasy VigenereCipher}]
+l.626 ...caption={Fragmenty klasy VigenereCipher}]
                                                   
 The following languages weren't loadable:
     ,typescript$
 This may cause errors in the sequel.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:498: Package Listings Error: language typescript undefined.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:626: Package Listings Error: language typescript undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.498 ...caption={Fragmenty klasy VigenereCipher}]
+l.626 ...caption={Fragmenty klasy VigenereCipher}]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:502: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:630: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.502 ... { valid: false, error: 'Klucz nie może 
+l.630 ... { valid: false, error: 'Klucz nie może 
                                                   być pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2401,13 +2607,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:502: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:630: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.502 ... { valid: false, error: 'Klucz nie może 
+l.630 ... { valid: false, error: 'Klucz nie może 
                                                   być pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2416,13 +2622,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:502: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:630: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.502 ...lid: false, error: 'Klucz nie może być 
+l.630 ...lid: false, error: 'Klucz nie może być 
                                                   pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2431,13 +2637,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:502: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:630: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.502 ...lid: false, error: 'Klucz nie może być 
+l.630 ...lid: false, error: 'Klucz nie może być 
                                                   pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2446,13 +2652,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:506: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:634: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.506 ...turn { valid: false, error: 'Klucz może 
+l.634 ...turn { valid: false, error: 'Klucz może 
                                                   zawierać tylko litery' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2461,13 +2667,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:506: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:634: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.506 ...turn { valid: false, error: 'Klucz może 
+l.634 ...turn { valid: false, error: 'Klucz może 
                                                   zawierać tylko litery' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2476,13 +2682,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:506: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:634: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.506 ...id: false, error: 'Klucz może zawierać 
+l.634 ...id: false, error: 'Klucz może zawierać 
                                                   tylko litery' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2491,13 +2697,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:506: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:634: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.506 ...id: false, error: 'Klucz może zawierać 
+l.634 ...id: false, error: 'Klucz może zawierać 
                                                   tylko litery' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2505,24 +2711,24 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[17]
+[20]
 
-LaTeX Warning: File `img/szyfr_vigenerea.jpg' not found on input line 541.
+LaTeX Warning: File `img/szyfr_vigenerea.jpg' not found on input line 669.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:541: Package pdftex.def Error: File `img/szyfr_vigenerea.jpg' not found: using draft setting.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:669: Package pdftex.def Error: File `img/szyfr_vigenerea.jpg' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.541 ...h=0.3\textwidth]{img/szyfr_vigenerea.jpg}
+l.669 ...h=0.3\textwidth]{img/szyfr_vigenerea.jpg}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Reference `fig:szyfrv' on page 18 undefined on input line 545.
+LaTeX Warning: Reference `fig:szyfrv' on page 21 undefined on input line 673.
 
 (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -2532,38 +2738,38 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:547: Package Listings Error: Couldn't load requested language.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:675: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.547 ...ption={Fragmenty klasy RunningKeyCipher}]
+l.675 ...ption={Fragmenty klasy RunningKeyCipher}]
                                                   
 The following languages weren't loadable:
     ,typescript$
 This may cause errors in the sequel.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:547: Package Listings Error: language typescript undefined.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:675: Package Listings Error: language typescript undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.547 ...ption={Fragmenty klasy RunningKeyCipher}]
+l.675 ...ption={Fragmenty klasy RunningKeyCipher}]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:551: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:679: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.551       'Szyfr z kluczem bieżącym'
+l.679       'Szyfr z kluczem bieżącym'
                                         ,
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2572,13 +2778,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:551: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:679: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.551       'Szyfr z kluczem bieżącym'
+l.679       'Szyfr z kluczem bieżącym'
                                         ,
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2587,13 +2793,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:551: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:679: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.551       'Szyfr z kluczem bieżącym'
+l.679       'Szyfr z kluczem bieżącym'
                                         ,
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2602,13 +2808,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:551: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:679: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.551       'Szyfr z kluczem bieżącym'
+l.679       'Szyfr z kluczem bieżącym'
                                         ,
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2617,13 +2823,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552       'Szyfr podobny do Vigenère\'
+l.680       'Szyfr podobny do Vigenère\'
                                          a, ale używający klucza o długo�...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2632,13 +2838,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte "A8.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte "A8.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552       'Szyfr podobny do Vigenère\'
+l.680       'Szyfr podobny do Vigenère\'
                                          a, ale używający klucza o długo�...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2647,13 +2853,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...podobny do Vigenère\'a, ale używający 
+l.680 ...podobny do Vigenère\'a, ale używający 
                                                   klucza o długości tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2662,13 +2868,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...podobny do Vigenère\'a, ale używający 
+l.680 ...podobny do Vigenère\'a, ale używający 
                                                   klucza o długości tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2677,13 +2883,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...podobny do Vigenère\'a, ale używający 
+l.680 ...podobny do Vigenère\'a, ale używający 
                                                   klucza o długości tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2692,13 +2898,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...podobny do Vigenère\'a, ale używający 
+l.680 ...podobny do Vigenère\'a, ale używający 
                                                   klucza o długości tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2707,13 +2913,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...\'a, ale używający klucza o długości 
+l.680 ...\'a, ale używający klucza o długości 
                                                   tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2722,13 +2928,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte "82.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte "82.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...\'a, ale używający klucza o długości 
+l.680 ...\'a, ale używający klucza o długości 
                                                   tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2737,13 +2943,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...\'a, ale używający klucza o długości 
+l.680 ...\'a, ale używający klucza o długości 
                                                   tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2752,13 +2958,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:552: LaTeX Error: Invalid UTF-8 byte "9B.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:680: LaTeX Error: Invalid UTF-8 byte "9B.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.552 ...\'a, ale używający klucza o długości 
+l.680 ...\'a, ale używający klucza o długości 
                                                   tekstu',
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2767,13 +2973,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:559: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:687: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.559 ... { valid: false, error: 'Klucz nie może 
+l.687 ... { valid: false, error: 'Klucz nie może 
                                                   być pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2782,13 +2988,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:559: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:687: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.559 ... { valid: false, error: 'Klucz nie może 
+l.687 ... { valid: false, error: 'Klucz nie może 
                                                   być pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2797,13 +3003,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:559: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:687: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.559 ...lid: false, error: 'Klucz nie może być 
+l.687 ...lid: false, error: 'Klucz nie może być 
                                                   pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2812,13 +3018,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:559: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:687: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.559 ...lid: false, error: 'Klucz nie może być 
+l.687 ...lid: false, error: 'Klucz nie może być 
                                                   pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2827,13 +3033,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:562: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:690: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.562     // Sprawdź 
+l.690     // Sprawdź 
                       czy klucz zawiera tylko litery
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2842,13 +3048,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:562: LaTeX Error: Invalid UTF-8 byte "BA.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:690: LaTeX Error: Invalid UTF-8 byte "BA.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.562     // Sprawdź 
+l.690     // Sprawdź 
                       czy klucz zawiera tylko litery
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2857,13 +3063,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:565: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:693: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 ...turn { valid: false, error: 'Klucz może 
+l.693 ...turn { valid: false, error: 'Klucz może 
                                                   zawierać tylko litery i s...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2872,13 +3078,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:565: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:693: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 ...turn { valid: false, error: 'Klucz może 
+l.693 ...turn { valid: false, error: 'Klucz może 
                                                   zawierać tylko litery i s...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2887,13 +3093,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:565: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:693: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 ...id: false, error: 'Klucz może zawierać 
+l.693 ...id: false, error: 'Klucz może zawierać 
                                                   tylko litery i spacje (A-Z...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2902,13 +3108,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:565: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:693: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 ...id: false, error: 'Klucz może zawierać 
+l.693 ...id: false, error: 'Klucz może zawierać 
                                                   tylko litery i spacje (A-Z...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2917,13 +3123,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:701: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.573         error: 'Klucz musi zawierać 
+l.701         error: 'Klucz musi zawierać 
                                            co najmniej 5 liter (może zawier...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2932,13 +3138,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:701: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.573         error: 'Klucz musi zawierać 
+l.701         error: 'Klucz musi zawierać 
                                            co najmniej 5 liter (może zawier...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2947,13 +3153,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:701: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.573 ...usi zawierać co najmniej 5 liter (może 
+l.701 ...usi zawierać co najmniej 5 liter (może 
                                                   zawierać spacje)'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2962,13 +3168,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:701: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.573 ...usi zawierać co najmniej 5 liter (może 
+l.701 ...usi zawierać co najmniej 5 liter (może 
                                                   zawierać spacje)'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2977,13 +3183,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:701: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.573 ...ać co najmniej 5 liter (może zawierać 
+l.701 ...ać co najmniej 5 liter (może zawierać 
                                                   spacje)'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -2992,13 +3198,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:573: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:701: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.573 ...ać co najmniej 5 liter (może zawierać 
+l.701 ...ać co najmniej 5 liter (może zawierać 
                                                   spacje)'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3007,13 +3213,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:581: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:709: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.581     return 'Tekst (np. fragment książki)
+l.709     return 'Tekst (np. fragment książki)
                                                  - użyto generatora lorem i...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3022,13 +3228,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:581: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:709: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.581     return 'Tekst (np. fragment książki)
+l.709     return 'Tekst (np. fragment książki)
                                                  - użyto generatora lorem i...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3037,13 +3243,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:581: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:709: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.581     return 'Tekst (np. fragment książki)
+l.709     return 'Tekst (np. fragment książki)
                                                  - użyto generatora lorem i...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3052,13 +3258,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:581: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:709: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.581     return 'Tekst (np. fragment książki)
+l.709     return 'Tekst (np. fragment książki)
                                                  - użyto generatora lorem i...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3067,13 +3273,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:581: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:709: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.581 ...'Tekst (np. fragment książki) - użyto 
+l.709 ...'Tekst (np. fragment książki) - użyto 
                                                   generatora lorem ipsum do ...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3082,13 +3288,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:581: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:709: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.581 ...'Tekst (np. fragment książki) - użyto 
+l.709 ...'Tekst (np. fragment książki) - użyto 
                                                   generatora lorem ipsum do ...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3096,35 +3302,35 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[18
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.582   }
+l.710   }
          ]
 
-LaTeX Warning: File `img/Szyfr_z_kb.jpg' not found on input line 586.
+LaTeX Warning: File `img/Szyfr_z_kb.jpg' not found on input line 714.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:586: Package pdftex.def Error: File `img/Szyfr_z_kb.jpg' not found: using draft setting.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:714: Package pdftex.def Error: File `img/Szyfr_z_kb.jpg' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.586 ...[width=0.3\textwidth]{img/Szyfr_z_kb.jpg}
+l.714 ...[width=0.3\textwidth]{img/Szyfr_z_kb.jpg}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Reference `fig:szyfrk' on page 19 undefined on input line 591.
+LaTeX Warning: Reference `fig:szyfrk' on page 22 undefined on input line 719.
 
-[19
+[22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.593 \newpage
+l.721 \newpage
               ] (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
@@ -3133,38 +3339,38 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:595: Package Listings Error: Couldn't load requested language.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:723: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.595 ...ipt, caption={Fragmenty klasy AESCipher}]
+l.723 ...ipt, caption={Fragmenty klasy AESCipher}]
                                                   
 The following languages weren't loadable:
     ,typescript$
 This may cause errors in the sequel.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:595: Package Listings Error: language typescript undefined.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:723: Package Listings Error: language typescript undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.595 ...ipt, caption={Fragmenty klasy AESCipher}]
+l.723 ...ipt, caption={Fragmenty klasy AESCipher}]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:603: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:731: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.603 ...metryczny szyfr blokowy z możliwością 
+l.731 ...metryczny szyfr blokowy z możliwością 
                                                   wyboru trybu (ECB, CBC, CT...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3173,13 +3379,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:603: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:731: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.603 ...metryczny szyfr blokowy z możliwością 
+l.731 ...metryczny szyfr blokowy z możliwością 
                                                   wyboru trybu (ECB, CBC, CT...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3188,13 +3394,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:603: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:731: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.603 ...metryczny szyfr blokowy z możliwością 
+l.731 ...metryczny szyfr blokowy z możliwością 
                                                   wyboru trybu (ECB, CBC, CT...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3203,13 +3409,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:603: LaTeX Error: Invalid UTF-8 byte "9B.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:731: LaTeX Error: Invalid UTF-8 byte "9B.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.603 ...metryczny szyfr blokowy z możliwością 
+l.731 ...metryczny szyfr blokowy z możliwością 
                                                   wyboru trybu (ECB, CBC, CT...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3218,13 +3424,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:603: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:731: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.603 ...metryczny szyfr blokowy z możliwością 
+l.731 ...metryczny szyfr blokowy z możliwością 
                                                   wyboru trybu (ECB, CBC, CT...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3233,13 +3439,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:603: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:731: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.603 ...metryczny szyfr blokowy z możliwością 
+l.731 ...metryczny szyfr blokowy z możliwością 
                                                   wyboru trybu (ECB, CBC, CT...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3248,13 +3454,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:606: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:734: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.606     this.mode = 'ECB'; // Domyślny 
+l.734     this.mode = 'ECB'; // Domyślny 
                                           tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3263,13 +3469,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:606: LaTeX Error: Invalid UTF-8 byte "9B.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:734: LaTeX Error: Invalid UTF-8 byte "9B.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.606     this.mode = 'ECB'; // Domyślny 
+l.734     this.mode = 'ECB'; // Domyślny 
                                           tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3278,13 +3484,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:616: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:744: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.616 ... { valid: false, error: 'Klucz nie może 
+l.744 ... { valid: false, error: 'Klucz nie może 
                                                   być pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3293,13 +3499,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:616: LaTeX Error: Invalid UTF-8 byte "BC.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:744: LaTeX Error: Invalid UTF-8 byte "BC.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.616 ... { valid: false, error: 'Klucz nie może 
+l.744 ... { valid: false, error: 'Klucz nie może 
                                                   być pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3308,13 +3514,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:616: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:744: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.616 ...lid: false, error: 'Klucz nie może być 
+l.744 ...lid: false, error: 'Klucz nie może być 
                                                   pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3323,13 +3529,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:616: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:744: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.616 ...lid: false, error: 'Klucz nie może być 
+l.744 ...lid: false, error: 'Klucz nie może być 
                                                   pusty' };
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3338,13 +3544,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:619: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:747: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.619     // Sprawdź 
+l.747     // Sprawdź 
                       czy klucz jest w formacie hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3353,13 +3559,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:619: LaTeX Error: Invalid UTF-8 byte "BA.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:747: LaTeX Error: Invalid UTF-8 byte "BA.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.619     // Sprawdź 
+l.747     // Sprawdź 
                       czy klucz jest w formacie hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3368,13 +3574,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:624: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:752: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624         error: 'Klucz musi być 
+l.752         error: 'Klucz musi być 
                                       ciągiem znaków szesnastkowych (0-9, ...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3383,13 +3589,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:624: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:752: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624         error: 'Klucz musi być 
+l.752         error: 'Klucz musi być 
                                       ciągiem znaków szesnastkowych (0-9, ...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3398,13 +3604,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:624: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:752: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624         error: 'Klucz musi być ciągiem 
+l.752         error: 'Klucz musi być ciągiem 
                                                znaków szesnastkowych (0-9, ...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3413,13 +3619,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:624: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:752: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624         error: 'Klucz musi być ciągiem 
+l.752         error: 'Klucz musi być ciągiem 
                                                znaków szesnastkowych (0-9, ...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3428,13 +3634,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:624: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:752: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624 ...error: 'Klucz musi być ciągiem znaków 
+l.752 ...error: 'Klucz musi być ciągiem znaków 
                                                   szesnastkowych (0-9, A-F)'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3443,13 +3649,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:624: LaTeX Error: Invalid UTF-8 byte "B3.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:752: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624 ...error: 'Klucz musi być ciągiem znaków 
+l.752 ...error: 'Klucz musi być ciągiem znaków 
                                                   szesnastkowych (0-9, A-F)'
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3458,13 +3664,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć 
+l.756     // Klucz musi mieć 
                               długość 32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3473,13 +3679,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć 
+l.756     // Klucz musi mieć 
                               długość 32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3488,13 +3694,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć długość 
+l.756     // Klucz musi mieć długość 
                                          32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3503,13 +3709,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte "82.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte "82.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć długość 
+l.756     // Klucz musi mieć długość 
                                          32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3518,13 +3724,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć długość 
+l.756     // Klucz musi mieć długość 
                                          32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3533,13 +3739,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte "9B.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte "9B.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć długość 
+l.756     // Klucz musi mieć długość 
                                          32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3548,13 +3754,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć długość 
+l.756     // Klucz musi mieć długość 
                                          32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3563,13 +3769,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628     // Klucz musi mieć długość 
+l.756     // Klucz musi mieć długość 
                                          32, 48 lub 64 znaków hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3578,13 +3784,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628 ...i mieć długość 32, 48 lub 64 znaków 
+l.756 ...i mieć długość 32, 48 lub 64 znaków 
                                                   hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3593,13 +3799,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:628: LaTeX Error: Invalid UTF-8 byte "B3.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:756: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.628 ...i mieć długość 32, 48 lub 64 znaków 
+l.756 ...i mieć długość 32, 48 lub 64 znaków 
                                                   hex
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3608,13 +3814,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć 
+l.760         error: 'Klucz musi mieć 
                                        długość 32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3623,13 +3829,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć 
+l.760         error: 'Klucz musi mieć 
                                        długość 32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3638,13 +3844,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć długość 
+l.760         error: 'Klucz musi mieć długość 
                                                   32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3653,13 +3859,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte "82.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte "82.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć długość 
+l.760         error: 'Klucz musi mieć długość 
                                                   32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3668,13 +3874,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć długość 
+l.760         error: 'Klucz musi mieć długość 
                                                   32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3683,13 +3889,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte "9B.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte "9B.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć długość 
+l.760         error: 'Klucz musi mieć długość 
                                                   32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3698,13 +3904,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć długość 
+l.760         error: 'Klucz musi mieć długość 
                                                   32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3713,13 +3919,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:632: LaTeX Error: Invalid UTF-8 byte "87.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:760: LaTeX Error: Invalid UTF-8 byte "87.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.632         error: 'Klucz musi mieć długość 
+l.760         error: 'Klucz musi mieć długość 
                                                   32 (AES-128), 48 (AES-192)...
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3728,13 +3934,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:644: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:772: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644   // Główne 
+l.772   // Główne 
                     metody szyfrowania wykorzystujące wybrany tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3743,13 +3949,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:644: LaTeX Error: Invalid UTF-8 byte "82.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:772: LaTeX Error: Invalid UTF-8 byte "82.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644   // Główne 
+l.772   // Główne 
                     metody szyfrowania wykorzystujące wybrany tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3758,13 +3964,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:644: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:772: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644   // Główne 
+l.772   // Główne 
                     metody szyfrowania wykorzystujące wybrany tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3773,13 +3979,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:644: LaTeX Error: Invalid UTF-8 byte "B3.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:772: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644   // Główne 
+l.772   // Główne 
                     metody szyfrowania wykorzystujące wybrany tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3788,13 +3994,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:644: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:772: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644 ...ówne metody szyfrowania wykorzystujące 
+l.772 ...ówne metody szyfrowania wykorzystujące 
                                                   wybrany tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3803,13 +4009,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:644: LaTeX Error: Invalid UTF-8 byte "85.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:772: LaTeX Error: Invalid UTF-8 byte "85.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644 ...ówne metody szyfrowania wykorzystujące 
+l.772 ...ówne metody szyfrowania wykorzystujące 
                                                   wybrany tryb
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3817,15 +4023,15 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[20]
+[23]
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:653: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:781: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.653 ...`Tryb ${this.mode} nie jest obsługiwany`
+l.781 ...`Tryb ${this.mode} nie jest obsługiwany`
                                                   );
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3834,13 +4040,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:653: LaTeX Error: Invalid UTF-8 byte "82.
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:781: LaTeX Error: Invalid UTF-8 byte "82.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.653 ...`Tryb ${this.mode} nie jest obsługiwany`
+l.781 ...`Tryb ${this.mode} nie jest obsługiwany`
                                                   );
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -3848,7 +4054,39 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[21] [22] [23] (main.aux)
+(C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2023/02/27 1.9 listings language file
+) (C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2023/02/27 1.9 listings language file
+)
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:787: Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.787 ...ipt, caption={Fragmenty klasy RSACipher}]
+                                                  
+The following languages weren't loadable:
+    ,typescript$
+This may cause errors in the sequel.
+
+
+c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex:787: Package Listings Error: language typescript undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.787 ...ipt, caption={Fragmenty klasy RSACipher}]
+                                                  
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[24] [25] [26] [27] [28] [29] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -3867,20 +4105,20 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  A1C7326AC47663301EEEE11EEF5ABC20;7898.
+(rerunfilecheck)             After:  2F60D27FE1420DC252973A203E9AE004;9577.
  ) 
 Here is how much of TeX's memory you used:
- 11809 strings out of 474485
- 184197 string characters out of 5743734
+ 11926 strings out of 474485
+ 186102 string characters out of 5743734
  2250542 words of memory out of 5000000
- 33616 multiletter control sequences out of 15000+600000
+ 33619 multiletter control sequences out of 15000+600000
  569501 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,79p,525b,1976s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\agnie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plbx12.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plmi12.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plmi8.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr12.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr17.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr8.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy10.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plti12.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/pltt10.pfb><C:/Users/agnie/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/pltt12.pfb>
-Output written on main.pdf (23 pages, 919056 bytes).
+Output written on main.pdf (29 pages, 952589 bytes).
 PDF statistics:
- 519 PDF objects out of 1000 (max. 8388607)
- 306 named destinations out of 1000 (max. 500000)
+ 667 PDF objects out of 1000 (max. 8388607)
+ 414 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

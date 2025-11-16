@@ -35,9 +35,10 @@ Celem aplikacji \textbf{CryptoLab Mobile} jest edukacja w zakresie kryptografii.
 Aplikacja mobilna pozwala szyfrować i deszyfrować teksty oraz pliki \texttt{.txt}, 
 sprawdzać poprawność kluczy oraz eksportować wyniki. 
 Aplikacja implementuje zarówno klasyczne szyfry historyczne (Cezara, Vigenère'a, szyfr z kluczem bieżącym), 
-jak i nowoczesny standard szyfrowania AES (Advanced Encryption Standard).
+nowoczesny standard szyfrowania symetrycznego AES (Advanced Encryption Standard),
+jak i przełomowy algorytm kryptografii asymetrycznej RSA (Rivest-Shamir-Adleman).
 Wszystkie algorytmy są implementowane ręcznie, bez użycia gotowych bibliotek kryptograficznych, 
-co pozwala na głębsze zrozumienie ich działania.
+co pozwala na głębsze zrozumienie ich działania i różnic między kryptografią symetryczną a asymetryczną.
 
 \section{Podstawy kryptografii klasycznej}
 
@@ -178,6 +179,7 @@ crypto-lab-mobile/
 │   │   ├── VigenereCipher.ts           (szyfr Vigenere'a)
 │   │   ├── RunningKeyCipher.ts         (szyfr z kluczem biezacym)
 │   │   ├── AESCipher.ts                (szyfr AES)
+│   │   ├── RSACipher.ts                (szyfr RSA)
 │   │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
 │   ├── components/
 │   │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
@@ -400,6 +402,132 @@ AES jest wykorzystywany w:
     \item komunikatory szyfrowane (Signal, WhatsApp),
     \item archiwizacja danych (7-Zip, WinRAR z szyfrowaniem AES).
 \end{itemize}
+
+\newpage
+\section{Kryptografia asymetryczna -- RSA}
+
+\subsection{Historia i znaczenie}
+RSA (Rivest-Shamir-Adleman) to pierwszy praktyczny algorytm kryptografii asymetrycznej, 
+opublikowany w 1977 roku przez Rona Rivesta, Adi Shamira i Leonarda Adlemana z MIT.
+RSA rozwiązał fundamentalny problem kryptografii symetrycznej: 
+\textbf{bezpieczną wymianę kluczy}.
+
+W kryptografii asymetrycznej każdy użytkownik posiada parę kluczy:
+\begin{itemize}
+    \item \textbf{klucz publiczny} -- może być swobodnie udostępniany, służy do szyfrowania,
+    \item \textbf{klucz prywatny} -- musi być tajny, służy do deszyfrowania.
+\end{itemize}
+
+To rewolucyjne podejście umożliwiło bezpieczną komunikację bez wcześniejszej wymiany tajnego klucza.
+
+\subsection{Podstawy matematyczne}
+Bezpieczeństwo RSA opiera się na trudności \textbf{faktoryzacji dużych liczb złożonych}. 
+Łatwo jest pomnożyć dwie duże liczby pierwsze, ale bardzo trudno rozłożyć ich iloczyn na czynniki pierwsze.
+
+\subsection{Model matematyczny}
+
+\textbf{Generowanie kluczy:}
+\begin{enumerate}
+    \item Wybierz dwie duże liczby pierwsze: $p$ i $q$
+    \item Oblicz moduł: $n = p \cdot q$
+    \item Oblicz funkcję Eulera: $\phi(n) = (p-1)(q-1)$
+    \item Wybierz wykładnik publiczny $e$, taki że: $1 < e < \phi(n)$ oraz $\gcd(e, \phi(n)) = 1$
+    \item Oblicz wykładnik prywatny $d$, taki że: $d \cdot e \equiv 1 \pmod{\phi(n)}$
+    \item Klucz publiczny: $(e, n)$
+    \item Klucz prywatny: $(d, n)$
+\end{enumerate}
+
+\textbf{Szyfrowanie i deszyfrowanie:}
+\begin{itemize}
+    \item Szyfrowanie (klucz publiczny): $c = m^e \bmod n$
+    \item Deszyfrowanie (klucz prywatny): $m = c^d \bmod n$
+    \item gdzie $m$ -- wiadomość, $c$ -- szyfrogram
+\end{itemize}
+
+\subsection{Przykład działania}
+Niech $p = 61$, $q = 53$:
+\begin{align*}
+n &= 61 \cdot 53 = 3233 \\
+\phi(n) &= 60 \cdot 52 = 3120 \\
+e &= 17 \quad (\gcd(17, 3120) = 1) \\
+d &= 2753 \quad (17 \cdot 2753 \equiv 1 \pmod{3120})
+\end{align*}
+
+\textbf{Klucz publiczny:} $(17, 3233)$ \\
+\textbf{Klucz prywatny:} $(2753, 3233)$
+
+Szyfrowanie litery 'A' (kod ASCII: 65):
+$$c = 65^{17} \bmod 3233 = 2790$$
+
+Deszyfrowanie:
+$$m = 2790^{2753} \bmod 3233 = 65$$
+
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Generowanie par kluczy z losowymi liczbami pierwszymi,
+    \item Dla celów edukacyjnych używa małych liczb pierwszych (100-300),
+    \item W praktyce RSA wymaga liczb o długości 2048+ bitów,
+    \item Implementuje algorytm Euklidesa dla obliczenia NWD,
+    \item Rozszerzony algorytm Euklidesa dla odwrotności modularnej,
+    \item Szybkie potęgowanie modularne dla efektywnego szyfrowania,
+    \item Format kluczy: "wykładnik,moduł" (np. "17,3233"),
+    \item Każdy znak tekstu szyfrowany osobno,
+    \item Wynik w postaci liczb rozdzielonych spacjami.
+\end{itemize}
+
+\subsection{Bezpieczeństwo}
+\begin{itemize}
+    \item RSA jest bezpieczny przy użyciu odpowiednio dużych kluczy (2048+ bitów),
+    \item Bezpieczeństwo opiera się na trudności faktoryzacji dużych liczb,
+    \item Zagrożenia:
+    \begin{itemize}
+        \item Komputery kwantowe (algorytm Shora może złamać RSA),
+        \item Zbyt małe klucze (łatwa faktoryzacja),
+        \item Słabe generatory liczb pierwszych,
+        \item Ataki czasowe (timing attacks) przy nieodpowiedniej implementacji.
+    \end{itemize}
+    \item Zalecenia:
+    \begin{itemize}
+        \item Minimum 2048 bitów dla zastosowań praktycznych,
+        \item 3072-4096 bitów dla długoterminowego bezpieczeństwa,
+        \item Używanie sprawdzonych bibliotek kryptograficznych w produkcji.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Zastosowania}
+RSA jest wykorzystywany w:
+\begin{itemize}
+    \item \textbf{Podpisy cyfrowe} -- uwierzytelnianie dokumentów i oprogramowania,
+    \item \textbf{Wymiana kluczy} -- bezpieczne przesyłanie kluczy symetrycznych (SSL/TLS),
+    \item \textbf{Certyfikaty SSL/TLS} -- zabezpieczenie połączeń HTTPS,
+    \item \textbf{SSH} -- bezpieczne logowanie do serwerów,
+    \item \textbf{PGP/GPG} -- szyfrowanie poczty elektronicznej,
+    \item \textbf{Blockchain} -- weryfikacja transakcji w kryptowalutach.
+\end{itemize}
+
+\subsection{RSA vs AES}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Cecha} & \textbf{RSA} & \textbf{AES} \\
+\hline
+Typ & Asymetryczny & Symetryczny \\
+\hline
+Klucze & Para: publiczny + prywatny & Jeden klucz dla obu stron \\
+\hline
+Szybkość & Wolniejszy (100-1000x) & Bardzo szybki \\
+\hline
+Rozmiar klucza & 2048-4096 bitów & 128-256 bitów \\
+\hline
+Wymiana klucza & Nie wymaga & Wymaga bezpiecznego kanału \\
+\hline
+Zastosowanie & Wymiana kluczy, podpisy & Szyfrowanie danych \\
+\hline
+\end{tabular}
+\end{center}
+
+W praktyce RSA i AES są używane razem: RSA do bezpiecznej wymiany klucza AES, 
+a następnie AES do szyfrowania właściwych danych (\textit{hybrid cryptography}).
 
 \newpage
 \section{Wybrane fragmenty kodu}
@@ -655,6 +783,89 @@ export default class AESCipher extends CryptographicAlgorithm {
 }
 \end{lstlisting}
 
+\subsection{Implementacja szyfru RSA}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy RSACipher}]
+export default class RSACipher extends CryptographicAlgorithm {
+  private keyPair: RSAKeyPair | null = null;
+
+  constructor() {
+    super(
+      'RSA (Rivest-Shamir-Adleman)',
+      'Asymetryczny algorytm kryptograficzny z kluczem publicznym i prywatnym',
+      'Kryptografia asymetryczna'
+    );
+  }
+
+  // Generuje pare kluczy RSA
+  generateKeyPair(bitSize: number = 512): RSAKeyPair {
+    const min = bitSize === 512 ? 100 : 50;
+    const max = bitSize === 512 ? 300 : 100;
+    
+    // Generuj dwie rozne liczby pierwsze
+    const p = generatePrime(min, max);
+    let q = generatePrime(min, max);
+    while (q === p) {
+      q = generatePrime(min, max);
+    }
+
+    const n = p * q;  // Modul
+    const phi = (p - 1) * (q - 1);  // Funkcja Eulera
+
+    // Wybierz e (wykladnik publiczny)
+    let e = 65537;
+    if (e >= phi) e = 17;
+    while (gcd(e, phi) !== 1) {
+      e++;
+    }
+
+    // Oblicz d (wykladnik prywatny)
+    const d = modInverse(e, phi);
+
+    this.keyPair = {
+      publicKey: { e, n },
+      privateKey: { d, n }
+    };
+
+    return this.keyPair;
+  }
+
+  encrypt(plaintext: string, key: string): string {
+    const [e, n] = key.split(',').map(p => parseInt(p.trim(), 10));
+
+    const encrypted: number[] = [];
+    for (let i = 0; i < plaintext.length; i++) {
+      const charCode = plaintext.charCodeAt(i);
+      
+      // Szyfrowanie: c = m^e mod n
+      const encryptedChar = Number(
+        modPow(BigInt(charCode), BigInt(e), BigInt(n))
+      );
+      encrypted.push(encryptedChar);
+    }
+
+    return encrypted.join(' ');
+  }
+
+  decrypt(ciphertext: string, key: string): string {
+    const [d, n] = key.split(',').map(p => parseInt(p.trim(), 10));
+    const encryptedNumbers = ciphertext.trim().split(/\s+/)
+      .map(s => parseInt(s, 10));
+    
+    const decrypted: string[] = [];
+    for (const encryptedChar of encryptedNumbers) {
+      // Deszyfrowanie: m = c^d mod n
+      const decryptedChar = Number(
+        modPow(BigInt(encryptedChar), BigInt(d), BigInt(n))
+      );
+      decrypted.push(String.fromCharCode(decryptedChar));
+    }
+
+    return decrypted.join('');
+  }
+}
+\end{lstlisting}
+
+\newpage
 \section{Podsumowanie}
 
 \subsection{Szyfr Cezara}
@@ -744,6 +955,50 @@ W przeciwieństwie do szyfrów klasycznych, AES jest używany w realnych systema
     \item ilustruje jak działa rzeczywiste szyfrowanie stosowane w praktyce.
 \end{itemize}
 
+\subsection{Szyfr RSA}
+RSA to przełomowy algorytm kryptografii asymetrycznej, który rozwiązał fundamentalny problem 
+bezpiecznej wymiany kluczy i wprowadził koncepcję kluczy publicznych.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item rozwiązuje problem wymiany kluczy -- nie wymaga bezpiecznego kanału,
+    \item umożliwia podpisy cyfrowe i uwierzytelnianie,
+    \item bezpieczny przy odpowiednio dużych kluczach (2048+ bitów),
+    \item szeroko stosowany i przetestowany w praktyce,
+    \item fundamentalna technologia dla PKI (Public Key Infrastructure),
+    \item umożliwia szyfrowanie hybrydowe w połączeniu z AES.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item znacznie wolniejszy niż algorytmy symetryczne (100-1000x),
+    \item wymaga dużych kluczy (2048-4096 bitów) dla bezpieczeństwa,
+    \item zagrożenie ze strony komputerów kwantowych,
+    \item złożona implementacja -- łatwo popełnić błędy bezpieczeństwa,
+    \item nie nadaje się do szyfrowania dużych ilości danych.
+\end{itemize}
+
+\textbf{Zastosowanie edukacyjne:}
+\begin{itemize}
+    \item wprowadza fundamentalną różnicę między kryptografią symetryczną i asymetryczną,
+    \item pokazuje matematyczne podstawy bezpieczeństwa (teoria liczb),
+    \item ilustruje koncepcję klucza publicznego i prywatnego,
+    \item demonstruje praktyczne zastosowania: wymiana kluczy, podpisy cyfrowe,
+    \item pozwala zrozumieć jak działa HTTPS, SSH i inne protokoły bezpieczeństwa.
+\end{itemize}
+
+\textbf{RSA w praktyce:}
+W rzeczywistych systemach RSA rzadko jest używany do bezpośredniego szyfrowania danych. 
+Zamiast tego stosuje się \textbf{szyfrowanie hybrydowe}:
+\begin{enumerate}
+    \item Generowany jest losowy klucz AES (symetryczny),
+    \item Dane szyfrowane są szybkim algorytmem AES,
+    \item Klucz AES szyfrowany jest wolnym, ale bezpiecznym RSA,
+    \item Przesyłany jest zaszyfrowany klucz AES + zaszyfrowane dane.
+\end{enumerate}
+
+To połączenie zapewnia zarówno bezpieczeństwo RSA, jak i szybkość AES.
+
 
 \section{Changelog}
 \label{sec:changelog}
@@ -756,6 +1011,11 @@ W przeciwieństwie do szyfrów klasycznych, AES jest używany w realnych systema
     Wsparcie dla kluczy AES-128, AES-192 i AES-256. \newline
     Dodanie paddingu PKCS\#7 i obsługi wektorów inicjalizujących (IV). \newline
     Pełna implementacja algorytmu AES bez użycia zewnętrznych bibliotek kryptograficznych.
+    \item \textbf{16.11.2025} Implementacja algorytmu RSA (Rivest-Shamir-Adleman) -- pierwszy algorytm kryptografii asymetrycznej w aplikacji. \newline
+    Generowanie par kluczy publiczny/prywatny z losowymi liczbami pierwszymi. \newline
+    Implementacja algorytmu Euklidesa, rozszerzonego algorytmu Euklidesa i szybkiego potęgowania modularnego. \newline
+    Dodanie kategorii "Kryptografia asymetryczna" w rejestrze algorytmów. \newline
+    Wprowadzenie koncepcji szyfrowania hybrydowego w dokumentacji.
 \end{itemize}
 
 

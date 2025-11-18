@@ -3,10 +3,13 @@
 // Wszystkie algorytmy implementowane są ręcznie, bez gotowych bibliotek
 // ============================================================================
 
+import logManager from '../utils/LogManager';
+
 export default class CryptographicAlgorithm {
   name: string;
   description: string;
   category: string;
+  protected enableLogging: boolean = true;
 
   constructor(name: string, description: string, category: string) {
     this.name = name;
@@ -28,5 +31,21 @@ export default class CryptographicAlgorithm {
 
   getKeyRequirements(): string {
     throw new Error('Metoda getKeyRequirements() musi być zaimplementowana');
+  }
+
+  /**
+   * Dodaj krok do logu (jeśli logowanie jest włączone)
+   */
+  protected logStep(description: string, input?: string, output?: string, details?: string): void {
+    if (this.enableLogging) {
+      logManager.addStep(description, input, output, details);
+    }
+  }
+
+  /**
+   * Włącz/wyłącz logowanie dla algorytmu
+   */
+  setLogging(enabled: boolean): void {
+    this.enableLogging = enabled;
   }
 }

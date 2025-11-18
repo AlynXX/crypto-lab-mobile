@@ -19,11 +19,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import * as Clipboard from 'expo-clipboard';
 import { registry } from './src/algorithms/AlgorithmRegistry';
 import AlgorithmSidebar from './src/components/AlgorithmSidebar';
+import LogsViewer from './src/components/LogsViewer';
 import { pickTextFile, saveTextFile } from './src/utils/fileUtils';
 import AESCipher from './src/algorithms/AESCipher';
 import RSACipher from './src/algorithms/RSACipher';
+import logManager from './src/utils/LogManager';
 
 export default function App() {
+  const [currentView, setCurrentView] = useState<'crypto' | 'logs'>('crypto');
   const [mode, setMode] = useState<'text' | 'file'>('text');
   const [operation, setOperation] = useState<'encrypt' | 'decrypt'>('encrypt');
   const [selectedAlgorithm, setSelectedAlgorithm] = useState('caesar');
@@ -90,14 +93,47 @@ export default function App() {
     }
 
     try {
+      // Rozpocznij logowanie operacji
+      logManager.startOperation();
+      
+      const startTime = Date.now();
       const result =
         operation === 'encrypt'
           ? currentAlgo.encrypt(inputText, key)
           : currentAlgo.decrypt(inputText, key);
+      const duration = Date.now() - startTime;
+      
       setOutputText(result);
+      
+      // Zapisz log operacji
+      logManager.finishOperation(
+        selectedAlgorithm,
+        currentAlgo.name,
+        operation,
+        inputText,
+        result,
+        key,
+        true,
+        undefined,
+        selectedAlgorithm === 'aes' ? aesMode : undefined
+      );
+      
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
       setError('Błąd podczas przetwarzania: ' + errorMessage);
+      
+      // Zapisz log błędu
+      logManager.finishOperation(
+        selectedAlgorithm,
+        currentAlgo.name,
+        operation,
+        inputText,
+        '',
+        key,
+        false,
+        errorMessage,
+        selectedAlgorithm === 'aes' ? aesMode : undefined
+      );
     }
   };
 
@@ -210,6 +246,50 @@ export default function App() {
         </View>
       </View>
 
+      {/* Navigation Tabs */}
+      <View style={styles.navigationTabs}>
+        <TouchableOpacity
+          style={[styles.navTab, currentView === 'crypto' && styles.navTabActive]}
+          onPress={() => setCurrentView('crypto')}
+        >
+          <MaterialIcons
+            name="lock"
+            size={20}
+            color={currentView === 'crypto' ? '#a78bfa' : '#94a3b8'}
+          />
+          <Text
+            style={[
+              styles.navTabText,
+              currentView === 'crypto' && styles.navTabTextActive,
+            ]}
+          >
+            Szyfrowanie
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.navTab, currentView === 'logs' && styles.navTabActive]}
+          onPress={() => setCurrentView('logs')}
+        >
+          <MaterialIcons
+            name="history"
+            size={20}
+            color={currentView === 'logs' ? '#a78bfa' : '#94a3b8'}
+          />
+          <Text
+            style={[
+              styles.navTabText,
+              currentView === 'logs' && styles.navTabTextActive,
+            ]}
+          >
+            Logi
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Conditional Content */}
+      {currentView === 'logs' ? (
+        <LogsViewer />
+      ) : (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.keyboardAvoidingView}
@@ -490,6 +570,7 @@ export default function App() {
           </ScrollView>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
+      )}
 
       {/* Sidebar Modal */}
       <Modal
@@ -764,6 +845,34 @@ const styles = StyleSheet.create({
   iconButton: {
     padding: 8,
     borderRadius: 8,
+  },
+  navigationTabs: {
+    flexDirection: 'row',
+    backgroundColor: '#1e293b',
+    borderBottomWidth: 1,
+    borderBottomColor: '#334155',
+  },
+  navTab: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 16,
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+  },
+  navTabActive: {
+    borderBottomColor: '#a78bfa',
+    backgroundColor: '#0f172a',
+  },
+  navTabText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#94a3b8',
+  },
+  navTabTextActive: {
+    color: '#a78bfa',
   },
   keyboardAvoidingView: {
     flex: 1,

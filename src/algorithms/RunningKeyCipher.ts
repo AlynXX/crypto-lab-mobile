@@ -61,21 +61,134 @@ export default class RunningKeyCipher extends CryptographicAlgorithm {
 
   encrypt(plaintext: string, _key?: string): string {
     // Generuj klucz automatycznie
-    const key = this.generateKey(plaintext.replace(/[^a-zA-Z]/g, '').length);
+    this.logStep('Rozpoczęcie szyfrowania z kluczem bieżącym', plaintext, undefined, 'Szyfr z kluczem bieżącym (Running Key Cipher) - rozszerzenie szyfru Vigenère\'a. Używa klucza o długości równej tekstowi. Każda litera tekstu jest dodawana (modulo 26) do odpowiedniej litery klucza.');
+    
+    const keyLength = plaintext.replace(/[^a-zA-Z]/g, '').length;
+    this.logStep('Obliczanie długości klucza', plaintext, undefined, `Liczymy tylko litery w tekście (pomijamy spacje, znaki interpunkcyjne). Znaleziono: ${keyLength} liter. Klucz musi mieć dokładnie tę samą długość, aby każda litera miała swoją parę w kluczu.`);
+    
+    const key = this.generateKey(keyLength);
+    this.logStep('Wygenerowano klucz losowy', undefined, key.substring(0, Math.min(100, key.length)) + (key.length > 100 ? '...' : ''), `Używamy generatora Lorem Ipsum do stworzenia losowego tekstu o długości ${key.length} liter. To symuluje użycie fragmentu książki lub długiego tekstu jako klucza. Klucz: "${key.substring(0, 30)}${key.length > 30 ? '...' : ''}"`);
+    
+    // Przykłady dla pierwszych 3 i ostatnich 2 znaków
+    const plaintextLetters = plaintext.replace(/[^a-zA-Z]/g, '');
+    if (plaintextLetters.length > 0) {
+      const examplesCount = Math.min(3, plaintextLetters.length);
+      for (let i = 0; i < examplesCount; i++) {
+        const char = plaintextLetters[i];
+        const keyChar = key[i];
+        const charCode = char.toUpperCase().charCodeAt(0) - 65;
+        const keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
+        const resultCode = (charCode + keyCode) % 26;
+        const resultChar = String.fromCharCode(resultCode + 65);
+        
+        this.logStep(
+          `Przykład: Litera ${i + 1}`,
+          `Tekst: '${char}' (pozycja ${charCode})`,
+          `Wynik: '${resultChar}' (pozycja ${resultCode})`,
+          `Klucz: '${keyChar}' (poz. ${keyCode}). Obliczenie: (${charCode} + ${keyCode}) mod 26 = ${resultCode}. Formuła: C = (P + K) mod 26, gdzie P=plaintext, K=key, C=ciphertext. Modulo 26 bo mamy 26 liter w alfabecie.`
+        );
+      }
+      
+      // Ostatnie 2 znaki
+      if (plaintextLetters.length > 5) {
+        this.logStep('Pominięto środkowe znaki', undefined, undefined, `Zaszyfrowano ${plaintextLetters.length - 5} znaków środkowych tym samym procesem (dodawanie modulo 26). Pokazano pierwsze 3 i ostatnie 2 dla zwięzłości.`);
+        
+        for (let i = Math.max(plaintextLetters.length - 2, 3); i < plaintextLetters.length; i++) {
+          const char = plaintextLetters[i];
+          const keyChar = key[i];
+          const charCode = char.toUpperCase().charCodeAt(0) - 65;
+          const keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
+          const resultCode = (charCode + keyCode) % 26;
+          const resultChar = String.fromCharCode(resultCode + 65);
+          
+          this.logStep(
+            `Przykład: Litera ${i + 1} (${i === plaintextLetters.length - 1 ? 'ostatnia' : 'przedostatnia'})`,
+            `Tekst: '${char}' (poz. ${charCode})`,
+            `Wynik: '${resultChar}' (poz. ${resultCode})`,
+            `Klucz: '${keyChar}' (poz. ${keyCode}). Obliczenie: (${charCode} + ${keyCode}) mod 26 = ${resultCode}`
+          );
+        }
+      }
+    }
+    
+    this.logStep('Szyfrowanie całego tekstu', plaintext, undefined, `Proces: Każda litera tekstu jest dodawana do odpowiadającej litery klucza (modulo 26). Znaki niebędące literami (spacje, cyfry, interpunkcja) pozostają niezmienione.`);
+    
     const ciphertext = this._process(plaintext, key, true);
+    
+    this.logStep('Zaszyfrowany tekst', plaintext, ciphertext, `Wszystkie litery zostały zaszyfrowane. Długość tekstu: ${plaintext.length} znaków (${plaintextLetters.length} liter). Wynik zawiera te same znaki niealfabetyczne na tych samych pozycjach.`);
+    
     // Zwróć klucz i zaszyfrowany tekst w formacie: <klucz>::<zaszyfrowany_tekst>
-    return `${key}::${ciphertext}`;
+    const result = `${key}::${ciphertext}`;
+    this.logStep('Zakończenie szyfrowania', plaintext, ciphertext, `Format wyniku: KLUCZ::SZYFROGRAM. Klucz musi być przekazany odbiorcy (bezpiecznym kanałem!), aby mógł odszyfować wiadomość. Bez klucza deszyfrowanie jest praktycznie niemożliwe. Klucz: ${key.length} znaków.`);
+    return result;
   }
 
   decrypt(ciphertext: string, _key?: string): string {
     // Oczekujemy formatu: <klucz>::<zaszyfrowany_tekst>
+    this.logStep('Rozpoczęcie deszyfrowania z kluczem bieżącym', ciphertext.substring(0, 100) + (ciphertext.length > 100 ? '...' : ''), undefined, 'Deszyfrowanie szyfru z kluczem bieżącym. Proces odwrotny do szyfrowania: od każdej litery szyfrogramu odejmujemy (modulo 26) odpowiadającą literę klucza.');
+    
     const parts = ciphertext.split('::');
     if (parts.length !== 2) {
+      this.logStep('Błąd formatu danych', ciphertext, undefined, 'Oczekiwano formatu: KLUCZ::SZYFROGRAM. Znak "::" oddziela klucz od zaszyfrowanej wiadomości. Sprawdź, czy dane zostały prawidłowo skopiowane.');
       throw new Error('Nieprawidłowy format zaszyfrowanego tekstu. Brak klucza.');
     }
+    
     const key = parts[0];
     const encrypted = parts[1];
-    return this._process(encrypted, key, false);
+    
+    this.logStep('Wyekstrahowano klucz', undefined, key.substring(0, Math.min(100, key.length)) + (key.length > 100 ? '...' : ''), `Klucz o długości ${key.length} znaków został pomyślnie wyodrębniony z szyfrogramu. Klucz: "${key.substring(0, 30)}${key.length > 30 ? '...' : ''}". Ten sam klucz był użyty przy szyfrowaniu.`);
+    
+    this.logStep('Wyekstrahowano szyfrogram', undefined, encrypted, `Zaszyfrowana wiadomość o długości ${encrypted.length} znaków. Liczba liter do odszyfrowania: ${encrypted.replace(/[^a-zA-Z]/g, '').length}. Teraz odejmiemy wartości klucza od każdej litery.`);
+    
+    // Przykłady dla pierwszych 3 i ostatnich 2 znaków
+    const encryptedLetters = encrypted.replace(/[^a-zA-Z]/g, '');
+    if (encryptedLetters.length > 0) {
+      const examplesCount = Math.min(3, encryptedLetters.length);
+      for (let i = 0; i < examplesCount; i++) {
+        const char = encryptedLetters[i];
+        const keyChar = key[i];
+        const charCode = char.toUpperCase().charCodeAt(0) - 65;
+        const keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
+        const resultCode = (charCode - keyCode + 26) % 26;
+        const resultChar = String.fromCharCode(resultCode + 65);
+        
+        this.logStep(
+          `Przykład: Litera ${i + 1}`,
+          `Szyfrogram: '${char}' (poz. ${charCode})`,
+          `Oryginał: '${resultChar}' (poz. ${resultCode})`,
+          `Klucz: '${keyChar}' (poz. ${keyCode}). Obliczenie: (${charCode} - ${keyCode} + 26) mod 26 = ${resultCode}. Formuła: P = (C - K + 26) mod 26, gdzie C=ciphertext, K=key, P=plaintext. +26 zapewnia, że wynik jest dodatni.`
+        );
+      }
+      
+      // Ostatnie 2 znaki
+      if (encryptedLetters.length > 5) {
+        this.logStep('Pominięto środkowe znaki', undefined, undefined, `Odszyfrowano ${encryptedLetters.length - 5} znaków środkowych tym samym procesem (odejmowanie modulo 26). Pokazano pierwsze 3 i ostatnie 2 dla przejrzystości logów.`);
+        
+        for (let i = Math.max(encryptedLetters.length - 2, 3); i < encryptedLetters.length; i++) {
+          const char = encryptedLetters[i];
+          const keyChar = key[i];
+          const charCode = char.toUpperCase().charCodeAt(0) - 65;
+          const keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
+          const resultCode = (charCode - keyCode + 26) % 26;
+          const resultChar = String.fromCharCode(resultCode + 65);
+          
+          this.logStep(
+            `Przykład: Litera ${i + 1} (${i === encryptedLetters.length - 1 ? 'ostatnia' : 'przedostatnia'})`,
+            `Szyfrogram: '${char}' (poz. ${charCode})`,
+            `Oryginał: '${resultChar}' (poz. ${resultCode})`,
+            `Klucz: '${keyChar}' (poz. ${keyCode}). Obliczenie: (${charCode} - ${keyCode} + 26) mod 26 = ${resultCode}`
+          );
+        }
+      }
+    }
+    
+    this.logStep('Deszyfrowanie całego tekstu', encrypted, undefined, `Proces: Od każdej litery szyfrogramu odejmujemy odpowiadającą literę klucza (modulo 26). Znaki niebędące literami są kopiowane bez zmian. Operacja odwrotna do szyfrowania.`);
+    
+    const result = this._process(encrypted, key, false);
+    
+    this.logStep('Zakończenie deszyfrowania', encrypted, result, `Wszystkie litery zostały pomyślnie odszyfrowane! Odzyskano oryginalny tekst o długości ${result.length} znaków (${result.replace(/[^a-zA-Z]/g, '').length} liter). Bez znajomości klucza deszyfrowanie byłoby praktycznie niemożliwe.`);
+    
+    return result;
   }
 
   private _process(text: string, key: string, encrypt: boolean): string {

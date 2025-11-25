@@ -8,6 +8,8 @@ import VigenereCipher from './VigenereCipher';
 import RunningKeyCipher from './RunningKeyCipher';
 import AESCipher from './AESCipher';
 import RSACipher from './RSACipher';
+import ECDHAlgorithm from './ECDHAlgorithm';
+import ElGamalCipher from './ElGamalCipher';
 
 export interface AlgorithmInfo {
   id: string;
@@ -36,6 +38,8 @@ class AlgorithmRegistry {
     this.register('running-key', new RunningKeyCipher());
     this.register('aes', new AESCipher());
     this.register('rsa', new RSACipher());
+    this.register('ecdh', new ECDHAlgorithm());
+    this.register('elgamal', new ElGamalCipher());
   }
 
   register(id: string, algorithm: CryptographicAlgorithm) {

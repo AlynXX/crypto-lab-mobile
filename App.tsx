@@ -23,6 +23,8 @@ import LogsViewer from './src/components/LogsViewer';
 import { pickTextFile, saveTextFile } from './src/utils/fileUtils';
 import AESCipher from './src/algorithms/AESCipher';
 import RSACipher from './src/algorithms/RSACipher';
+import ECDHAlgorithm from './src/algorithms/ECDHAlgorithm';
+import ElGamalCipher from './src/algorithms/ElGamalCipher';
 import logManager from './src/utils/LogManager';
 
 export default function App() {
@@ -55,6 +57,10 @@ export default function App() {
         return 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG';
       case 'aes':
         return AESCipher.DEFAULT_KEY;
+      case 'ecdh':
+        return '';
+      case 'elgamal':
+        return '';
       default:
         return '';
     }
@@ -193,6 +199,38 @@ export default function App() {
       
       setRsaPublicKey(publicKey);
       setRsaPrivateKey(privateKey);
+      setShowRSAKeysModal(true);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
+      Alert.alert('Błąd', 'Nie udało się wygenerować kluczy: ' + errorMessage);
+    }
+  };
+
+  const handleGenerateECDHKeys = () => {
+    try {
+      const ecdh = new ECDHAlgorithm();
+      const keyPair = ecdh.generateKeyPair();
+      
+      setRsaPublicKey(keyPair.publicKey);
+      setRsaPrivateKey(keyPair.privateKey);
+      setShowRSAKeysModal(true);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
+      Alert.alert('Błąd', 'Nie udało się wygenerować kluczy: ' + errorMessage);
+    }
+  };
+
+  const handleGenerateElGamalKeys = () => {
+    try {
+      const elgamal = new ElGamalCipher();
+      const keyPair = elgamal.generateKeyPair();
+      
+      // Formatowanie kluczy do wyświetlenia
+      const pubKey = `${keyPair.publicKey.p},${keyPair.publicKey.g},${keyPair.publicKey.y}`;
+      const privKey = `${keyPair.privateKey.x},${keyPair.privateKey.p}`;
+
+      setRsaPublicKey(pubKey);
+      setRsaPrivateKey(privKey);
       setShowRSAKeysModal(true);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Nieznany błąd';
@@ -463,10 +501,14 @@ export default function App() {
             <View style={styles.section}>
               <View style={styles.labelWithButton}>
                 <Text style={styles.label}>Klucz</Text>
-                {selectedAlgorithm === 'rsa' && (
+                {(selectedAlgorithm === 'rsa' || selectedAlgorithm === 'ecdh' || selectedAlgorithm === 'elgamal') && (
                   <TouchableOpacity 
                     style={styles.generateKeysButton}
-                    onPress={handleGenerateRSAKeys}
+                    onPress={() => {
+                      if (selectedAlgorithm === 'rsa') handleGenerateRSAKeys();
+                      else if (selectedAlgorithm === 'ecdh') handleGenerateECDHKeys();
+                      else if (selectedAlgorithm === 'elgamal') handleGenerateElGamalKeys();
+                    }}
                   >
                     <MaterialIcons name="vpn-key" size={16} color="#fff" />
                     <Text style={styles.generateKeysButtonText}>Generuj klucze</Text>
@@ -611,7 +653,11 @@ export default function App() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Wygenerowane klucze RSA</Text>
+              <Text style={styles.modalTitle}>
+                {selectedAlgorithm === 'ecdh' ? 'Wygenerowane klucze ECDH' : 
+                 selectedAlgorithm === 'elgamal' ? 'Wygenerowane klucze ElGamal' : 
+                 'Wygenerowane klucze RSA'}
+              </Text>
               <TouchableOpacity onPress={() => setShowRSAKeysModal(false)}>
                 <MaterialIcons name="close" size={24} color="#fff" />
               </TouchableOpacity>

@@ -160,8 +160,10 @@ co umożliwia łatwe dodawanie nowych szyfrów bez modyfikacji głównej aplikac
 \begin{itemize}
     \item \textbf{App.tsx} -- główny komponent aplikacji, obsługuje interfejs użytkownika,
     \item \textbf{AlgorithmSidebar.tsx} -- boczny panel z listą dostępnych algorytmów,
+    \item \textbf{LogsViewer.tsx} -- komponent wyświetlania historii operacji kryptograficznych,
     \item \textbf{AlgorithmRegistry.ts} -- rejestr i zarządzanie algorytmami,
     \item \textbf{CryptographicAlgorithm.ts} -- klasa bazowa dla wszystkich algorytmów,
+    \item \textbf{LogManager.ts} -- menadżer logów z wzorcem Singleton,
     \item \textbf{fileUtils.ts} -- funkcje do obsługi operacji na plikach.
 \end{itemize}
 
@@ -182,9 +184,13 @@ crypto-lab-mobile/
 │   │   ├── RSACipher.ts                (szyfr RSA)
 │   │   └── AlgorithmRegistry.ts        (rejestr algorytmow)
 │   ├── components/
-│   │   └── AlgorithmSidebar.tsx        (panel z algorytmami)
+│   │   ├── AlgorithmSidebar.tsx        (panel z algorytmami)
+│   │   └── LogsViewer.tsx              (wyswietlanie logow)
+│   ├── types/
+│   │   └── LogTypes.ts                 (typy dla systemu logow)
 │   └── utils/
-│       └── fileUtils.ts                (obsluga plikow)
+│       ├── fileUtils.ts                (obsluga plikow)
+│       └── LogManager.ts               (zarzadzanie logami)
 └── assets/                          (zasoby graficzne)
 \end{lstlisting}
 \section{Implementacja szyfru Cezara}
@@ -1071,6 +1077,121 @@ Zamiast tego stosuje się \textbf{szyfrowanie hybrydowe}:
 
 To połączenie zapewnia zarówno bezpieczeństwo RSA, jak i szybkość AES.
 
+\section{System logowania operacji}
+\label{sec:logging}
+
+Aplikacja CryptoLab Mobile zawiera zaawansowany system logowania, 
+który rejestruje wszystkie operacje kryptograficzne wykonywane przez użytkownika. 
+System ten służy celom edukacyjnym i analitycznym, 
+umożliwiając śledzenie historii operacji oraz analizę kroków algorytmów.
+
+\subsection{Architektura systemu logowania}
+
+System logowania składa się z trzech głównych komponentów:
+
+\begin{description}
+    \item[\textbf{LogManager.ts}] 
+    Singleton zarządzający całym systemem logowania. 
+    Odpowiada za:
+    \begin{itemize}
+        \item rozpoczynanie i kończenie operacji kryptograficznych,
+        \item rejestrowanie kroków pośrednich w algorytmach,
+        \item zapisywanie logów w pamięci trwałej (AsyncStorage),
+        \item powiadamianie komponentów UI o zmianach w logach,
+        \item zarządzanie liczbą przechowywanych logów (maksymalnie 100).
+    \end{itemize}
+
+    \item[\textbf{LogTypes.ts}] 
+    Definicje typów TypeScript dla systemu logowania:
+    \begin{itemize}
+        \item \texttt{LogStep} -- pojedynczy krok w algorytmie,
+        \item \texttt{CryptoLogEntry} -- kompletny wpis logu operacji,
+        \item \texttt{LogFilter} -- filtry wyszukiwania logów,
+        \item \texttt{LogStats} -- statystyki użycia algorytmów.
+    \end{itemize}
+
+    \item[\textbf{LogsViewer.tsx}] 
+    Komponent React Native wyświetlający historię operacji. 
+    Funkcjonalności:
+    \begin{itemize}
+        \item wyświetlanie listy wszystkich operacji z timestampami,
+        \item filtrowanie logów (wszystkie/szyfrowanie/deszyfrowanie),
+        \item podgląd szczegółów operacji krok po kroku,
+        \item eksport wyników do schowka,
+        \item usuwanie pojedynczych logów lub czyszczenie całej historii,
+        \item wyświetlanie statystyk (liczba operacji, najczęściej używany algorytm).
+    \end{itemize}
+\end{description}
+
+\subsection{Rejestrowane informacje}
+
+Każdy wpis logu (\texttt{CryptoLogEntry}) zawiera:
+
+\begin{itemize}
+    \item \textbf{Metadane:} ID, timestamp, nazwa algorytmu, typ operacji (encrypt/decrypt)
+    \item \textbf{Dane operacji:} tekst wejściowy, tekst wyjściowy, klucz (maskowany dla bezpieczeństwa)
+    \item \textbf{Parametry:} tryb pracy (dla AES), długość klucza
+    \item \textbf{Status:} sukces/błąd, komunikat błędu (jeśli wystąpił)
+    \item \textbf{Wydajność:} czas wykonania operacji w milisekundach
+    \item \textbf{Kroki algorytmu:} szczegółowy przebieg operacji z danymi pośrednimi
+\end{itemize}
+
+\subsection{Kroki algorytmu}
+
+System loguje szczegółowe kroki wykonywania algorytmów (\texttt{LogStep}), co pozwala użytkownikom:
+\begin{itemize}
+    \item zrozumieć jak działa algorytm krok po kroku,
+    \item zobaczyć transformacje danych na każdym etapie,
+    \item debugować problemy z szyfrowaniem/deszyfrowaniem,
+    \item analizować różnice między algorytmami.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/logs.jpg}
+    \caption{Ekran przeglądu logów}
+    \label{fig:logs}
+\end{figure}
+Rysunek \ref{fig:logs} przedstawia ekran przeglądu logów w aplikacji CryptoLab Mobile.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/logs_all.jpg}
+    \includegraphics[width=0.3\textwidth]{img/logs_all_end.jpg}
+    \caption{Szczegółowe logi dla przykładowej operacji}
+    \label{fig:logdetails}
+\end{figure}
+Rysunek \ref{fig:logdetails} przedstawia szczegółowe logi dla przykładowej operacji szyfrowania w aplikacji CryptoLab Mobile.
+\subsection{Bezpieczeństwo kluczy}
+
+System automatycznie maskuje klucze w logach:
+\begin{itemize}
+    \item Krótkie klucze (do 10 znaków) -- wyświetlane w całości
+    \item Średnie klucze (11-30 znaków) -- maskowane środkowe znaki
+    \item Długie klucze (powyżej 30 znaków) -- pokazane tylko pierwsze i ostatnie 10 znaków
+    \item Klucze RSA -- maskowane dla bezpieczeństwa
+\end{itemize}
+
+\subsection{Statystyki}
+
+LogManager oblicza i udostępnia statystyki użycia:
+\begin{itemize}
+    \item łączna liczba operacji szyfrowania i deszyfrowania,
+    \item najczęściej używany algorytm,
+    \item wskaźnik sukcesu operacji,
+    \item średni czas wykonania operacji.
+\end{itemize}
+
+\subsection{Zastosowanie edukacyjne}
+
+System logowania ma kluczowe znaczenie edukacyjne:
+\begin{itemize}
+    \item pozwala studentom zobaczyć jak algorytmy działają \textit{od środka},
+    \item umożliwia porównanie kroków różnych algorytmów,
+    \item pomaga zrozumieć złożoność obliczeniową,
+    \item wspiera analizę błędów i debugowanie,
+    \item dostarcza danych do tworzenia raportów i prezentacji.
+\end{itemize}
+
 
 \section{Changelog}
 \label{sec:changelog}
@@ -1089,6 +1210,15 @@ To połączenie zapewnia zarówno bezpieczeństwo RSA, jak i szybkość AES.
     Dodanie kategorii "Kryptografia asymetryczna" w rejestrze algorytmów. \newline
     Wprowadzenie koncepcji szyfrowania hybrydowego w dokumentacji. \newline
     \textbf{Dodanie GUI do generowania kluczy RSA} -- przycisk "Generuj klucze" z modalem wyświetlającym klucz publiczny i prywatny, możliwość kopiowania i bezpośredniego użycia kluczy w aplikacji.
+    \item \textbf{24.11.2025} Implementacja zaawansowanego systemu logowania operacji kryptograficznych. \newline
+    Utworzenie \texttt{LogManager} z wzorcem Singleton do centralnego zarządzania logami. \newline
+    Dodanie komponentu \texttt{LogsViewer} do wyświetlania historii operacji z interfejsem użytkownika. \newline
+    Rejestrowanie szczegółowych kroków algorytmów dla celów edukacyjnych. \newline
+    Przechowywanie logów w AsyncStorage z limitem 100 wpisów. \newline
+    Funkcje filtrowania, usuwania i eksportu logów. \newline
+    Automatyczne maskowanie kluczy dla bezpieczeństwa. \newline
+    Statystyki użycia algorytmów (liczba operacji, najczęściej używany algorytm, czas wykonania). \newline
+    Integracja systemu logowania ze wszystkimi algorytmami (Cezar, Vigenère, Running Key, AES, RSA).
 \end{itemize}
 
 

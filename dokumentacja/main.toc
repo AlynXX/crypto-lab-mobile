@@ -58,4 +58,11 @@
 \contentsline {subsection}{\numberline {13.3}Szyfr z kluczem bieżącym}{32}{subsection.13.3}%
 \contentsline {subsection}{\numberline {13.4}Szyfr AES}{32}{subsection.13.4}%
 \contentsline {subsection}{\numberline {13.5}Szyfr RSA}{33}{subsection.13.5}%
-\contentsline {section}{\numberline {14}Changelog}{34}{section.14}%
+\contentsline {section}{\numberline {14}System logowania operacji}{34}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Architektura systemu logowania}{34}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Rejestrowane informacje}{34}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Kroki algorytmu}{35}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Bezpieczeństwo kluczy}{36}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.5}Statystyki}{36}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Zastosowanie edukacyjne}{37}{subsection.14.6}%
+\contentsline {section}{\numberline {15}Changelog}{37}{section.15}%

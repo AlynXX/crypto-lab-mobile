@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1763319607.9827 "c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex" "main.pdf" "main" 1763319610.00465 2
+["pdflatex"] 1764005786.93689 "c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex" "main.pdf" "main" 1764005789.50551 2
   "C:/Users/agnie/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1761044529 127065 b7a934a19b3774f601e6e566ce19dad0 ""
   "C:/Users/agnie/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1760959078 14064 26163b8ff9b05fefb1910602dab50508 ""
   "C:/Users/agnie/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1758045966 24225087 6e6e2e5120fdba495e6139dccac6c860 ""
@@ -103,7 +103,7 @@
   "C:/Users/agnie/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/agnie/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/agnie/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex" 1763319604 45252 0932bb0f6a7a741201d49257172616ea ""
+  "c:/Users/agnie/Desktop/crypto-lab-mobile/dokumentacja/main.tex" 1764005783 51381 77cdaad9dab40b5bbbb604c00f7acf13 ""
   "img/CBC.jpg" 1761649889 79763 93294626d2c94cf01ba8693d95f582f0 ""
   "img/CTR.jpg" 1761649891 75268 8b6bf4dee798aa51b84fdf32d52f508e ""
   "img/ECB.jpg" 1761649887 75701 a2d5d6475352b0b8352e7481e8e20054 ""
@@ -113,14 +113,17 @@
   "img/RSA_szyfrowanie.jpg" 1763319182 352475 6e8dd94f690ecd15d616b239c02f30ce ""
   "img/Szyfr_z_kb.jpg" 0 -1 0 ""
   "img/lista_wyboru.jpg" 1763319185 365873 1c16aad6dfebe7a2c2cc0492fba42f6f ""
+  "img/logs.jpg" 1764005265 337249 11c57405ae5f62f3056f5e9a7492ab4b ""
+  "img/logs_all.jpg" 1764005265 450008 d21e94f737b87c32dbf7a5078f36e68b ""
+  "img/logs_all_end.jpg" 1764005265 464678 e56226867370cdda0aa30bb1b2bcf1ad ""
   "img/strona_glownaAES.jpg" 1761649893 87709 40256d08d1a8a6fe98e5ade172112b91 ""
   "img/szyfr_cezara.jpg" 1760950898 148510 bf4c70b8e65e75166e72609d551a53b6 ""
   "img/szyfr_vigenerea.jpg" 0 -1 0 ""
   "img/test_cezara.jpg" 1760950898 146763 ef5051d402f9e766561bf072ba181519 ""
-  "main.aux" 1763319609 11627 2f1d4338e36d18780f07944ccf3ffb93 "pdflatex"
-  "main.out" 1763319609 9779 c6a35c2fcea2da11e378ed2776a3e045 "pdflatex"
-  "main.tex" 1763319604 45252 0932bb0f6a7a741201d49257172616ea ""
-  "main.toc" 1763319609 5215 d5be38ed6978b74de1eeda56844e145b "pdflatex"
+  "main.aux" 1764005788 13069 252d3c31a547f6777879997a74ffb849 "pdflatex"
+  "main.out" 1764005788 10946 b841400d9853c12a72f7dfced11ca8b0 "pdflatex"
+  "main.tex" 1764005783 51381 77cdaad9dab40b5bbbb604c00f7acf13 ""
+  "main.toc" 1764005788 5836 6ae3807cd41b9cf6c87cc3c296b9b8da "pdflatex"
   (generated)
   "main.aux"
   "main.log"

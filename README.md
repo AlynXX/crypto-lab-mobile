@@ -11,9 +11,13 @@ CryptoLab Mobile to edukacyjna platforma do nauki algorytmów kryptograficznych.
 - 🔐 **Szyfr Cezara** - klasyczny szyfr substytucyjny z przesunięciem
 - 🔠 **Szyfr Vigenère'a** - polialfabetyczny szyfr z kluczem słownym
 - 📖 **Szyfr z kluczem bieżącym** - wariant Vigenère'a z długim kluczem
+- 🔒 **AES** - nowoczesny szyfr symetryczny z trybami ECB, CBC, CTR
+- 🔑 **RSA** - algorytm kryptografii asymetrycznej z generowaniem kluczy
 -  **Tryb tekstowy** - bezpośrednie wprowadzanie tekstu
 - 📁 **Tryb plików** - wczytywanie i zapisywanie plików tekstowych
 - 🔄 **Szyfrowanie i deszyfrowanie**
+- 📊 **System logowania** - historia operacji z analizą krok po kroku
+- 📈 **Statystyki** - analiza użycia algorytmów i czasu wykonania
 - 📚 **Dokumentacja** - wbudowana dokumentacja algorytmów z historią i wzorami matematycznymi
 - ⌨️ **Inteligentna obsługa klawiatury** - automatyczne dostosowanie widoku
 - 🎨 **Ciemny interfejs** - przyjazny dla oczu
@@ -53,11 +57,17 @@ crypto-lab-mobile/
 │   │   ├── CaesarCipher.ts
 │   │   ├── VigenereCipher.ts
 │   │   ├── RunningKeyCipher.ts
+│   │   ├── AESCipher.ts
+│   │   ├── RSACipher.ts
 │   │   └── AlgorithmRegistry.ts
 │   ├── components/          # Komponenty UI
-│   │   └── AlgorithmSidebar.tsx
+│   │   ├── AlgorithmSidebar.tsx
+│   │   └── LogsViewer.tsx
+│   ├── types/              # Typy TypeScript
+│   │   └── LogTypes.ts
 │   └── utils/              # Funkcje pomocnicze
-│       └── fileUtils.ts
+│       ├── fileUtils.ts
+│       └── LogManager.ts
 ├── App.tsx                 # Główny komponent aplikacji
 ├── app.json               # Konfiguracja Expo
 └── package.json
@@ -106,6 +116,35 @@ npm run web
 - **expo-file-system** - operacje na plikach
 - **expo-sharing** - udostępnianie plików
 - **@expo/vector-icons** - ikony Material Design
+- **@react-native-async-storage/async-storage** - przechowywanie logów lokalnie
+
+## System logowania
+
+Aplikacja zawiera zaawansowany system rejestrowania operacji kryptograficznych:
+
+### Funkcje
+- 📝 **Historia operacji** - automatyczne zapisywanie wszystkich operacji szyfrowania/deszyfrowania
+- 🔍 **Analiza krok po kroku** - szczegółowy przebieg każdego algorytmu
+- 📊 **Statystyki** - liczba operacji, najczęściej używany algorytm, czasy wykonania
+- 🔒 **Bezpieczeństwo** - automatyczne maskowanie kluczy w logach
+- 🗂️ **Filtrowanie** - wyświetlanie wszystkich operacji lub tylko szyfrowania/deszyfrowania
+- 💾 **Persistent storage** - logi są zapisywane lokalnie (AsyncStorage)
+- 🗑️ **Zarządzanie** - możliwość usuwania pojedynczych logów lub czyszczenia całej historii
+
+### Rejestrowane informacje
+Każdy log zawiera:
+- Nazwę algorytmu i typ operacji (encrypt/decrypt)
+- Tekst wejściowy i wyjściowy
+- Klucz (maskowany dla bezpieczeństwa)
+- Parametry (np. tryb AES)
+- Status operacji i ewentualne błędy
+- Czas wykonania w milisekundach
+- Szczegółowe kroki algorytmu z danymi pośrednimi
+
+### Architektura
+- **LogManager** - Singleton zarządzający logami
+- **LogsViewer** - Komponent UI do wyświetlania historii
+- **LogTypes** - Definicje typów TypeScript
 
 ## Jak dodać nowy algorytm
 
@@ -179,6 +218,41 @@ Projekt edukacyjny.
 - Tekst: `HELLO`
 - Klucz: `THE QUICK BROWN FOX`
 - Wynik: (zależy od pełnego klucza)
+
+## Changelog
+
+### 24.11.2025
+- ✨ Implementacja zaawansowanego systemu logowania operacji
+- 📊 Dodanie komponentu LogsViewer do wyświetlania historii
+- 💾 Przechowywanie logów w AsyncStorage (max 100 wpisów)
+- 🔍 Szczegółowe kroki algorytmów dla celów edukacyjnych
+- 📈 Statystyki użycia algorytmów i czasów wykonania
+- 🔒 Automatyczne maskowanie kluczy w logach
+- 🗑️ Funkcje filtrowania, usuwania i eksportu logów
+
+### 16.11.2025
+- ✨ Implementacja algorytmu RSA (kryptografia asymetryczna)
+- 🔑 Generator par kluczy publiczny/prywatny
+- 🧮 Algorytmy: Euklides, rozszerzony Euklides, szybkie potęgowanie modularne
+- 🎨 GUI do generowania kluczy RSA z możliwością kopiowania
+
+### 28.10.2025
+- ✨ Implementacja szyfru AES (Advanced Encryption Standard)
+- 🔐 Obsługa trzech trybów pracy: ECB, CBC, CTR
+- 🔑 Wsparcie dla kluczy AES-128, AES-192, AES-256
+- 📦 Padding PKCS#7 i obsługa wektorów inicjalizujących (IV)
+
+### 20.10.2025
+- ✨ Dodanie szyfru Vigenère'a i szyfru z kluczem bieżącym
+- 🎨 Ulepszenie interfejsu użytkownika
+- 🏗️ Implementacja AlgorithmRegistry (Singleton)
+- ✅ Ulepszona walidacja kluczy
+
+### 14.10.2025
+- 🎉 Pierwsza wersja z szyfrem Cezara
+- 🎨 Podstawowe GUI
+
+
 
 
 

@@ -577,6 +577,220 @@ W praktyce RSA i AES są używane razem: RSA do bezpiecznej wymiany klucza AES,
 a następnie AES do szyfrowania właściwych danych (\textit{hybrid cryptography}).
 
 \newpage
+\section{Algorytm ElGamal}
+
+\subsection{Historia i znaczenie}
+System szyfrowania ElGamal został zaproponowany przez Tahera ElGamala w 1985 roku. 
+Jest to asymetryczny algorytm klucza publicznego, którego bezpieczeństwo opiera się na trudności problemu \textbf{logarytmu dyskretnego} w ciałach skończonych. 
+Algorytm ten jest rozwinięciem protokołu wymiany kluczy Diffiego-Hellmana.
+
+\subsection{Model matematyczny}
+Bezpieczeństwo systemu opiera się na fakcie, że choć łatwo jest obliczyć potęgę $g^x \pmod p$, to bardzo trudno jest obliczyć wykładnik $x$, znając jedynie wynik potęgowania, podstawę i moduł (gdy liczby są odpowiednio duże).
+
+\textbf{Generowanie kluczy:}
+\begin{enumerate}
+    \item Wybierz dużą liczbę pierwszą $p$.
+    \item Znajdź generator $g$ (pierwiastek pierwotny modulo $p$).
+    \item Wybierz losowy klucz prywatny $x$, taki że $1 < x < p-1$.
+    \item Oblicz klucz publiczny $y = g^x \pmod p$.
+    \item Klucz publiczny: $(p, g, y)$, Klucz prywatny: $(x, p)$.
+\end{enumerate}
+
+\textbf{Szyfrowanie:}
+Aby zaszyfrować wiadomość $m$ dla odbiorcy z kluczem publicznym $(p, g, y)$:
+\begin{enumerate}
+    \item Wybierz losową liczbę $k$ (klucz efemeryczny), taką że $1 < k < p-1$.
+    \item Oblicz $a = g^k \pmod p$.
+    \item Oblicz $b = (y^k \cdot m) \pmod p$.
+    \item Szyfrogram to para $(a, b)$.
+\end{enumerate}
+
+\textbf{Deszyfrowanie:}
+Aby odszyfrować parę $(a, b)$ przy użyciu klucza prywatnego $x$:
+\begin{enumerate}
+    \item Oblicz współczynnik $s = a^x \pmod p$.
+    \item Oblicz odwrotność $s^{-1} \pmod p$.
+    \item Wiadomość $m = b \cdot s^{-1} \pmod p$.
+\end{enumerate}
+
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Implementacja wykorzystuje liczby pierwsze w zakresie 300-1000 dla celów edukacyjnych (umożliwia kodowanie znaków ASCII).
+    \item Każdy znak wiadomości jest szyfrowany osobno, co generuje parę liczb $(a, b)$.
+    \item Wykorzystuje losowy klucz $k$ dla każdego szyfrowania, co oznacza, że ten sam tekst zaszyfrowany dwukrotnie da inny wynik (niedeterministyczność).
+    \item Implementuje algorytm znajdowania pierwiastka pierwotnego.
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/elgamal_szyfr.jpg}
+    \caption{Ekran szyfru ElGamal w aplikacji CryptoLab}
+    \label{fig:elgamal}
+\end{figure}
+Rysunek \ref{fig:elgamal} przedstawia interfejs użytkownika aplikacji CryptoLab Mobile dla szyfru ElGamal.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/elgamal_deszyfr.jpg}
+    \caption{Ekran deszyfru ElGamal w aplikacji CryptoLab}
+    \label{fig:elgamal_decrypt}
+\end{figure}
+Rysunek \ref{fig:elgamal_decrypt} przedstawia interfejs użytkownika aplikacji CryptoLab Mobile dla deszyfru ElGamal.
+\section{Protokół ECDH i Krzywe Eliptyczne}
+
+\subsection{Wprowadzenie do ECC}
+Kryptografia krzywych eliptycznych (ECC - Elliptic Curve Cryptography) opiera się na strukturze algebraicznej krzywych eliptycznych nad ciałami skończonych. 
+Główną zaletą ECC jest to, że zapewnia ten sam poziom bezpieczeństwa co RSA, ale przy znacznie krótszych kluczach (np. 256-bitowy klucz ECC jest porównywalny z 3072-bitowym kluczem RSA).
+
+Równanie krzywej Weierstrassa:
+$$y^2 = x^3 + ax + b \pmod p$$
+
+\subsection{Protokół ECDH (Elliptic Curve Diffie-Hellman)}
+ECDH to wariant protokołu Diffiego-Hellmana wykorzystujący krzywe eliptyczne. Służy do uzgodnienia wspólnego sekretu przez dwie strony, które nigdy się nie spotkały, korzystając z niezabezpieczonego kanału.
+
+\textbf{Zasada działania:}
+\begin{enumerate}
+    \item Strony uzgadniają parametry krzywej (punkt bazowy $G$, parametry $a, b, p$).
+    \item Alice generuje prywatny klucz $d_A$ i oblicza publiczny $Q_A = d_A \cdot G$.
+    \item Bob generuje prywatny klucz $d_B$ i oblicza publiczny $Q_B = d_B \cdot G$.
+    \item Strony wymieniają się kluczami publicznymi.
+    \item Alice oblicza sekret $S = d_A \cdot Q_B$.
+    \item Bob oblicza sekret $S = d_B \cdot Q_A$.
+    \item Ponieważ $d_A \cdot (d_B \cdot G) = d_B \cdot (d_A \cdot G)$, obie strony uzyskują ten sam punkt $S$.
+\end{enumerate}
+
+\subsection{Implementacja w CryptoLab (ECIES)}
+W aplikacji zaimplementowano schemat szyfrowania ECIES (Elliptic Curve Integrated Encryption Scheme) wykorzystujący ECDH:
+\begin{itemize}
+    \item Nadawca generuje tymczasową parę kluczy (klucz efemeryczny).
+    \item Oblicza wspólny sekret z kluczem publicznym odbiorcy.
+    \item Współrzędna X punktu sekretnego służy jako klucz symetryczny (w uproszczeniu XOR).
+    \item Do szyfrogramu dołączany jest klucz publiczny efemeryczny, aby odbiorca mógł odtworzyć sekret.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/klucze_ecdh.jpg}
+    \caption{Wygenerowane klucze ECDH w aplikacji CryptoLab}
+    \label{fig:ecdh}
+\end{figure}
+Rysunek \ref{fig:ecdh} przedstawia wygenerowane klucze ECDH w aplikacji CryptoLab Mobile.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/ecdh_szyfrowanie.jpg}
+    \caption{Proces szyfrowania ECDH w aplikacji CryptoLab}
+    \label{fig:ecdh_encrypt}
+\end{figure}
+Rysunek \ref{fig:ecdh_encrypt} przedstawia proces szyfrowania ECDH w aplikacji CryptoLab Mobile.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/ecdh_deszyfr.jpg}
+    \caption{Proces deszyfrowania ECDH w aplikacji CryptoLab}
+    \label{fig:ecdh_decrypt}
+\end{figure}
+Rysunek \ref{fig:ecdh_decrypt} przedstawia proces deszyfrowania ECDH w aplikacji CryptoLab Mobile.
+\subsection{Cechy implementacji}
+\begin{itemize}
+    \item Używa zdefiniowanej na sztywno małej krzywej eliptycznej dla celów edukacyjnych.
+    \item Implementuje dodawanie punktów i mnożenie skalarne na krzywej.
+    \item Wizualizuje proces generowania wspólnego sekretu w logach.
+\end{itemize}
+
+\section{Funkcja skrótu SHA-256}
+
+\subsection{Wprowadzenie do funkcji skrótu}
+Funkcje skrótu (ang. \textit{hash functions}) to kluczowy element współczesnej kryptografii.
+W odróżnieniu od szyfrów, które są dwukierunkowymi przekształceniami, funkcje skrótu są \textbf{jednokierunkowe} -- 
+nie można ich odwrócić. Dla dowolnego wejścia generują skrót stałej długości.
+
+\textbf{Główne cechy funkcji skrótu:}
+\begin{itemize}
+    \item \textbf{Jednokierunkowość} -- obliczeniowo niemożliwe jest odtworzenie wiadomości ze skrótu,
+    \item \textbf{Deterministyczność} -- ta sama wiadomość zawsze daje ten sam skrót,
+    \item \textbf{Efekt lawiny} -- najmniejsza zmiana w wejściu powoduje drastyczną zmianę skrótu,
+    \item \textbf{Odporność na kolizje} -- trudno znaleźć dwie różne wiadomości dające ten sam skrót,
+    \item \textbf{Stała długość wyjścia} -- niezależnie od rozmiaru wejścia, skrót ma zawsze tę samą długość.
+\end{itemize}
+
+\subsection{SHA-256 (Secure Hash Algorithm 256-bit)}
+SHA-256 należy do rodziny algorytmów SHA-2, opracowanych przez NSA i opublikowanych przez NIST w 2001 roku.
+Jest to aktualnie jeden z najpopularniejszych i najbezpieczniejszych algorytmów haszujących.
+
+\textbf{Parametry SHA-256:}
+\begin{itemize}
+    \item Długość skrótu: 256 bitów (64 znaki szesnastkowe),
+    \item Rozmiar bloku: 512 bitów,
+    \item Liczba rund: 64,
+    \item Używa operacji bitowych (XOR, AND, OR, NOT, rotacje, przesunięcia).
+\end{itemize}
+
+\subsection{Algorytm SHA-256}
+Proces haszowania SHA-256 składa się z następujących etapów:
+
+\textbf{1. Preprocessing (przygotowanie wiadomości):}
+\begin{itemize}
+    \item Dodanie bitu '1' na końcu wiadomości,
+    \item Dodanie zer dopełniających do osiągnięcia długości $\equiv 448 \pmod{512}$ bitów,
+    \item Dodanie 64-bitowej reprezentacji długości oryginalnej wiadomości.
+\end{itemize}
+
+\textbf{2. Inicjalizacja wartości początkowych (H):}
+
+Ośmiu 32-bitowych stałych (pierwsze 32 bity ułamkowych części pierwiastków kwadratowych pierwszych 8 liczb pierwszych):
+$$H_0 = \text{0x6a09e667}, H_1 = \text{0xbb67ae85}, \ldots, H_7 = \text{0x5be0cd19}$$
+
+\textbf{3. Przetwarzanie bloków 512-bitowych:}
+
+Dla każdego bloku:
+\begin{enumerate}
+    \item Przygotowanie harmonogramu wiadomości $W_0, W_1, \ldots, W_{63}$ (pierwsze 16 słów to dane wejściowe, pozostałe obliczane z funkcji $\sigma$),
+    \item 64 rundy kompresji z użyciem funkcji logicznych:
+    \begin{itemize}
+        \item $Ch(x,y,z) = (x \land y) \oplus (\neg x \land z)$ -- funkcja wyboru,
+        \item $Maj(x,y,z) = (x \land y) \oplus (x \land z) \oplus (y \land z)$ -- funkcja większości,
+        \item $\Sigma_0, \Sigma_1, \sigma_0, \sigma_1$ -- funkcje rotacji i przesunięć bitowych.
+    \end{itemize}
+    \item Aktualizacja wartości roboczych $a, b, c, d, e, f, g, h$,
+    \item Dodanie wyników do wartości $H_0, \ldots, H_7$.
+\end{enumerate}
+
+\textbf{4. Konkatenacja wyników:}
+
+Połączenie wartości $H_0$ do $H_7$ daje 256-bitowy skrót.
+
+\subsection{Zastosowania SHA-256}
+\begin{itemize}
+    \item \textbf{Podpisy cyfrowe} -- skrót dokumentu jest podpisywany zamiast całego dokumentu,
+    \item \textbf{Blockchain i Bitcoin} -- mechanizm proof-of-work, identyfikatory transakcji,
+    \item \textbf{Certyfikaty SSL/TLS} -- weryfikacja autentyczności certyfikatów,
+    \item \textbf{Sprawdzanie integralności plików} -- porównywanie sum kontrolnych,
+    \item \textbf{Przechowywanie haseł} -- haszowanie haseł przed zapisem w bazie danych,
+    \item \textbf{HMAC} -- uwierzytelnianie wiadomości z użyciem klucza tajnego.
+\end{itemize}
+
+\subsection{Bezpieczeństwo SHA-256}
+SHA-256 jest uznawany za bezpieczny algorytm:
+\begin{itemize}
+    \item Brak znanych praktycznych ataków kolizyjnych,
+    \item Złożoność czasowa ataku brutalnego: $2^{256}$ operacji,
+    \item Odporność na ataki urodzinowe: $2^{128}$ operacji,
+    \item Używany w krytycznych systemach bezpieczeństwa (TLS, IPsec, SSH).
+\end{itemize}
+
+\subsection{Implementacja w CryptoLab}
+Aplikacja zawiera pełną implementację algorytmu SHA-256 bez użycia zewnętrznych bibliotek.
+Implementacja obejmuje:
+\begin{itemize}
+    \item Preprocessing z padding i dodawaniem długości,
+    \item Wszystkie funkcje logiczne ($Ch$, $Maj$, $\Sigma$, $\sigma$),
+    \item 64 rundy kompresji dla każdego bloku,
+    \item Obsługę wiadomości UTF-8,
+    \item Szczegółowe logowanie każdego kroku procesu haszowania.
+\end{itemize}
+
+\textbf{Uwaga:} SHA-256 to funkcja jednokierunkowa, więc \textbf{nie ma operacji deszyfrowania}. 
+Próba "odszyfrowania" zwraca komunikat informujący o jednokierunkowości funkcji.
+
+\newpage
 \section{Wybrane fragmenty kodu}
 \subsection{Klasa bazowa algorytmu}
 \begin{lstlisting}[language=TypeScript, caption={Klasa abstrakcyjna CryptographicAlgorithm}]
@@ -943,6 +1157,190 @@ Rysunek \ref{fig:testrsa} przedstawia przykładowy test szyfru RSA w aplikacji C
     \label{fig:deszyfrrsa}
 \end{figure}
 Rysunek \ref{fig:deszyfrrsa} przedstawia ekran deszyfrowania w szyfrze RSA w aplikacji CryptoLab Mobile.
+
+\newpage
+\subsection{Implementacja algorytmu ElGamal}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy ElGamalCipher}]
+export default class ElGamalCipher extends CryptographicAlgorithm {
+  // Generowanie kluczy
+  generateKeyPair(): ElGamalKeyPair {
+    // 1. Wybierz duza liczbe pierwsza p
+    const p = generatePrime(300, 1000);
+    
+    // 2. Znajdz generator g
+    const g = findPrimitiveRoot(p);
+    
+    // 3. Wybierz losowy klucz prywatny x
+    const x = Math.floor(Math.random() * (p - 2)) + 2;
+    
+    // 4. Oblicz klucz publiczny y = g^x mod p
+    const y = modPow(BigInt(g), BigInt(x), BigInt(p));
+
+    return {
+      publicKey: { p: p.toString(), g: g.toString(), y: y.toString() },
+      privateKey: { x: x.toString(), p: p.toString() }
+    };
+  }
+
+  encrypt(plaintext: string, key: string): string {
+    const [p, g, y] = key.split(',').map(n => BigInt(n));
+    const encryptedPairs: string[] = [];
+
+    for (let i = 0; i < plaintext.length; i++) {
+      const m = BigInt(plaintext.charCodeAt(i));
+      
+      // 1. Wybierz losowe k (klucz efemeryczny)
+      let k: bigint;
+      do {
+        k = BigInt(Math.floor(Math.random() * (Number(p) - 2)) + 1);
+      } while (gcd(k, p - 1n) !== 1n);
+
+      // 2. Oblicz a = g^k mod p
+      const a = modPow(g, k, p);
+
+      // 3. Oblicz b = (y^k * m) mod p
+      const b = (modPow(y, k, p) * m) % p;
+
+      encryptedPairs.push(`${a}:${b}`);
+    }
+    return encryptedPairs.join(' ');
+  }
+}
+\end{lstlisting}
+
+\subsection{Implementacja algorytmu ECDH}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy ECDHAlgorithm}]
+export default class ECDHAlgorithm extends CryptographicAlgorithm {
+  // Dodawanie punktow na krzywej eliptycznej
+  private addPoints(P: Point, Q: Point): Point {
+    if (P.isInfinity) return Q;
+    if (Q.isInfinity) return P;
+    
+    let m: bigint;
+    if (P.x === Q.x && P.y === Q.y) {
+      // Podwojenie punktu: m = (3x^2 + a) / (2y)
+      const num = (3n * P.x * P.x + CURVE.a) % CURVE.p;
+      const den = (2n * P.y) % CURVE.p;
+      m = (num * this.modInverse(den, CURVE.p)) % CURVE.p;
+    } else {
+      // Dodawanie: m = (y2 - y1) / (x2 - x1)
+      const num = (Q.y - P.y) % CURVE.p;
+      const den = (Q.x - P.x) % CURVE.p;
+      m = (num * this.modInverse(den, CURVE.p)) % CURVE.p;
+    }
+    
+    // Obliczanie x3, y3...
+    // ...
+    return { x: x3, y: y3, isInfinity: false };
+  }
+
+  encrypt(plaintext: string, key: string): string {
+    // key to klucz publiczny odbiorcy (Q)
+    const [qx, qy] = key.split(',').map(c => BigInt(c));
+    const Q: Point = { x: qx, y: qy, isInfinity: false };
+
+    // 1. Wygeneruj tymczasowa pare kluczy (k, R)
+    const k = BigInt(Math.floor(Math.random() * (Number(CURVE.p) - 2)) + 1);
+    const R = this.multiplyPoint(k, CURVE.G); // R = k * G
+    
+    // 2. Oblicz wspolny sekret S = k * Q
+    const S = this.multiplyPoint(k, Q);
+
+    // 3. Uzyj wspolrzednej x punktu S jako klucza symetrycznego
+    const symmetricKey = Number(S.x);
+
+    // 4. Szyfruj wiadomosc (XOR)
+    // ...
+    
+    return `${R.x},${R.y}|${ciphertextBody}`;
+  }
+}
+\end{lstlisting}
+
+\subsection{Implementacja funkcji SHA-256}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy SHA256Hash}]
+export default class SHA256Hash extends CryptographicAlgorithm {
+  // Stale K (pierwsze 32 bity ulamkowych czesci 
+  // szescianowych pierwiastkow pierwszych 64 liczb pierwszych)
+  private K: number[] = [
+    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
+    // ... 60 wiecej wartosci ...
+    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
+    0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+  ];
+
+  // Wartosci poczatkowe H (pierwiastki kwadratowe 
+  // pierwszych 8 liczb pierwszych)
+  private H: number[] = [
+    0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+    0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
+  ];
+
+  encrypt(plaintext: string, key: string = ''): string {
+    this.logStep('SHA-256 Hash Process Started', plaintext);
+    
+    const bytes = this.stringToBytes(plaintext);
+    const hash = this.sha256(bytes);
+    const hexHash = this.bytesToHex(hash);
+    
+    this.logStep('SHA-256 Hash Generated', plaintext, hexHash);
+    return hexHash;
+  }
+
+  // Glowny algorytm SHA-256
+  private sha256(message: number[]): number[] {
+    const preprocessed = this.preprocess(message);
+    const H = [...this.H];
+
+    // Przetwarzanie kazdego bloku 512-bitowego
+    for (let i = 0; i < preprocessed.length; i += 16) {
+      const block = preprocessed.slice(i, i + 16);
+      const W = this.prepareSchedule(block);
+      let [A, B, C, D, E, F, G, H_temp] = [...H];
+
+      // 64 rundy
+      for (let t = 0; t < 64; t++) {
+        const T1 = H_temp + this.Sigma1(E) + 
+                   this.Ch(E, F, G) + this.K[t] + W[t];
+        const T2 = this.Sigma0(A) + this.Maj(A, B, C);
+        
+        H_temp = G; G = F; F = E;
+        E = (D + T1) >>> 0;
+        D = C; C = B; B = A;
+        A = (T1 + T2) >>> 0;
+      }
+
+      // Aktualizacja wartosci H
+      H[0] = (H[0] + A) >>> 0;
+      H[1] = (H[1] + B) >>> 0;
+      // ... pozostale ...
+    }
+    return this.hashToBytes(H);
+  }
+
+  // Funkcje logiczne SHA-256
+  private Ch(x: number, y: number, z: number): number {
+    return (x & y) ^ (~x & z);
+  }
+
+  private Maj(x: number, y: number, z: number): number {
+    return (x & y) ^ (x & z) ^ (y & z);
+  }
+
+  private Sigma0(x: number): number {
+    return this.rightRotate(x, 2) ^ 
+           this.rightRotate(x, 13) ^ 
+           this.rightRotate(x, 22);
+  }
+
+  private Sigma1(x: number): number {
+    return this.rightRotate(x, 6) ^ 
+           this.rightRotate(x, 11) ^ 
+           this.rightRotate(x, 25);
+  }
+}
+\end{lstlisting}
+
 \newpage
 \section{Podsumowanie}
 
@@ -1076,6 +1474,73 @@ Zamiast tego stosuje się \textbf{szyfrowanie hybrydowe}:
 \end{enumerate}
 
 To połączenie zapewnia zarówno bezpieczeństwo RSA, jak i szybkość AES.
+
+\subsection{Algorytm ElGamal}
+ElGamal to alternatywa dla RSA, oparta na innym problemie matematycznym (logarytm dyskretny).
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item bezpieczeństwo oparte na dobrze zbadanym problemie matematycznym,
+    \item niedeterministyczność szyfrowania (ten sam tekst szyfrowany jest inaczej za każdym razem), co utrudnia kryptoanalizę.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item szyfrogram jest dwukrotnie dłuższy od wiadomości jawnej (para liczb dla każdego bloku),
+    \item wolniejsze działanie niż RSA (więcej potęgowań).
+\end{itemize}
+
+\subsection{Protokół ECDH}
+Kryptografia krzywych eliptycznych (ECC) to przyszłość bezpiecznej komunikacji.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item bardzo wysoki poziom bezpieczeństwa przy krótkich kluczach (256-bit ECC $\approx$ 3072-bit RSA),
+    \item szybsze obliczenia i mniejsze zużycie energii (ważne w urządzeniach mobilnych),
+    \item mniejsze wymagania pamięciowe.
+\end{itemize}
+
+\textbf{Wady:}
+\begin{itemize}
+    \item skomplikowana matematyka i trudniejsza implementacja,
+    \item wrażliwość na słabe generatory liczb losowych.
+\end{itemize}
+
+\subsection{Funkcja SHA-256}
+SHA-256 jest kryptograficzną funkcją skrótu o fundamentalnym znaczeniu dla bezpieczeństwa.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item \textbf{jednokierunkowość} -- niemożliwe odtworzenie oryginalnej wiadomości,
+    \item \textbf{deterministyczność} -- ten sam wejście zawsze daje ten sam wynik,
+    \item \textbf{efekt lawiny} -- minimalna zmiana wejścia drastycznie zmienia skrót,
+    \item \textbf{odporność na kolizje} -- praktycznie niemożliwe znalezienie dwóch wiadomości o tym samym skrócie,
+    \item \textbf{szybkość} -- wydajne obliczenia na nowoczesnym sprzęcie,
+    \item \textbf{wszechstronność} -- używana w blockchain, podpisach cyfrowych, TLS, weryfikacji integralności.
+\end{itemize}
+
+\textbf{Wady i ograniczenia:}
+\begin{itemize}
+    \item nie nadaje się do haszowania haseł bez dodatkowych mechanizmów (salt, iteracje),
+    \item brak mechanizmu weryfikacji autentyczności (do tego służy HMAC),
+    \item teoretycznie podatna na ataki kwantowe (w odległej przyszłości).
+\end{itemize}
+
+\textbf{Zastosowania w praktyce:}
+\begin{itemize}
+    \item \textbf{Bitcoin i blockchain} -- proof-of-work, identyfikacja bloków i transakcji,
+    \item \textbf{Podpisy cyfrowe} -- haszowanie dokumentów przed podpisaniem,
+    \item \textbf{Certyfikaty SSL/TLS} -- weryfikacja integralności i autentyczności,
+    \item \textbf{Git} -- identyfikacja commitów i obiektów (choć Git używa SHA-1),
+    \item \textbf{Sumy kontrolne} -- weryfikacja pobranych plików.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/sha-256.jpg}
+    \caption{Ekran funkcji SHA-256}
+    \label{fig:sha256}
+\end{figure}
+Rysunek \ref{fig:sha256} przedstawia interfejs użytkownika funkcji SHA-256 w aplikacji CryptoLab Mobile.
 
 \section{System logowania operacji}
 \label{sec:logging}
@@ -1219,6 +1684,15 @@ System logowania ma kluczowe znaczenie edukacyjne:
     Automatyczne maskowanie kluczy dla bezpieczeństwa. \newline
     Statystyki użycia algorytmów (liczba operacji, najczęściej używany algorytm, czas wykonania). \newline
     Integracja systemu logowania ze wszystkimi algorytmami (Cezar, Vigenère, Running Key, AES, RSA).
+    \item \textbf{01.12.2025} Implementacja algorytmu ElGamal oraz protokołu ECDH (Elliptic Curve Diffie-Hellman). \newline
+    Dodanie obsługi problemu logarytmu dyskretnego w ElGamal. \newline
+    Implementacja operacji na krzywych eliptycznych (dodawanie punktów, mnożenie skalarne) dla ECDH. \newline
+    Demonstracja schematu ECIES (Elliptic Curve Integrated Encryption Scheme). \newline
+    Rozszerzenie dokumentacji o nowe algorytmy asymetryczne.
+    \item \textbf{07.12.2025} Implementacja funkcji skrótu SHA-256. \newline
+    Rejestrowanie szczegółowych kroków funkcji skrótu w systemie logowania. \newline
+    Dodanie zastosowań SHA-256 w praktyce (blockchain, podpisy cyfrowe). \newline
+    Ulepszenie dokumentacji o funkcje skrótu i ich znaczenie w bezpieczeństwie.
 \end{itemize}
 
 

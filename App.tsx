@@ -61,6 +61,8 @@ export default function App() {
         return '';
       case 'elgamal':
         return '';
+      case 'sha256':
+        return '';
       default:
         return '';
     }
@@ -72,6 +74,10 @@ export default function App() {
     setKey(getDefaultKey(algorithmId));
     setError('');
     setOutputText('');
+    // Dla SHA-256 zawsze ustawiamy operację na 'encrypt' (haszowanie)
+    if (algorithmId === 'sha256') {
+      setOperation('encrypt');
+    }
   };
 
   const handleProcess = () => {
@@ -103,8 +109,10 @@ export default function App() {
       logManager.startOperation();
       
       const startTime = Date.now();
+      // Dla SHA-256 zawsze wywołujemy encrypt (generowanie hasha)
+      const effectiveOperation = selectedAlgorithm === 'sha256' ? 'encrypt' : operation;
       const result =
-        operation === 'encrypt'
+        effectiveOperation === 'encrypt'
           ? currentAlgo.encrypt(inputText, key)
           : currentAlgo.decrypt(inputText, key);
       const duration = Date.now() - startTime;
@@ -403,40 +411,55 @@ export default function App() {
           {/* Operation Selection */}
           <View style={styles.section}>
             <Text style={styles.label}>Operacja</Text>
-            <View style={styles.buttonGroup}>
-              <TouchableOpacity
-                style={[
-                  styles.operationButton,
-                  operation === 'encrypt' && styles.operationButtonEncrypt,
-                ]}
-                onPress={() => setOperation('encrypt')}
-              >
-                <Text
-                  style={[
-                    styles.operationButtonText,
-                    operation === 'encrypt' && styles.operationButtonTextActive,
-                  ]}
+            {selectedAlgorithm === 'sha256' ? (
+              // Dla SHA-256 tylko jedna opcja - haszowanie
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={[styles.operationButton, styles.operationButtonEncrypt]}
+                  disabled
                 >
-                  Szyfruj
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[
-                  styles.operationButton,
-                  operation === 'decrypt' && styles.operationButtonDecrypt,
-                ]}
-                onPress={() => setOperation('decrypt')}
-              >
-                <Text
+                  <Text style={[styles.operationButtonText, styles.operationButtonTextActive]}>
+                    Haszuj
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            ) : (
+              // Dla innych algorytmów standardowe przyciski
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
                   style={[
-                    styles.operationButtonText,
-                    operation === 'decrypt' && styles.operationButtonTextActive,
+                    styles.operationButton,
+                    operation === 'encrypt' && styles.operationButtonEncrypt,
                   ]}
+                  onPress={() => setOperation('encrypt')}
                 >
-                  Deszyfruj
-                </Text>
-              </TouchableOpacity>
-            </View>
+                  <Text
+                    style={[
+                      styles.operationButtonText,
+                      operation === 'encrypt' && styles.operationButtonTextActive,
+                    ]}
+                  >
+                    Szyfruj
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.operationButton,
+                    operation === 'decrypt' && styles.operationButtonDecrypt,
+                  ]}
+                  onPress={() => setOperation('decrypt')}
+                >
+                  <Text
+                    style={[
+                      styles.operationButtonText,
+                      operation === 'decrypt' && styles.operationButtonTextActive,
+                    ]}
+                  >
+                    Deszyfruj
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
 
           {/* AES Mode Selection - pokaż tylko dla AES */}
@@ -497,7 +520,7 @@ export default function App() {
           )}
 
           {/* Key Input - ukryj dla Running Key Cipher */}
-          {selectedAlgorithm !== 'running-key' && (
+          {selectedAlgorithm !== 'running-key' && selectedAlgorithm !== 'sha256' && (
             <View style={styles.section}>
               <View style={styles.labelWithButton}>
                 <Text style={styles.label}>Klucz</Text>
@@ -551,7 +574,9 @@ export default function App() {
           {/* Process Button */}
           <TouchableOpacity style={styles.processButton} onPress={handleProcess}>
             <Text style={styles.processButtonText}>
-              {operation === 'encrypt' ? 'Zaszyfruj' : 'Odszyfruj'}
+              {selectedAlgorithm === 'sha256' 
+                ? 'Wygeneruj hash' 
+                : (operation === 'encrypt' ? 'Zaszyfruj' : 'Odszyfruj')}
             </Text>
           </TouchableOpacity>
 
@@ -566,7 +591,9 @@ export default function App() {
           {outputText !== '' && (
             <View style={styles.section}>
               <View style={styles.outputHeader}>
-                <Text style={styles.label}>Wynik</Text>
+                <Text style={styles.label}>
+                  {selectedAlgorithm === 'sha256' ? 'Hash SHA-256' : 'Wynik'}
+                </Text>
                 <View style={styles.outputActions}>
                   <TouchableOpacity 
                     style={styles.actionButton} 
@@ -595,6 +622,20 @@ export default function App() {
                   </Text>
                   <Text style={{ color: '#94a3b8', fontSize: 12 }}>
                     Klucz to fragment przed dwukropkiem (::), szyfr po dwukropku.
+                  </Text>
+                </View>
+              )}
+              {/* Info for SHA-256 Hash */}
+              {selectedAlgorithm === 'sha256' && (
+                <View style={{ marginBottom: 8, backgroundColor: 'rgba(167, 139, 250, 0.1)', padding: 12, borderRadius: 8, borderLeftWidth: 3, borderLeftColor: '#a78bfa' }}>
+                  <Text style={{ color: '#a78bfa', fontSize: 13, fontWeight: '600', marginBottom: 4 }}>
+                    ℹ️ Funkcja jednokierunkowa
+                  </Text>
+                  <Text style={{ color: '#cbd5e1', fontSize: 12 }}>
+                    SHA-256 to funkcja skrótu (hash), nie szyfr. Generuje 256-bitowy odcisk cyfrowy tekstu.
+                  </Text>
+                  <Text style={{ color: '#94a3b8', fontSize: 11, marginTop: 4 }}>
+                    ⚠️ Nie można odwrócić - "Deszyfruj" nie jest dostępne dla funkcji skrótu.
                   </Text>
                 </View>
               )}

@@ -63,6 +63,8 @@ export default function App() {
         return '';
       case 'sha256':
         return '';
+      case 'digital-signature':
+        return '';
       default:
         return '';
     }
@@ -75,7 +77,8 @@ export default function App() {
     setError('');
     setOutputText('');
     // Dla SHA-256 zawsze ustawiamy operację na 'encrypt' (haszowanie)
-    if (algorithmId === 'sha256') {
+    // Dla digital-signature zawsze ustawiamy na 'encrypt' (podpisywanie)
+    if (algorithmId === 'sha256' || algorithmId === 'digital-signature') {
       setOperation('encrypt');
     }
   };
@@ -110,7 +113,11 @@ export default function App() {
       
       const startTime = Date.now();
       // Dla SHA-256 zawsze wywołujemy encrypt (generowanie hasha)
-      const effectiveOperation = selectedAlgorithm === 'sha256' ? 'encrypt' : operation;
+      // Dla digital-signature zawsze encrypt (podpisywanie) lub decrypt (weryfikacja)
+      let effectiveOperation = operation;
+      if (selectedAlgorithm === 'sha256') {
+        effectiveOperation = 'encrypt';
+      }
       const result =
         effectiveOperation === 'encrypt'
           ? currentAlgo.encrypt(inputText, key)
@@ -423,6 +430,42 @@ export default function App() {
                   </Text>
                 </TouchableOpacity>
               </View>
+            ) : selectedAlgorithm === 'digital-signature' ? (
+              // Dla podpisu elektronicznego - Podpisz i Weryfikuj
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={[
+                    styles.operationButton,
+                    operation === 'encrypt' && styles.operationButtonEncrypt,
+                  ]}
+                  onPress={() => setOperation('encrypt')}
+                >
+                  <Text
+                    style={[
+                      styles.operationButtonText,
+                      operation === 'encrypt' && styles.operationButtonTextActive,
+                    ]}
+                  >
+                    Podpisz
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.operationButton,
+                    operation === 'decrypt' && styles.operationButtonDecrypt,
+                  ]}
+                  onPress={() => setOperation('decrypt')}
+                >
+                  <Text
+                    style={[
+                      styles.operationButtonText,
+                      operation === 'decrypt' && styles.operationButtonTextActive,
+                    ]}
+                  >
+                    Weryfikuj
+                  </Text>
+                </TouchableOpacity>
+              </View>
             ) : (
               // Dla innych algorytmów standardowe przyciski
               <View style={styles.buttonGroup}>
@@ -520,7 +563,7 @@ export default function App() {
           )}
 
           {/* Key Input - ukryj dla Running Key Cipher */}
-          {selectedAlgorithm !== 'running-key' && selectedAlgorithm !== 'sha256' && (
+          {selectedAlgorithm !== 'running-key' && selectedAlgorithm !== 'sha256' && selectedAlgorithm !== 'digital-signature' && (
             <View style={styles.section}>
               <View style={styles.labelWithButton}>
                 <Text style={styles.label}>Klucz</Text>
@@ -575,7 +618,9 @@ export default function App() {
           <TouchableOpacity style={styles.processButton} onPress={handleProcess}>
             <Text style={styles.processButtonText}>
               {selectedAlgorithm === 'sha256' 
-                ? 'Wygeneruj hash' 
+                ? 'Wygeneruj hash'
+                : selectedAlgorithm === 'digital-signature'
+                ? (operation === 'encrypt' ? 'Podpisz dokument' : 'Weryfikuj podpis')
                 : (operation === 'encrypt' ? 'Zaszyfruj' : 'Odszyfruj')}
             </Text>
           </TouchableOpacity>
@@ -592,7 +637,11 @@ export default function App() {
             <View style={styles.section}>
               <View style={styles.outputHeader}>
                 <Text style={styles.label}>
-                  {selectedAlgorithm === 'sha256' ? 'Hash SHA-256' : 'Wynik'}
+                  {selectedAlgorithm === 'sha256' 
+                    ? 'Hash SHA-256'
+                    : selectedAlgorithm === 'digital-signature'
+                    ? (operation === 'encrypt' ? 'Podpis elektroniczny' : 'Wynik weryfikacji')
+                    : 'Wynik'}
                 </Text>
                 <View style={styles.outputActions}>
                   <TouchableOpacity 
@@ -636,6 +685,20 @@ export default function App() {
                   </Text>
                   <Text style={{ color: '#94a3b8', fontSize: 11, marginTop: 4 }}>
                     ⚠️ Nie można odwrócić - "Deszyfruj" nie jest dostępne dla funkcji skrótu.
+                  </Text>
+                </View>
+              )}
+              {/* Info for Digital Signature */}
+              {selectedAlgorithm === 'digital-signature' && (
+                <View style={{ marginBottom: 8, backgroundColor: 'rgba(34, 197, 94, 0.1)', padding: 12, borderRadius: 8, borderLeftWidth: 3, borderLeftColor: '#22c55e' }}>
+                  <Text style={{ color: '#22c55e', fontSize: 13, fontWeight: '600', marginBottom: 4 }}>
+                    🔐 Podpis Elektroniczny (RSA-SHA256)
+                  </Text>
+                  <Text style={{ color: '#cbd5e1', fontSize: 12 }}>
+                    Podpis łączy SHA-256 z RSA do autentykacji dokumentów. Format: dokument|hash|podpis|klucz_publiczny
+                  </Text>
+                  <Text style={{ color: '#94a3b8', fontSize: 11, marginTop: 4 }}>
+                    💡 Podpisz dokument, a następnie skopiuj CAŁY wynik i wklej do weryfikacji.
                   </Text>
                 </View>
               )}

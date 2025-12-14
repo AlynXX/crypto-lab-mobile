@@ -11,6 +11,7 @@ import RSACipher from './RSACipher';
 import ECDHAlgorithm from './ECDHAlgorithm';
 import ElGamalCipher from './ElGamalCipher';
 import SHA256Hash from './SHA256Hash';
+import DigitalSignature from './DigitalSignature';
 
 export interface AlgorithmInfo {
   id: string;
@@ -42,6 +43,7 @@ class AlgorithmRegistry {
     this.register('ecdh', new ECDHAlgorithm());
     this.register('elgamal', new ElGamalCipher());
     this.register('sha256', new SHA256Hash());
+    this.register('digital-signature', new DigitalSignature());
   }
 
   register(id: string, algorithm: CryptographicAlgorithm) {

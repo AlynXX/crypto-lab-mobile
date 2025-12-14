@@ -117,9 +117,6 @@ INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\main.aux
-INPUT .\main.aux
-INPUT main.aux
 OUTPUT main.aux
 OUTPUT main.out
 OUTPUT main.pdf
@@ -352,6 +349,15 @@ INPUT .\img\RSA_deszyfr.jpg
 INPUT .\img\RSA_deszyfr.jpg
 INPUT .\img\RSA_deszyfr.jpg
 INPUT .\img\RSA_deszyfr.jpg
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang2.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang2.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang2.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang3.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang3.sty
+INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang3.sty
 INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
 INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
 INPUT C:\Users\agnie\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty

@@ -790,6 +790,114 @@ Implementacja obejmuje:
 \textbf{Uwaga:} SHA-256 to funkcja jednokierunkowa, więc \textbf{nie ma operacji deszyfrowania}. 
 Próba "odszyfrowania" zwraca komunikat informujący o jednokierunkowości funkcji.
 
+\section{Podpis Elektroniczny (Digital Signature)}
+
+\subsection{Wprowadzenie do podpisów cyfrowych}
+Podpis elektroniczny (cyfrowy) to kryptograficzny mechanizm zapewniający:
+\begin{itemize}
+    \item \textbf{Autentyczność} -- potwierdzenie tożsamości nadawcy,
+    \item \textbf{Integralność} -- gwarancja, że dokument nie został zmieniony,
+    \item \textbf{Niezaprzeczalność} -- nadawca nie może zaprzeczyć podpisaniu dokumentu.
+\end{itemize}
+
+W odróżnieniu od szyfrowania, które zapewnia \textit{poufność}, podpis cyfrowy zapewnia \textit{autentyczność} i \textit{integralność}.
+
+\subsection{Schemat podpisu RSA-SHA256}
+Aplikacja CryptoLab implementuje schemat podpisu cyfrowego łączący RSA z SHA-256:
+
+\textbf{Proces podpisywania:}
+\begin{enumerate}
+    \item Oblicz skrót SHA-256 dokumentu: $h = \text{SHA-256}(dokument)$
+    \item Konwertuj skrót na liczbę całkowitą (użyj pierwszych 3 znaków hex dla małego RSA)
+    \item Podpisz skrót kluczem prywatnym: $s = h^d \bmod n$
+    \item Zwróć: dokument, hash, podpis, klucz publiczny
+\end{enumerate}
+
+\textbf{Proces weryfikacji:}
+\begin{enumerate}
+    \item Odbierz: dokument, hash oryginalny, podpis, klucz publiczny
+    \item Oblicz skrót SHA-256 otrzymanego dokumentu: $h' = \text{SHA-256}(dokument)$
+    \item Porównaj $h'$ z oryginalnym hashem (sprawdzenie integralności)
+    \item Odszyfruj podpis kluczem publicznym: $h'' = s^e \bmod n$
+    \item Porównaj $h'$ z $h''$ -- jeśli zgodne, podpis jest ważny
+\end{enumerate}
+
+\subsection{Dlaczego SHA-256 + RSA?}
+Połączenie funkcji skrótu z RSA jest kluczowe z kilku powodów:
+
+\begin{itemize}
+    \item \textbf{Wydajność} -- RSA jest wolny dla dużych danych. Zamiast podpisywać cały dokument, podpisujemy tylko 256-bitowy hash.
+    \item \textbf{Bezpieczeństwo} -- bezpośrednie podpisywanie danych RSA jest podatne na ataki. Haszowanie eliminuje te problemy.
+    \item \textbf{Rozmiar} -- podpis ma stały rozmiar niezależnie od wielkości dokumentu.
+    \item \textbf{Standardy} -- RSA-SHA256 to powszechnie uznany standard (PKCS\#1, RFC 8017).
+\end{itemize}
+
+\subsection{Format podpisu w CryptoLab}
+Podpis w aplikacji ma format:
+$$\text{dokument}|\text{hash}|\text{podpis}|\text{klucz\_publiczny}$$
+
+Gdzie:
+\begin{itemize}
+    \item \textbf{dokument} -- oryginalny tekst (do weryfikacji integralności),
+    \item \textbf{hash} -- skrót SHA-256 dokumentu (64 znaki hex),
+    \item \textbf{podpis} -- zaszyfrowany hash kluczem prywatnym (hex),
+    \item \textbf{klucz\_publiczny} -- para $(n, e)$ do weryfikacji.
+\end{itemize}
+
+\subsection{Parametry RSA dla celów edukacyjnych}
+Dla demonstracji algorytmu używamy małych liczb pierwszych:
+\begin{itemize}
+    \item $p = 61$, $q = 53$
+    \item $n = p \times q = 3233$
+    \item $\phi(n) = (p-1)(q-1) = 3120$
+    \item $e = 17$ (wykładnik publiczny)
+    \item $d = 2753$ (wykładnik prywatny, $e \cdot d \equiv 1 \pmod{\phi(n)}$)
+\end{itemize}
+
+\textbf{Uwaga:} W rzeczywistych zastosowaniach używa się kluczy 2048-4096 bitowych!
+
+\subsection{Bezpieczeństwo podpisu cyfrowego}
+Podpis cyfrowy RSA-SHA256 jest bezpieczny pod warunkiem:
+\begin{itemize}
+    \item \textbf{Klucz prywatny pozostaje tajny} -- tylko właściciel może podpisywać,
+    \item \textbf{Silne generowanie kluczy} -- losowe, duże liczby pierwsze,
+    \item \textbf{Bezpieczna funkcja skrótu} -- SHA-256 jest odporna na kolizje,
+    \item \textbf{Odpowiedni padding} -- w produkcji używa się PSS (Probabilistic Signature Scheme).
+\end{itemize}
+
+\subsection{Zastosowania podpisów cyfrowych}
+\begin{itemize}
+    \item \textbf{Certyfikaty SSL/TLS} -- weryfikacja autentyczności serwerów WWW,
+    \item \textbf{Podpisywanie oprogramowania} -- weryfikacja pochodzenia aplikacji,
+    \item \textbf{Dokumenty elektroniczne} -- prawnie wiążące podpisy (eIDAS, esignature),
+    \item \textbf{Transakcje finansowe} -- autoryzacja przelewów bankowych,
+    \item \textbf{Blockchain} -- potwierdzanie transakcji kryptowalut,
+    \item \textbf{E-mail} -- S/MIME, PGP do podpisywania wiadomości,
+    \item \textbf{Aktualizacje systemu} -- weryfikacja integralności pakietów.
+\end{itemize}
+
+\subsection{Implementacja w CryptoLab}
+Aplikacja zawiera pełną implementację podpisu elektronicznego:
+\begin{itemize}
+    \item Generowanie pary kluczy RSA (edukacyjna wersja 12-bitowa),
+    \item Integracja z SHA-256 do haszowania dokumentów,
+    \item Modular exponentiation dla operacji RSA,
+    \item Rozszerzony algorytm Euklidesa dla odwrotności modularnej,
+    \item Szczegółowe logowanie każdego kroku podpisywania i weryfikacji,
+    \item Wykrywanie modyfikacji dokumentu,
+    \item Walidacja podpisu z komunikatami WAŻNY / NIEWAŻNY.
+\end{itemize}
+
+\textbf{Demonstracja:}
+\begin{enumerate}
+    \item Użytkownik wpisuje dokument i klika "Podpisz dokument"
+    \item System oblicza hash SHA-256 i podpisuje go kluczem prywatnym
+    \item Zwraca pełny podpis (dokument|hash|podpis|klucz\_publiczny)
+    \item Do weryfikacji użytkownik wkleja cały podpis i klika "Weryfikuj podpis"
+    \item System sprawdza integralność dokumentu i autentyczność podpisu
+    \item Wyświetla wynik: PODPIS WAŻNY lub PODPIS NIEWAŻNY
+\end{enumerate}
+
 \newpage
 \section{Wybrane fragmenty kodu}
 \subsection{Klasa bazowa algorytmu}
@@ -1341,6 +1449,133 @@ export default class SHA256Hash extends CryptographicAlgorithm {
 }
 \end{lstlisting}
 
+\subsection{Implementacja podpisu elektronicznego}
+\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy DigitalSignature}]
+export default class DigitalSignature extends CryptographicAlgorithm {
+  private sha256: SHA256Hash;
+  private keyPair: KeyPair | null = null;
+  
+  // Parametry RSA dla celow edukacyjnych
+  private P: bigint = 61n;
+  private Q: bigint = 53n;
+  private N: bigint = this.P * this.Q; // 3233
+  private PHI: bigint = (this.P - 1n) * (this.Q - 1n); // 3120
+  private E: bigint = 17n; // Wykładnik publiczny
+
+  constructor() {
+    super(
+      'Podpis Elektroniczny',
+      'Podpisywanie i weryfikacja dokumentow za pomoca RSA-SHA256',
+      'Kryptografia asymetryczna'
+    );
+    this.sha256 = new SHA256Hash();
+    this.sha256.setLogging(false); // Wylacz logowanie SHA256
+    this.generateKeyPair();
+  }
+
+  // Generowanie pary kluczy RSA
+  private generateKeyPair(): void {
+    const d = this.modularInverse(this.E, this.PHI);
+    this.keyPair = {
+      publicKey: { n: this.N, e: this.E },
+      privateKey: { n: this.N, d: d }
+    };
+  }
+
+  // Podpisywanie dokumentu
+  encrypt(plaintext: string, key: string = ''): string {
+    // Krok 1: Oblicz hash SHA-256
+    const documentHash = this.sha256.encrypt(plaintext);
+    
+    // Krok 2: Konwertuj hash na liczbe (pierwsze 3 znaki)
+    const hashNumber = this.hashToNumber(documentHash);
+    
+    // Krok 3: Podpisz hash kluczem prywatnym
+    // signature = hash^d mod n
+    const signature = this.modularExponentiation(
+      hashNumber, 
+      this.keyPair.privateKey.d, 
+      this.keyPair.privateKey.n
+    );
+    
+    const signatureHex = signature.toString(16);
+    
+    // Krok 4: Zwroc format: dokument|hash|podpis|klucz_publiczny
+    const publicKeyStr = 
+      `${this.keyPair.publicKey.n},${this.keyPair.publicKey.e}`;
+    return `${plaintext}|${documentHash}|${signatureHex}|${publicKeyStr}`;
+  }
+
+  // Weryfikacja podpisu
+  decrypt(ciphertext: string, key: string = ''): string {
+    // Parsowanie: dokument|hash|podpis|klucz_publiczny
+    const [originalDoc, originalHash, signatureHex, publicKeyStr] 
+      = ciphertext.split('|');
+    
+    // Krok 1: Oblicz hash otrzymanego dokumentu
+    const currentHash = this.sha256.encrypt(originalDoc);
+    
+    // Krok 2: Sprawdz integralnosc
+    if (currentHash !== originalHash) {
+      return 'PODPIS NIEWAZNY - Dokument zostal zmieniony!';
+    }
+    
+    // Krok 3: Parsuj klucz publiczny
+    const [nStr, eStr] = publicKeyStr.split(',');
+    const publicKey = { n: BigInt(nStr), e: BigInt(eStr) };
+    
+    // Krok 4: Odszyfruj podpis kluczem publicznym
+    const hashNumber = this.hashToNumber(currentHash);
+    const signatureNumber = BigInt('0x' + signatureHex);
+    const verifiedHash = this.modularExponentiation(
+      signatureNumber, 
+      publicKey.e, 
+      publicKey.n
+    );
+    
+    // Krok 5: Porownaj hashe
+    if (hashNumber === verifiedHash) {
+      return 'PODPIS WAZNY - Dokument autentyczny!';
+    } else {
+      return 'PODPIS NIEWAZNY - Podpis falszywy!';
+    }
+  }
+
+  // Modulowe potegowanie (binary exponentiation)
+  private modularExponentiation(
+    base: bigint, 
+    exp: bigint, 
+    modulus: bigint
+  ): bigint {
+    if (modulus === 1n) return 0n;
+    let result = 1n;
+    base = base % modulus;
+    
+    while (exp > 0n) {
+      if (exp % 2n === 1n) {
+        result = (result * base) % modulus;
+      }
+      exp = exp >> 1n;
+      base = (base * base) % modulus;
+    }
+    return result;
+  }
+
+  // Odwrotnosc modulowa (Extended Euclidean Algorithm)
+  private modularInverse(a: bigint, m: bigint): bigint {
+    let [old_r, r] = [a, m];
+    let [old_s, s] = [1n, 0n];
+
+    while (r !== 0n) {
+      const quotient = old_r / r;
+      [old_r, r] = [r, old_r - quotient * r];
+      [old_s, s] = [s, old_s - quotient * s];
+    }
+    return old_s < 0n ? old_s + m : old_s;
+  }
+}
+\end{lstlisting}
+
 \newpage
 \section{Podsumowanie}
 
@@ -1541,6 +1776,52 @@ SHA-256 jest kryptograficzną funkcją skrótu o fundamentalnym znaczeniu dla be
     \label{fig:sha256}
 \end{figure}
 Rysunek \ref{fig:sha256} przedstawia interfejs użytkownika funkcji SHA-256 w aplikacji CryptoLab Mobile.
+
+\subsection{Podpis Elektroniczny}
+Podpis elektroniczny to kryptograficzny mechanizm łączący SHA-256 z RSA do autentykacji dokumentów.
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item \textbf{Autentyczność} -- potwierdza tożsamość nadawcy (tylko właściciel klucza prywatnego może podpisać),
+    \item \textbf{Integralność} -- wykrywa każdą modyfikację dokumentu,
+    \item \textbf{Niezaprzeczalność} -- nadawca nie może zaprzeczyć podpisaniu (non-repudiation),
+    \item \textbf{Efektywność} -- podpisywany jest tylko hash (256 bitów), nie cały dokument,
+    \item \textbf{Uniwersalność} -- działa dla dokumentów dowolnej wielkości,
+    \item \textbf{Zgodność ze standardami} -- RSA-SHA256 to powszechnie uznany standard (PKCS\#1).
+\end{itemize}
+
+\textbf{Wady i ograniczenia:}
+\begin{itemize}
+    \item \textbf{Zarządzanie kluczami} -- wymaga bezpiecznego przechowywania klucza prywatnego,
+    \item \textbf{Infrastruktura PKI} -- w praktyce potrzebne są certyfikaty i zaufane centra certyfikacji,
+    \item \textbf{Podatność kwantowa} -- RSA może być złamany przez komputery kwantowe (w przyszłości),
+    \item \textbf{Rozmiar klucza} -- duże klucze (2048-4096 bitów) wymagają więcej pamięci.
+\end{itemize}
+
+\textbf{Proces w CryptoLab:}
+\begin{enumerate}
+    \item \textbf{Podpisywanie:} Użytkownik wpisuje dokument → System oblicza SHA-256 → Podpisuje kluczem prywatnym → Zwraca: dokument|hash|podpis|klucz\_publiczny
+    \item \textbf{Weryfikacja:} Użytkownik wkleja podpis → System oblicza hash dokumentu → Sprawdza integralność → Weryfikuje podpis kluczem publicznym → Wyświetla: ✅ WAŻNY lub ❌ NIEWAŻNY
+\end{enumerate}
+
+\textbf{Zastosowania praktyczne:}
+\begin{itemize}
+    \item \textbf{SSL/TLS} -- certyfikaty serwerów WWW,
+    \item \textbf{Podpisy kwalifikowane} -- prawnie wiążące dokumenty (eIDAS),
+    \item \textbf{Kod aplikacji} -- weryfikacja pochodzenia oprogramowania,
+    \item \textbf{Blockchain} -- autoryzacja transakcji Bitcoin, Ethereum,
+    \item \textbf{E-mail} -- S/MIME, PGP dla bezpiecznej poczty,
+    \item \textbf{Aktualizacje systemu} -- weryfikacja integralności pakietów apt, yum.
+\end{itemize}
+
+\textbf{Edukacyjne aspekty implementacji:}
+\begin{itemize}
+    \item Demonstracja związku między SHA-256 a RSA,
+    \item Zrozumienie różnicy między szyfrowaniem a podpisywaniem,
+    \item Wizualizacja procesu weryfikacji integralności,
+    \item Obserwacja efektu modyfikacji dokumentu (podpis staje się nieważny),
+    \item Praktyczne zastosowanie modular exponentiation i Extended Euclidean Algorithm.
+\end{itemize}
 
 \section{System logowania operacji}
 \label{sec:logging}

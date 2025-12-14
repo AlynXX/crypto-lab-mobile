@@ -61,30 +61,41 @@
 \contentsline {subsection}{\numberline {14.4}Zastosowania SHA-256}{24}{subsection.14.4}%
 \contentsline {subsection}{\numberline {14.5}Bezpieczeństwo SHA-256}{24}{subsection.14.5}%
 \contentsline {subsection}{\numberline {14.6}Implementacja w CryptoLab}{24}{subsection.14.6}%
-\contentsline {section}{\numberline {15}Wybrane fragmenty kodu}{25}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Klasa bazowa algorytmu}{25}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Implementacja szyfru Cezara}{26}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Implementacja szyfru Vigenère'a}{28}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}Implementacja szyfru z kluczem bieżącym}{29}{subsection.15.4}%
-\contentsline {subsection}{\numberline {15.5}Implementacja szyfru AES}{31}{subsection.15.5}%
-\contentsline {subsection}{\numberline {15.6}Implementacja szyfru RSA}{32}{subsection.15.6}%
-\contentsline {subsection}{\numberline {15.7}Implementacja algorytmu ElGamal}{38}{subsection.15.7}%
-\contentsline {subsection}{\numberline {15.8}Implementacja algorytmu ECDH}{38}{subsection.15.8}%
-\contentsline {subsection}{\numberline {15.9}Implementacja funkcji SHA-256}{39}{subsection.15.9}%
-\contentsline {section}{\numberline {16}Podsumowanie}{42}{section.16}%
-\contentsline {subsection}{\numberline {16.1}Szyfr Cezara}{42}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}Szyfr Vigenère'a}{42}{subsection.16.2}%
-\contentsline {subsection}{\numberline {16.3}Szyfr z kluczem bieżącym}{43}{subsection.16.3}%
-\contentsline {subsection}{\numberline {16.4}Szyfr AES}{43}{subsection.16.4}%
-\contentsline {subsection}{\numberline {16.5}Szyfr RSA}{44}{subsection.16.5}%
-\contentsline {subsection}{\numberline {16.6}Algorytm ElGamal}{45}{subsection.16.6}%
-\contentsline {subsection}{\numberline {16.7}Protokół ECDH}{45}{subsection.16.7}%
-\contentsline {subsection}{\numberline {16.8}Funkcja SHA-256}{45}{subsection.16.8}%
-\contentsline {section}{\numberline {17}System logowania operacji}{47}{section.17}%
-\contentsline {subsection}{\numberline {17.1}Architektura systemu logowania}{47}{subsection.17.1}%
-\contentsline {subsection}{\numberline {17.2}Rejestrowane informacje}{47}{subsection.17.2}%
-\contentsline {subsection}{\numberline {17.3}Kroki algorytmu}{48}{subsection.17.3}%
-\contentsline {subsection}{\numberline {17.4}Bezpieczeństwo kluczy}{49}{subsection.17.4}%
-\contentsline {subsection}{\numberline {17.5}Statystyki}{49}{subsection.17.5}%
-\contentsline {subsection}{\numberline {17.6}Zastosowanie edukacyjne}{50}{subsection.17.6}%
-\contentsline {section}{\numberline {18}Changelog}{50}{section.18}%
+\contentsline {section}{\numberline {15}Podpis Elektroniczny (Digital Signature)}{25}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Wprowadzenie do podpisów cyfrowych}{25}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Schemat podpisu RSA-SHA256}{25}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Dlaczego SHA-256 + RSA?}{25}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Format podpisu w CryptoLab}{26}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Parametry RSA dla celów edukacyjnych}{26}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Bezpieczeństwo podpisu cyfrowego}{26}{subsection.15.6}%
+\contentsline {subsection}{\numberline {15.7}Zastosowania podpisów cyfrowych}{26}{subsection.15.7}%
+\contentsline {subsection}{\numberline {15.8}Implementacja w CryptoLab}{27}{subsection.15.8}%
+\contentsline {section}{\numberline {16}Wybrane fragmenty kodu}{28}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Klasa bazowa algorytmu}{28}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Implementacja szyfru Cezara}{29}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Implementacja szyfru Vigenère'a}{31}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}Implementacja szyfru z kluczem bieżącym}{32}{subsection.16.4}%
+\contentsline {subsection}{\numberline {16.5}Implementacja szyfru AES}{34}{subsection.16.5}%
+\contentsline {subsection}{\numberline {16.6}Implementacja szyfru RSA}{35}{subsection.16.6}%
+\contentsline {subsection}{\numberline {16.7}Implementacja algorytmu ElGamal}{41}{subsection.16.7}%
+\contentsline {subsection}{\numberline {16.8}Implementacja algorytmu ECDH}{41}{subsection.16.8}%
+\contentsline {subsection}{\numberline {16.9}Implementacja funkcji SHA-256}{42}{subsection.16.9}%
+\contentsline {subsection}{\numberline {16.10}Implementacja podpisu elektronicznego}{44}{subsection.16.10}%
+\contentsline {section}{\numberline {17}Podsumowanie}{47}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Szyfr Cezara}{47}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Szyfr Vigenère'a}{47}{subsection.17.2}%
+\contentsline {subsection}{\numberline {17.3}Szyfr z kluczem bieżącym}{48}{subsection.17.3}%
+\contentsline {subsection}{\numberline {17.4}Szyfr AES}{48}{subsection.17.4}%
+\contentsline {subsection}{\numberline {17.5}Szyfr RSA}{49}{subsection.17.5}%
+\contentsline {subsection}{\numberline {17.6}Algorytm ElGamal}{50}{subsection.17.6}%
+\contentsline {subsection}{\numberline {17.7}Protokół ECDH}{50}{subsection.17.7}%
+\contentsline {subsection}{\numberline {17.8}Funkcja SHA-256}{50}{subsection.17.8}%
+\contentsline {subsection}{\numberline {17.9}Podpis Elektroniczny}{52}{subsection.17.9}%
+\contentsline {section}{\numberline {18}System logowania operacji}{53}{section.18}%
+\contentsline {subsection}{\numberline {18.1}Architektura systemu logowania}{53}{subsection.18.1}%
+\contentsline {subsection}{\numberline {18.2}Rejestrowane informacje}{54}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.3}Kroki algorytmu}{54}{subsection.18.3}%
+\contentsline {subsection}{\numberline {18.4}Bezpieczeństwo kluczy}{55}{subsection.18.4}%
+\contentsline {subsection}{\numberline {18.5}Statystyki}{55}{subsection.18.5}%
+\contentsline {subsection}{\numberline {18.6}Zastosowanie edukacyjne}{56}{subsection.18.6}%
+\contentsline {section}{\numberline {19}Changelog}{56}{section.19}%

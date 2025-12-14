@@ -1,101 +1,91 @@
-\contentsline {section}{\numberline {1}Cel projektu}{2}{section.1}%
-\contentsline {section}{\numberline {2}Podstawy kryptografii klasycznej}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Kryptografia symetryczna}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Przykłady szyfrów klasycznych}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Znaczenie w edukacji}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Nowoczesna kryptografia symetryczna -- AES}{3}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Miejsce szyfru Cezara}{3}{section.3}%
-\contentsline {section}{\numberline {4}Technologie wykorzystane w projekcie}{3}{section.4}%
-\contentsline {section}{\numberline {5}Architektura systemu}{5}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Wzorzec projektowy}{5}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Komponenty główne}{5}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Struktura projektu}{5}{section.6}%
-\contentsline {section}{\numberline {7}Implementacja szyfru Cezara}{6}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Podstawy}{6}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Model matematyczny}{6}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Cechy implementacji}{6}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Implementacja szyfru Vigenère'a}{7}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Historia i znaczenie}{7}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Podstawy}{7}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Model matematyczny}{7}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Przykład działania}{7}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Cechy implementacji}{7}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Implementacja szyfru z kluczem bieżącym}{8}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Historia i zastosowanie}{8}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Podstawy}{8}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Model matematyczny}{8}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Cechy implementacji}{8}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Bezpieczeństwo}{8}{subsection.9.5}%
-\contentsline {section}{\numberline {10}Implementacja szyfru AES}{9}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Historia i znaczenie}{9}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Podstawy}{9}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Warianty AES}{9}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Tryby pracy AES}{10}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Struktura algorytmu AES}{10}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Cechy implementacji}{12}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Bezpieczeństwo}{13}{subsection.10.7}%
-\contentsline {subsection}{\numberline {10.8}Zastosowania}{13}{subsection.10.8}%
-\contentsline {section}{\numberline {11}Kryptografia asymetryczna -- RSA}{14}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Historia i znaczenie}{14}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Podstawy matematyczne}{14}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Model matematyczny}{14}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Przykład działania}{15}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Cechy implementacji}{15}{subsection.11.5}%
-\contentsline {subsection}{\numberline {11.6}Jak wygenerować klucze RSA}{15}{subsection.11.6}%
-\contentsline {subsection}{\numberline {11.7}Bezpieczeństwo}{16}{subsection.11.7}%
-\contentsline {subsection}{\numberline {11.8}Zastosowania}{17}{subsection.11.8}%
-\contentsline {subsection}{\numberline {11.9}RSA vs AES}{17}{subsection.11.9}%
-\contentsline {section}{\numberline {12}Algorytm ElGamal}{18}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Historia i znaczenie}{18}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Model matematyczny}{18}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Cechy implementacji}{18}{subsection.12.3}%
-\contentsline {section}{\numberline {13}Protokół ECDH i Krzywe Eliptyczne}{19}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Wprowadzenie do ECC}{19}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Protokół ECDH (Elliptic Curve Diffie-Hellman)}{19}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}Implementacja w CryptoLab (ECIES)}{20}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}Cechy implementacji}{21}{subsection.13.4}%
-\contentsline {section}{\numberline {14}Funkcja skrótu SHA-256}{21}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Wprowadzenie do funkcji skrótu}{21}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}SHA-256 (Secure Hash Algorithm 256-bit)}{22}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Algorytm SHA-256}{23}{subsection.14.3}%
-\contentsline {subsection}{\numberline {14.4}Zastosowania SHA-256}{24}{subsection.14.4}%
-\contentsline {subsection}{\numberline {14.5}Bezpieczeństwo SHA-256}{24}{subsection.14.5}%
-\contentsline {subsection}{\numberline {14.6}Implementacja w CryptoLab}{24}{subsection.14.6}%
-\contentsline {section}{\numberline {15}Podpis Elektroniczny (Digital Signature)}{25}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Wprowadzenie do podpisów cyfrowych}{25}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Schemat podpisu RSA-SHA256}{25}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Dlaczego SHA-256 + RSA?}{25}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}Format podpisu w CryptoLab}{26}{subsection.15.4}%
-\contentsline {subsection}{\numberline {15.5}Parametry RSA dla celów edukacyjnych}{26}{subsection.15.5}%
-\contentsline {subsection}{\numberline {15.6}Bezpieczeństwo podpisu cyfrowego}{26}{subsection.15.6}%
-\contentsline {subsection}{\numberline {15.7}Zastosowania podpisów cyfrowych}{26}{subsection.15.7}%
-\contentsline {subsection}{\numberline {15.8}Implementacja w CryptoLab}{27}{subsection.15.8}%
-\contentsline {section}{\numberline {16}Wybrane fragmenty kodu}{28}{section.16}%
-\contentsline {subsection}{\numberline {16.1}Klasa bazowa algorytmu}{28}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}Implementacja szyfru Cezara}{29}{subsection.16.2}%
-\contentsline {subsection}{\numberline {16.3}Implementacja szyfru Vigenère'a}{31}{subsection.16.3}%
-\contentsline {subsection}{\numberline {16.4}Implementacja szyfru z kluczem bieżącym}{32}{subsection.16.4}%
-\contentsline {subsection}{\numberline {16.5}Implementacja szyfru AES}{34}{subsection.16.5}%
-\contentsline {subsection}{\numberline {16.6}Implementacja szyfru RSA}{35}{subsection.16.6}%
-\contentsline {subsection}{\numberline {16.7}Implementacja algorytmu ElGamal}{41}{subsection.16.7}%
-\contentsline {subsection}{\numberline {16.8}Implementacja algorytmu ECDH}{41}{subsection.16.8}%
-\contentsline {subsection}{\numberline {16.9}Implementacja funkcji SHA-256}{42}{subsection.16.9}%
-\contentsline {subsection}{\numberline {16.10}Implementacja podpisu elektronicznego}{44}{subsection.16.10}%
-\contentsline {section}{\numberline {17}Podsumowanie}{47}{section.17}%
-\contentsline {subsection}{\numberline {17.1}Szyfr Cezara}{47}{subsection.17.1}%
-\contentsline {subsection}{\numberline {17.2}Szyfr Vigenère'a}{47}{subsection.17.2}%
-\contentsline {subsection}{\numberline {17.3}Szyfr z kluczem bieżącym}{48}{subsection.17.3}%
-\contentsline {subsection}{\numberline {17.4}Szyfr AES}{48}{subsection.17.4}%
-\contentsline {subsection}{\numberline {17.5}Szyfr RSA}{49}{subsection.17.5}%
-\contentsline {subsection}{\numberline {17.6}Algorytm ElGamal}{50}{subsection.17.6}%
-\contentsline {subsection}{\numberline {17.7}Protokół ECDH}{50}{subsection.17.7}%
-\contentsline {subsection}{\numberline {17.8}Funkcja SHA-256}{50}{subsection.17.8}%
-\contentsline {subsection}{\numberline {17.9}Podpis Elektroniczny}{52}{subsection.17.9}%
-\contentsline {section}{\numberline {18}System logowania operacji}{53}{section.18}%
-\contentsline {subsection}{\numberline {18.1}Architektura systemu logowania}{53}{subsection.18.1}%
-\contentsline {subsection}{\numberline {18.2}Rejestrowane informacje}{54}{subsection.18.2}%
-\contentsline {subsection}{\numberline {18.3}Kroki algorytmu}{54}{subsection.18.3}%
-\contentsline {subsection}{\numberline {18.4}Bezpieczeństwo kluczy}{55}{subsection.18.4}%
-\contentsline {subsection}{\numberline {18.5}Statystyki}{55}{subsection.18.5}%
-\contentsline {subsection}{\numberline {18.6}Zastosowanie edukacyjne}{56}{subsection.18.6}%
-\contentsline {section}{\numberline {19}Changelog}{56}{section.19}%
+\contentsline {section}{\numberline {1}Cel projektu}{4}{section.1}%
+\contentsline {section}{\numberline {2}Podstawy kryptografii}{4}{section.2}%
+\contentsline {section}{\numberline {3}Technologie wykorzystane w projekcie}{5}{section.3}%
+\contentsline {section}{\numberline {4}Architektura systemu}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Wzorzec projektowy}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Komponenty główne}{6}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Struktura projektu}{7}{section.5}%
+\contentsline {section}{\numberline {6}Implementacja szyfru Cezara}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Podstawy}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Model matematyczny}{7}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Cechy implementacji}{7}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Implementacja szyfru Vigenère'a}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Historia i znaczenie}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Podstawy}{8}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Model matematyczny}{8}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Przykład działania}{8}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Cechy implementacji}{8}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Implementacja szyfru z kluczem bieżącym}{9}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Historia i koncepcja}{9}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Algorytm szyfrowania i deszyfrowania}{9}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Przykład działania}{9}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Bezpieczeństwo}{10}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}One-Time Pad (OTP)}{10}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Zastosowania historyczne}{10}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Cechy implementacji w CryptoLab}{11}{subsection.8.7}%
+\contentsline {section}{\numberline {9}Implementacja szyfru AES}{12}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Podstawy}{12}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Warianty AES}{12}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Tryby pracy AES}{13}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Struktura algorytmu AES}{15}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Cechy implementacji}{15}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Bezpieczeństwo}{15}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Zastosowania}{16}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Kryptografia asymetryczna - RSA}{17}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Model matematyczny}{17}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Przykład działania}{17}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Cechy implementacji}{18}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Jak wygenerować klucze RSA}{18}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Bezpieczeństwo}{19}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Zastosowania}{19}{subsection.10.6}%
+\contentsline {section}{\numberline {11}Algorytm ElGamal}{20}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Historia i znaczenie}{20}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Model matematyczny}{20}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Cechy implementacji}{20}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Protokół ECDH i Krzywe Eliptyczne}{21}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Wprowadzenie}{21}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Protokół ECDH}{21}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Implementacja ECIES}{22}{subsection.12.3}%
+\contentsline {section}{\numberline {13}Funkcja skrótu SHA-256}{22}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Wprowadzenie}{22}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Algorytm}{22}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Zastosowania}{23}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Bezpieczeństwo}{23}{subsection.13.4}%
+\contentsline {subsection}{\numberline {13.5}Implementacja}{23}{subsection.13.5}%
+\contentsline {section}{\numberline {14}Podpis Elektroniczny (Digital Signature)}{23}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Wprowadzenie}{23}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Schemat podpisu RSA-SHA256}{23}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Format}{24}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Parametry RSA (edukacyjne)}{24}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.5}Bezpieczeństwo}{24}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Zastosowania}{24}{subsection.14.6}%
+\contentsline {subsection}{\numberline {14.7}Implementacja}{24}{subsection.14.7}%
+\contentsline {section}{\numberline {15}Wybrane fragmenty kodu}{27}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Klasa bazowa algorytmu}{27}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Implementacja szyfru Cezara}{29}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Implementacja szyfru Vigenère'a}{30}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Implementacja szyfru z kluczem bieżącym}{31}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Implementacja szyfru AES}{33}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Implementacja szyfru RSA}{33}{subsection.15.6}%
+\contentsline {subsection}{\numberline {15.7}Implementacja algorytmu ElGamal}{36}{subsection.15.7}%
+\contentsline {subsection}{\numberline {15.8}Implementacja algorytmu ECDH}{37}{subsection.15.8}%
+\contentsline {subsection}{\numberline {15.9}Implementacja funkcji SHA-256}{38}{subsection.15.9}%
+\contentsline {subsection}{\numberline {15.10}Implementacja podpisu elektronicznego}{39}{subsection.15.10}%
+\contentsline {section}{\numberline {16}Podsumowanie}{40}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Szyfr Cezara}{40}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Szyfr Vigenère'a}{40}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Szyfr z kluczem bieżącym}{41}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}Szyfr AES}{41}{subsection.16.4}%
+\contentsline {subsection}{\numberline {16.5}Szyfr RSA}{42}{subsection.16.5}%
+\contentsline {subsection}{\numberline {16.6}Algorytm ElGamal}{43}{subsection.16.6}%
+\contentsline {subsection}{\numberline {16.7}Protokół ECDH}{43}{subsection.16.7}%
+\contentsline {subsection}{\numberline {16.8}Funkcja SHA-256}{43}{subsection.16.8}%
+\contentsline {subsection}{\numberline {16.9}Podpis Elektroniczny}{45}{subsection.16.9}%
+\contentsline {section}{\numberline {17}System logowania operacji}{46}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Architektura systemu logowania}{46}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Rejestrowane informacje}{47}{subsection.17.2}%
+\contentsline {subsection}{\numberline {17.3}Kroki algorytmu}{47}{subsection.17.3}%
+\contentsline {subsection}{\numberline {17.4}Bezpieczeństwo kluczy}{48}{subsection.17.4}%
+\contentsline {subsection}{\numberline {17.5}Statystyki}{48}{subsection.17.5}%
+\contentsline {subsection}{\numberline {17.6}Zastosowanie edukacyjne}{49}{subsection.17.6}%
+\contentsline {section}{\numberline {18}Changelog}{49}{section.18}%

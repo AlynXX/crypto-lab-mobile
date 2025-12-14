@@ -40,66 +40,22 @@ jak i przełomowy algorytm kryptografii asymetrycznej RSA (Rivest-Shamir-Adleman
 Wszystkie algorytmy są implementowane ręcznie, bez użycia gotowych bibliotek kryptograficznych, 
 co pozwala na głębsze zrozumienie ich działania i różnic między kryptografią symetryczną a asymetryczną.
 
-\section{Podstawy kryptografii klasycznej}
+\section{Podstawy kryptografii}
 
-\subsection*{Wprowadzenie}
-Kryptografia to dziedzina zajmująca się ochroną informacji poprzez jej przekształcanie w formę nieczytelną dla osób nieuprawnionych. 
-Jej historia sięga starożytności, gdzie stosowano proste metody szyfrowania, znane obecnie jako \textbf{kryptografia klasyczna}. 
-Celem było zapewnienie poufności korespondencji wojskowej, dyplomatycznej czy handlowej. 
+Kryptografia to ochrona informacji poprzez przekształcanie jej w formę nieczytelną. W kryptografii \textbf{symetrycznej} ten sam klucz służy do szyfrowania i deszyfrowania - cechuje się wysoką szybkością, ale wymaga bezpiecznej wymiany klucza.
 
-\subsection{Kryptografia symetryczna}
-W kryptografii symetrycznej ten sam klucz służy zarówno do szyfrowania, jak i deszyfrowania wiadomości. 
-Najważniejsze cechy:
+Aplikacja implementuje szyfry klasyczne (Cezara, Vigenère'a, z kluczem bieżącym) oraz nowoczesne (AES, RSA, ElGamal, ECDH, SHA-256, podpis elektroniczny). Choć klasyczne szyfry nie zapewniają dziś bezpieczeństwa, stanowią doskonałe narzędzie dydaktyczne do zrozumienia podstawowych pojęć: klucza, przestrzeni kluczy, analizy częstości i ataków brute-force.
+
+\textbf{Ewolucja: od klasyki do nowoczesności}
 \begin{itemize}
-    \item wysoka szybkość działania,
-    \item konieczność bezpiecznej wymiany klucza,
-    \item podatność na ataki brute-force przy krótkich kluczach.
+    \item \textbf{Szyfry klasyczne} - proste podstawienia (Cezar: przesunięcie liter o stałą wartość)
+    \item \textbf{AES} - szyfr blokowy 128-bit z trybami ECB/CBC/CTR, odporny na znane ataki
+    \item \textbf{RSA/ECC} - kryptografia asymetryczna z parą kluczy publiczny/prywatny
+    \item \textbf{SHA-256} - funkcja skrótu jednokierunkowa do integralności danych
+    \item \textbf{Podpis cyfrowy} - RSA+SHA256 do autentykacji i niezaprzeczalności
 \end{itemize}
 
-\subsection{Przykłady szyfrów klasycznych}
-\begin{itemize}
-    \item \textbf{Szyfr Cezara} -- przesunięcie liter alfabetu o stałą liczbę pozycji,
-    \item \textbf{Szyfr Vigenère'a} -- wieloalfabetyczny szyfr wykorzystujący słowo-klucz,
-    \item \textbf{Szyfr z kluczem bieżącym} -- rozwinięcie Vigenère'a z długim kluczem tekstowym,
-    \item \textbf{Szyfr podstawieniowy (monoalfabetyczny)} -- każdej literze alfabetu przypisana jest inna litera,
-    \item \textbf{Szyfr Playfair} -- operujący na parach liter,
-    \item \textbf{Szyfr transpozycyjny} -- zmienia kolejność znaków w wiadomości.
-\end{itemize}
-
-\subsection{Znaczenie w edukacji}
-Choć współcześnie klasyczne szyfry nie zapewniają realnego bezpieczeństwa, 
-stanowią doskonałe narzędzie dydaktyczne. 
-Pozwalają zrozumieć podstawowe pojęcia kryptografii, takie jak:
-\begin{itemize}
-    \item \textbf{klucz} -- parametr definiujący szyfrowanie,
-    \item \textbf{przestrzeń kluczy} -- zbiór możliwych wartości klucza,
-    \item \textbf{analiza częstości} -- klasyczna metoda łamania szyfrów,
-    \item \textbf{brute-force} -- przeszukiwanie wszystkich możliwych kluczy.
-\end{itemize}
-
-\subsection{Nowoczesna kryptografia symetryczna -- AES}
-Aplikacja CryptoLab zawiera również implementację \textbf{AES (Advanced Encryption Standard)}, 
-który jest standardem współczesnego szyfrowania symetrycznego. 
-W przeciwieństwie do szyfrów klasycznych, AES:
-\begin{itemize}
-    \item jest szyfrem \textbf{blokowym} (operuje na blokach 128 bitów),
-    \item wykorzystuje złożone operacje matematyczne (S-Box, MixColumns, ShiftRows),
-    \item oferuje różne długości kluczy (128, 192, 256 bitów),
-    \item obsługuje różne tryby pracy (ECB, CBC, CTR),
-    \item jest odporny na wszystkie znane praktyczne ataki kryptograficzne.
-\end{itemize}
-
-Dzięki implementacji zarówno szyfrów klasycznych, jak i nowoczesnego AES, 
-użytkownicy mogą porównać podejścia historyczne z obecnie stosowanymi rozwiązaniami 
-i zrozumieć ewolucję kryptografii.
-
-\section{Miejsce szyfru Cezara}
-Szyfr Cezara należy do najprostszych szyfrów podstawieniowych. 
-Choć jego bezpieczeństwo jest znikome, odgrywa on kluczową rolę w nauczaniu, 
-ponieważ wprowadza intuicyjnie pojęcia klucza, szyfrowania i deszyfrowania. 
-CryptoLab wykorzystuje go jako \textbf{pierwszy krok} w implementacji i analizie algorytmów kryptograficznych.
-
-
+\newpage
 \section{Technologie wykorzystane w projekcie}
 
 \begin{description}
@@ -147,10 +103,10 @@ CryptoLab wykorzystuje go jako \textbf{pierwszy krok} w implementacji i analizie
 Aplikacja wykorzystuje \textbf{Strategy Pattern} dla algorytmów kryptograficznych. 
 Każdy algorytm dziedziczy z klasy abstrakcyjnej \texttt{CryptographicAlgorithm} i implementuje metody:
 \begin{itemize}
-    \item \texttt{encrypt(plaintext, key)} -- szyfruje tekst,
-    \item \texttt{decrypt(ciphertext, key)} -- deszyfruje tekst,
-    \item \texttt{validateKey(key)} -- sprawdza poprawność klucza,
-    \item \texttt{getKeyRequirements()} -- zwraca opis wymagań dla klucza.
+    \item \texttt{encrypt(plaintext, key)} - szyfruje tekst,
+    \item \texttt{decrypt(ciphertext, key)} - deszyfruje tekst,
+    \item \texttt{validateKey(key)} - sprawdza poprawność klucza,
+    \item \texttt{getKeyRequirements()} - zwraca opis wymagań dla klucza.
 \end{itemize}
 
 Wszystkie algorytmy zarejestrowane są w \texttt{AlgorithmRegistry} (Singleton Pattern), 
@@ -158,15 +114,16 @@ co umożliwia łatwe dodawanie nowych szyfrów bez modyfikacji głównej aplikac
 
 \subsection{Komponenty główne}
 \begin{itemize}
-    \item \textbf{App.tsx} -- główny komponent aplikacji, obsługuje interfejs użytkownika,
-    \item \textbf{AlgorithmSidebar.tsx} -- boczny panel z listą dostępnych algorytmów,
-    \item \textbf{LogsViewer.tsx} -- komponent wyświetlania historii operacji kryptograficznych,
-    \item \textbf{AlgorithmRegistry.ts} -- rejestr i zarządzanie algorytmami,
-    \item \textbf{CryptographicAlgorithm.ts} -- klasa bazowa dla wszystkich algorytmów,
-    \item \textbf{LogManager.ts} -- menadżer logów z wzorcem Singleton,
-    \item \textbf{fileUtils.ts} -- funkcje do obsługi operacji na plikach.
+    \item \textbf{App.tsx} - główny komponent aplikacji, obsługuje interfejs użytkownika,
+    \item \textbf{AlgorithmSidebar.tsx} - boczny panel z listą dostępnych algorytmów,
+    \item \textbf{LogsViewer.tsx} - komponent wyświetlania historii operacji kryptograficznych,
+    \item \textbf{AlgorithmRegistry.ts} - rejestr i zarządzanie algorytmami,
+    \item \textbf{CryptographicAlgorithm.ts} - klasa bazowa dla wszystkich algorytmów,
+    \item \textbf{LogManager.ts} - menadżer logów z wzorcem Singleton,
+    \item \textbf{fileUtils.ts} - funkcje do obsługi operacji na plikach.
 \end{itemize}
 
+\newpage
 \section{Struktura projektu}
 \begin{lstlisting}
 crypto-lab-mobile/
@@ -196,7 +153,7 @@ crypto-lab-mobile/
 \section{Implementacja szyfru Cezara}
 \subsection{Podstawy}
 Szyfr Cezara to prosty szyfr monoalfabetyczny, w którym litery przesuwane są o wartość klucza $k$. 
-Przestrzeń kluczy obejmuje wartości $1$--$25$. 
+Przestrzeń kluczy obejmuje wartości $1$-$25$. 
 Metoda jest podatna na ataki brute-force i analizę częstotliwości.
 
 \subsection{Model matematyczny}
@@ -209,7 +166,7 @@ Metoda jest podatna na ataki brute-force i analizę częstotliwości.
 \begin{itemize}
     \item Obsługuje zarówno wielkie jak i małe litery,
     \item Znaki niebędące literami pozostają bez zmian,
-    \item Klucz musi być liczbą całkowitą z zakresu 1--25,
+    \item Klucz musi być liczbą całkowitą z zakresu 1-25,
     \item Walidacja klucza zwraca szczegółową informację o błędach.
 \end{itemize}
 
@@ -259,47 +216,121 @@ Tekst zaszyfrowany & L & X & F & O & P & V \\
 \newpage
 \section{Implementacja szyfru z kluczem bieżącym}
 
-\subsection{Historia i zastosowanie}
-Szyfr z kluczem bieżącym (Running Key Cipher) to rozwinięcie szyfru Vigenère'a. 
-Zamiast krótko słowa, wykorzystuje on klucz o długości co najmniej równej długości tekstu. 
-Gdy klucz jest naprawdę losowy i będzie użyty tylko raz, szyfr ten jest teoretycznie nie do złamania 
-(jest to wariant szyfru jednorazowego -- \textit{One-Time Pad}).
+Szyfr z kluczem bieżącym (Running Key Cipher) to polialfabetyczny szyfr substytucyjny będący rozwinięciem szyfru Vigenère'a. Główna różnica polega na tym, że klucz ma długość co najmniej równą długości szyfrowanej wiadomości, co znacząco zwiększa bezpieczeństwo.
 
-\subsection{Podstawy}
-Algorytm jest w zasadzie identyczny z szyfrem Vigenère'a, ale z istotną różnicą: 
-klucz powinien być znacznie dłuższy niż tekst. W praktyce zastosowania edukacyjnego 
-aplikacja automatycznie generuje klucz z tekstu Lorem Ipsum.
+\subsection{Historia i koncepcja}
+Szyfr z kluczem bieżącym był używany już w XIX wieku. Klasycznie jako klucza używano fragmentów książek, gazet lub innych długich tekstów. Idea polega na tym, że klucz nie powtarza się (lub powtarza bardzo rzadko), co eliminuje główną słabość szyfru Vigenère'a - podatność na analizę Kasiskiego.
 
-\subsection{Model matematyczny}
+Gdy klucz jest:
 \begin{itemize}
-    \item Szyfrowanie: $E_{k}(x_i) = (x_i + k_i) \bmod 26$,
-    \item Deszyfrowanie: $D_{k}(y_i) = (y_i - k_i) \bmod 26$,
-    \item gdzie $|k| \geq |x|$ (klucz jest co najmniej tak długi jak tekst).
+    \item \textbf{tekstem z książki} - szyfr jest podatny na kryptoanalizę (klucz ma strukturę języka naturalnego),
+    \item \textbf{losowy i używany jednorazowo} - otrzymujemy \textbf{One-Time Pad} (teoretycznie nie do złamania).
 \end{itemize}
 
-\subsection{Cechy implementacji}
+\subsection{Algorytm szyfrowania i deszyfrowania}
+Model matematyczny jest identyczny jak w szyfrze Vigenère'a, ale klucz ma długość $|k| \geq |x|$:
+
+\textbf{Szyfrowanie:}
 \begin{itemize}
-    \item Klucz może zawierać litery i spacje,
-    \item Klucz musi zawierać co najmniej 5 liter,
-    \item Aplikacja automatycznie generuje losowy klucz na bazie Lorem Ipsum,
-    \item Zaszyfrowany tekst zawiera klucz w formacie: \texttt{<klucz>::<tekst\_zaszyfrowany>},
-    \item Deszyfrowanie wymaga podania tekstu w poprawnym formacie.
+    \item $E_{k}(x_i) = (x_i + k_i) \bmod 26$
+    \item gdzie $x_i$ - $i$-ty znak tekstu jawnego (0-25),
+    \item $k_i$ - $i$-ty znak klucza (0-25),
+    \item wynik - zaszyfrowany znak.
 \end{itemize}
+
+\textbf{Deszyfrowanie:}
+\begin{itemize}
+    \item $D_{k}(c_i) = (c_i - k_i + 26) \bmod 26$
+    \item gdzie $c_i$ - $i$-ty znak szyfrogramu.
+\end{itemize}
+
+\subsection{Przykład działania}
+Załóżmy, że chcemy zaszyfrować słowo \texttt{ATTACK} używając klucza \texttt{LOREMIPSUM} (fragmentu tekstu Lorem Ipsum):
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Tekst jawny & A & T & T & A & C & K \\
+\hline
+Pozycja & 0 & 19 & 19 & 0 & 2 & 10 \\
+\hline
+Klucz & L & O & R & E & M & I \\
+\hline
+Pozycja klucza & 11 & 14 & 17 & 4 & 12 & 8 \\
+\hline
+Suma (mod 26) & 11 & 7 & 10 & 4 & 14 & 18 \\
+\hline
+Tekst zaszyfrowany & L & H & K & E & O & S \\
+\hline
+\end{tabular}
+\end{center}
+
+Wynik: \texttt{ATTACK} $\rightarrow$ \texttt{LHKEOS}
 
 \subsection{Bezpieczeństwo}
+\textbf{Zalety:}
 \begin{itemize}
-    \item Gdy klucz jest losowy i używany tylko raz, szyfr jest teoretycznie bezpieczny,
-    \item Słaba strona: jeśli klucz jest krótszy niż tekst, powtarza się i traci bezpieczeństwo,
-    \item W aplikacji edukacyjne klucz jest generowany automatycznie i przechowywany w wynikach.
+    \item Eliminuje periodyczność klucza - ataki typu Kasiskiego są nieskuteczne,
+    \item Przy losowym kluczu jednorazowym - teoretycznie bezpieczny (doskonała tajemnica),
+    \item Długi klucz znacząco utrudnia kryptoanalizę statystyczną.
 \end{itemize}
 
+\textbf{Wady:}
+\begin{itemize}
+    \item Wymaga bardzo długich kluczy (minimum długość tekstu),
+    \item Klucz musi być przekazany bezpiecznym kanałem,
+    \item Przy użyciu tekstu naturalnego jako klucza - podatny na kryptoanalizę (struktura języka),
+    \item Praktycznie niepraktyczny w rzeczywistych zastosowaniach (poza OTP).
+\end{itemize}
+
+\textbf{Atak na szyfr:}
+Jeśli klucz jest tekstem w języku naturalnym, można zastosować:
+\begin{itemize}
+    \item Analizę statystyczną struktur języka,
+    \item Ataki słownikowe (próbowanie znanych tekstów jako kluczy),
+    \item Analizę bigramów i trigramów.
+\end{itemize}
+
+\subsection{One-Time Pad (OTP)}
+Gdy klucz spełnia warunki:
+\begin{enumerate}
+    \item Jest \textbf{całkowicie losowy},
+    \item Ma długość \textbf{co najmniej równą tekstowi},
+    \item Jest używany \textbf{tylko raz},
+    \item Jest znany \textbf{tylko nadawcy i odbiorcy},
+\end{enumerate}
+otrzymujemy One-Time Pad - jedyny szyfr z udowodnioną matematycznie \textbf{doskonałą tajemnicą} (Shannon, 1949).
+
+\subsection{Zastosowania historyczne}
+\begin{itemize}
+    \item \textbf{Dyplomacja} - szyfrowanie tajnych depesz (XIX-XX wiek),
+    \item \textbf{Wojskowość} - komunikacja wojskowa (WWII, Zimna Wojna),
+    \item \textbf{Czerwony Telefon} - linia Waszyngton-Moskwa używała OTP,
+    \item \textbf{Wywiad} - agenci używali książek jako kluczy.
+\end{itemize}
+
+\subsection{Cechy implementacji w CryptoLab}
+\begin{itemize}
+    \item Klucz może zawierać litery (A-Z, a-z) i spacje,
+    \item Minimalna długość klucza: 5 liter (bez liczenia spacji),
+    \item Automatyczne generowanie klucza z Lorem Ipsum,
+    \item Wynik w formacie: \texttt{<klucz>::<szyfrogram>},
+    \item Znaki niebędące literami w tekście źródłowym są przepisywane bez zmian,
+    \item Obsługa wielkich i małych liter,
+    \item Szczegółowe logowanie każdego kroku procesu.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/Szyfr_z_kb.jpg}
+    \caption{Ekran szyfru z kluczem bieżącym w aplikacji CryptoLab}
+    \label{fig:running_key}
+\end{figure}
+Rysunek \ref{fig:running_key} przedstawia interfejs użytkownika szyfru z kluczem bieżącym w aplikacji CryptoLab Mobile. Widoczny jest automatycznie wygenerowany klucz oraz proces szyfrowania wiadomości.
 \newpage
 \section{Implementacja szyfru AES}
 
-\subsection{Historia i znaczenie}
-AES (Advanced Encryption Standard) to symetryczny szyfr blokowy, który w 2001 roku został wybrany przez NIST (National Institute of Standards and Technology) jako następca przestarzałego algorytmu DES. 
-Został opracowany przez belgijskich kryptografów Joana Daemena i Vincenta Rijmena pod nazwą \textit{Rijndael}. 
-AES jest obecnie najpowszechniej stosowanym szyfrem symetrycznym na świecie -- chroni dane w protokołach SSL/TLS, systemach bankowych, szyfrowanych dyskach i wielu innych zastosowaniach.
+AES (Advanced Encryption Standard, 2001, Daemen/Rijmen) to najpopularniejszy szyfr symetryczny - chroni SSL/TLS, systemy bankowe, dyski. Następca DES, obecnie globalny standard bezpieczeństwa.
 
 \subsection{Podstawy}
 AES to szyfr \textbf{blokowy}, który operuje na blokach danych o długości 128 bitów (16 bajtów). 
@@ -309,9 +340,9 @@ w tym podstawienia (S-Box), permutacje, mieszanie kolumn i dodawanie klucza rund
 \subsection{Warianty AES}
 AES występuje w trzech wariantach, różniących się długością klucza:
 \begin{itemize}
-    \item \textbf{AES-128} -- klucz 128-bitowy (32 znaki hex), 10 rund szyfrowania,
-    \item \textbf{AES-192} -- klucz 192-bitowy (48 znaków hex), 12 rund szyfrowania,
-    \item \textbf{AES-256} -- klucz 256-bitowy (64 znaki hex), 14 rund szyfrowania.
+    \item \textbf{AES-128} - klucz 128-bitowy (32 znaki hex), 10 rund szyfrowania,
+    \item \textbf{AES-192} - klucz 192-bitowy (48 znaków hex), 12 rund szyfrowania,
+    \item \textbf{AES-256} - klucz 256-bitowy (64 znaki hex), 14 rund szyfrowania.
 \end{itemize}
 
 Im dłuższy klucz, tym wyższe bezpieczeństwo, ale także nieznacznie wolniejsze działanie.
@@ -327,7 +358,7 @@ Szyfr blokowy wymaga określenia \textbf{trybu pracy}, który definiuje sposób 
 
 \begin{description}
     \item[\textbf{ECB (Electronic Codebook)}] 
-    Najprostszy tryb -- każdy blok szyfrowany jest niezależnie tym samym kluczem. 
+    Najprostszy tryb - każdy blok szyfrowany jest niezależnie tym samym kluczem. 
     \textbf{Niezalecany} w praktyce, ponieważ identyczne bloki tekstu jawnego dają identyczne bloki szyfrogramu, 
     co może ujawnić wzorce w danych.
     \begin{figure}
@@ -361,13 +392,14 @@ Szyfr blokowy wymaga określenia \textbf{trybu pracy}, który definiuje sposób 
     Rysunek \ref{fig:ctr} przedstawia przykładowe szyfrowanie tekstu w trybiie CTR.
 \end{description}
 
+\newpage
 \subsection{Struktura algorytmu AES}
 Algorytm AES składa się z następujących kroków (dla każdej rundy):
 \begin{enumerate}
-    \item \textbf{SubBytes} -- podstawienie bajtów zgodnie z tablicą S-Box,
-    \item \textbf{ShiftRows} -- przesunięcie wierszy macierzy stanu,
-    \item \textbf{MixColumns} -- mieszanie kolumn macierzy (pomijane w ostatniej rundzie),
-    \item \textbf{AddRoundKey} -- dodanie klucza rundowego (operacja XOR).
+    \item \textbf{SubBytes} - podstawienie bajtów zgodnie z tablicą S-Box,
+    \item \textbf{ShiftRows} - przesunięcie wierszy macierzy stanu,
+    \item \textbf{MixColumns} - mieszanie kolumn macierzy (pomijane w ostatniej rundzie),
+    \item \textbf{AddRoundKey} - dodanie klucza rundowego (operacja XOR).
 \end{enumerate}
 
 Przed pierwszą rundą wykonywana jest operacja \texttt{AddRoundKey} z kluczem początkowym.
@@ -410,25 +442,9 @@ AES jest wykorzystywany w:
 \end{itemize}
 
 \newpage
-\section{Kryptografia asymetryczna -- RSA}
+\section{Kryptografia asymetryczna - RSA}
 
-\subsection{Historia i znaczenie}
-RSA (Rivest-Shamir-Adleman) to pierwszy praktyczny algorytm kryptografii asymetrycznej, 
-opublikowany w 1977 roku przez Rona Rivesta, Adi Shamira i Leonarda Adlemana z MIT.
-RSA rozwiązał fundamentalny problem kryptografii symetrycznej: 
-\textbf{bezpieczną wymianę kluczy}.
-
-W kryptografii asymetrycznej każdy użytkownik posiada parę kluczy:
-\begin{itemize}
-    \item \textbf{klucz publiczny} -- może być swobodnie udostępniany, służy do szyfrowania,
-    \item \textbf{klucz prywatny} -- musi być tajny, służy do deszyfrowania.
-\end{itemize}
-
-To rewolucyjne podejście umożliwiło bezpieczną komunikację bez wcześniejszej wymiany tajnego klucza.
-
-\subsection{Podstawy matematyczne}
-Bezpieczeństwo RSA opiera się na trudności \textbf{faktoryzacji dużych liczb złożonych}. 
-Łatwo jest pomnożyć dwie duże liczby pierwsze, ale bardzo trudno rozłożyć ich iloczyn na czynniki pierwsze.
+RSA (Rivest-Shamir-Adleman, 1977 MIT) rozwiązał problem bezpiecznej wymiany kluczy. Para kluczy: \textbf{publiczny} (szyfrowanie, można udostępniać) i \textbf{prywatny} (deszyfrowanie, tajny). Bezpieczeństwo: trudność faktoryzacji dużych liczb złożonych ($n = p \cdot q$).
 
 \subsection{Model matematyczny}
 
@@ -447,7 +463,7 @@ Bezpieczeństwo RSA opiera się na trudności \textbf{faktoryzacji dużych liczb
 \begin{itemize}
     \item Szyfrowanie (klucz publiczny): $c = m^e \bmod n$
     \item Deszyfrowanie (klucz prywatny): $m = c^d \bmod n$
-    \item gdzie $m$ -- wiadomość, $c$ -- szyfrogram
+    \item gdzie $m$ - wiadomość, $c$ - szyfrogram
 \end{itemize}
 
 \subsection{Przykład działania}
@@ -544,37 +560,13 @@ console.log('Klucz prywatny:', rsa.formatPrivateKey());
 \subsection{Zastosowania}
 RSA jest wykorzystywany w:
 \begin{itemize}
-    \item \textbf{Podpisy cyfrowe} -- uwierzytelnianie dokumentów i oprogramowania,
-    \item \textbf{Wymiana kluczy} -- bezpieczne przesyłanie kluczy symetrycznych (SSL/TLS),
-    \item \textbf{Certyfikaty SSL/TLS} -- zabezpieczenie połączeń HTTPS,
-    \item \textbf{SSH} -- bezpieczne logowanie do serwerów,
-    \item \textbf{PGP/GPG} -- szyfrowanie poczty elektronicznej,
-    \item \textbf{Blockchain} -- weryfikacja transakcji w kryptowalutach.
+    \item \textbf{Podpisy cyfrowe} - uwierzytelnianie dokumentów i oprogramowania,
+    \item \textbf{Wymiana kluczy} - bezpieczne przesyłanie kluczy symetrycznych (SSL/TLS),
+    \item \textbf{Certyfikaty SSL/TLS} - zabezpieczenie połączeń HTTPS,
+    \item \textbf{SSH} - bezpieczne logowanie do serwerów,
+    \item \textbf{PGP/GPG} - szyfrowanie poczty elektronicznej,
+    \item \textbf{Blockchain} - weryfikacja transakcji w kryptowalutach.
 \end{itemize}
-
-\subsection{RSA vs AES}
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Cecha} & \textbf{RSA} & \textbf{AES} \\
-\hline
-Typ & Asymetryczny & Symetryczny \\
-\hline
-Klucze & Para: publiczny + prywatny & Jeden klucz dla obu stron \\
-\hline
-Szybkość & Wolniejszy (100-1000x) & Bardzo szybki \\
-\hline
-Rozmiar klucza & 2048-4096 bitów & 128-256 bitów \\
-\hline
-Wymiana klucza & Nie wymaga & Wymaga bezpiecznego kanału \\
-\hline
-Zastosowanie & Wymiana kluczy, podpisy & Szyfrowanie danych \\
-\hline
-\end{tabular}
-\end{center}
-
-W praktyce RSA i AES są używane razem: RSA do bezpiecznej wymiany klucza AES, 
-a następnie AES do szyfrowania właściwych danych (\textit{hybrid cryptography}).
 
 \newpage
 \section{Algorytm ElGamal}
@@ -604,7 +596,6 @@ Aby zaszyfrować wiadomość $m$ dla odbiorcy z kluczem publicznym $(p, g, y)$:
     \item Oblicz $b = (y^k \cdot m) \pmod p$.
     \item Szyfrogram to para $(a, b)$.
 \end{enumerate}
-
 \textbf{Deszyfrowanie:}
 Aby odszyfrować parę $(a, b)$ przy użyciu klucza prywatnego $x$:
 \begin{enumerate}
@@ -614,39 +605,23 @@ Aby odszyfrować parę $(a, b)$ przy użyciu klucza prywatnego $x$:
 \end{enumerate}
 
 \subsection{Cechy implementacji}
-\begin{itemize}
-    \item Implementacja wykorzystuje liczby pierwsze w zakresie 300-1000 dla celów edukacyjnych (umożliwia kodowanie znaków ASCII).
-    \item Każdy znak wiadomości jest szyfrowany osobno, co generuje parę liczb $(a, b)$.
-    \item Wykorzystuje losowy klucz $k$ dla każdego szyfrowania, co oznacza, że ten sam tekst zaszyfrowany dwukrotnie da inny wynik (niedeterministyczność).
-    \item Implementuje algorytm znajdowania pierwiastka pierwotnego.
-\end{itemize}
+Implementacja wykorzystuje liczby pierwsze w zakresie 300-1000, szyfruje znaki osobno generując pary $(a, b)$ z losowym kluczem $k$ (niedeterministyczność).
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{img/elgamal_szyfr.jpg}
-    \caption{Ekran szyfru ElGamal w aplikacji CryptoLab}
+    \includegraphics[width=0.3\textwidth]{img/elgamal_deszyfr.jpg}
+    \caption{Ekran szyfru i deszyfru ElGamal w aplikacji CryptoLab}
     \label{fig:elgamal}
 \end{figure}
 Rysunek \ref{fig:elgamal} przedstawia interfejs użytkownika aplikacji CryptoLab Mobile dla szyfru ElGamal.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.3\textwidth]{img/elgamal_deszyfr.jpg}
-    \caption{Ekran deszyfru ElGamal w aplikacji CryptoLab}
-    \label{fig:elgamal_decrypt}
-\end{figure}
-Rysunek \ref{fig:elgamal_decrypt} przedstawia interfejs użytkownika aplikacji CryptoLab Mobile dla deszyfru ElGamal.
+\newpage
 \section{Protokół ECDH i Krzywe Eliptyczne}
+\subsection{Wprowadzenie}
+ECC zapewnia bezpieczeństwo porównywalne z RSA przy krótszych kluczach (256-bit ECC $\approx$ 3072-bit RSA). Równanie krzywej: $y^2 = x^3 + ax + b \pmod p$.
 
-\subsection{Wprowadzenie do ECC}
-Kryptografia krzywych eliptycznych (ECC - Elliptic Curve Cryptography) opiera się na strukturze algebraicznej krzywych eliptycznych nad ciałami skończonych. 
-Główną zaletą ECC jest to, że zapewnia ten sam poziom bezpieczeństwa co RSA, ale przy znacznie krótszych kluczach (np. 256-bitowy klucz ECC jest porównywalny z 3072-bitowym kluczem RSA).
-
-Równanie krzywej Weierstrassa:
-$$y^2 = x^3 + ax + b \pmod p$$
-
-\subsection{Protokół ECDH (Elliptic Curve Diffie-Hellman)}
-ECDH to wariant protokołu Diffiego-Hellmana wykorzystujący krzywe eliptyczne. Służy do uzgodnienia wspólnego sekretu przez dwie strony, które nigdy się nie spotkały, korzystając z niezabezpieczonego kanału.
+\subsection{Protokół ECDH}
+ECDH służy do uzgodnienia wspólnego sekretu przez niezabezpieczony kanał.
 
 \textbf{Zasada działania:}
 \begin{enumerate}
@@ -658,15 +633,9 @@ ECDH to wariant protokołu Diffiego-Hellmana wykorzystujący krzywe eliptyczne. 
     \item Bob oblicza sekret $S = d_B \cdot Q_A$.
     \item Ponieważ $d_A \cdot (d_B \cdot G) = d_B \cdot (d_A \cdot G)$, obie strony uzyskują ten sam punkt $S$.
 \end{enumerate}
-
-\subsection{Implementacja w CryptoLab (ECIES)}
-W aplikacji zaimplementowano schemat szyfrowania ECIES (Elliptic Curve Integrated Encryption Scheme) wykorzystujący ECDH:
-\begin{itemize}
-    \item Nadawca generuje tymczasową parę kluczy (klucz efemeryczny).
-    \item Oblicza wspólny sekret z kluczem publicznym odbiorcy.
-    \item Współrzędna X punktu sekretnego służy jako klucz symetryczny (w uproszczeniu XOR).
-    \item Do szyfrogramu dołączany jest klucz publiczny efemeryczny, aby odbiorca mógł odtworzyć sekret.
-\end{itemize}
+\newpage
+\subsection{Implementacja ECIES}
+Aplikacja implementuje schemat ECIES: nadawca generuje klucz efemeryczny, oblicza wspólny sekret, używa współrzędnej X jako klucza XOR.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{img/klucze_ecdh.jpg}
@@ -677,130 +646,40 @@ Rysunek \ref{fig:ecdh} przedstawia wygenerowane klucze ECDH w aplikacji CryptoLa
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{img/ecdh_szyfrowanie.jpg}
-    \caption{Proces szyfrowania ECDH w aplikacji CryptoLab}
+    \includegraphics[width=0.3\textwidth]{img/ecdh_deszyfr.jpg}
+    \caption{Proces szyfrowania i deszyfrowania ECDH w aplikacji CryptoLab}
     \label{fig:ecdh_encrypt}
 \end{figure}
-Rysunek \ref{fig:ecdh_encrypt} przedstawia proces szyfrowania ECDH w aplikacji CryptoLab Mobile.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.3\textwidth]{img/ecdh_deszyfr.jpg}
-    \caption{Proces deszyfrowania ECDH w aplikacji CryptoLab}
-    \label{fig:ecdh_decrypt}
-\end{figure}
-Rysunek \ref{fig:ecdh_decrypt} przedstawia proces deszyfrowania ECDH w aplikacji CryptoLab Mobile.
-\subsection{Cechy implementacji}
-\begin{itemize}
-    \item Używa zdefiniowanej na sztywno małej krzywej eliptycznej dla celów edukacyjnych.
-    \item Implementuje dodawanie punktów i mnożenie skalarne na krzywej.
-    \item Wizualizuje proces generowania wspólnego sekretu w logach.
-\end{itemize}
+Rysunek \ref{fig:ecdh_encrypt} przedstawia proces szyfrowania i deszyfrowania ECDH w aplikacji CryptoLab Mobile.
 
 \section{Funkcja skrótu SHA-256}
+\subsection{Wprowadzenie}
+Funkcje skrótu są jednokierunkowe i generują skrót stałej długości. Cechy: deterministyczność, efekt lawiny, odporność na kolizje, jednokierunkowość.
 
-\subsection{Wprowadzenie do funkcji skrótu}
-Funkcje skrótu (ang. \textit{hash functions}) to kluczowy element współczesnej kryptografii.
-W odróżnieniu od szyfrów, które są dwukierunkowymi przekształceniami, funkcje skrótu są \textbf{jednokierunkowe} -- 
-nie można ich odwrócić. Dla dowolnego wejścia generują skrót stałej długości.
+SHA-256 (SHA-2, NIST 2001): 256-bitowy skrót, 512-bitowy blok, 64 rundy, operacje bitowe.
 
-\textbf{Główne cechy funkcji skrótu:}
-\begin{itemize}
-    \item \textbf{Jednokierunkowość} -- obliczeniowo niemożliwe jest odtworzenie wiadomości ze skrótu,
-    \item \textbf{Deterministyczność} -- ta sama wiadomość zawsze daje ten sam skrót,
-    \item \textbf{Efekt lawiny} -- najmniejsza zmiana w wejściu powoduje drastyczną zmianę skrótu,
-    \item \textbf{Odporność na kolizje} -- trudno znaleźć dwie różne wiadomości dające ten sam skrót,
-    \item \textbf{Stała długość wyjścia} -- niezależnie od rozmiaru wejścia, skrót ma zawsze tę samą długość.
-\end{itemize}
+\subsection{Algorytm}
+\textbf{1. Preprocessing:} bit '1', zera do $\equiv 448 \pmod{512}$, 64-bit długości.
 
-\subsection{SHA-256 (Secure Hash Algorithm 256-bit)}
-SHA-256 należy do rodziny algorytmów SHA-2, opracowanych przez NSA i opublikowanych przez NIST w 2001 roku.
-Jest to aktualnie jeden z najpopularniejszych i najbezpieczniejszych algorytmów haszujących.
+\textbf{2. Inicjalizacja:} Stałe $H_0 = \text{0x6a09e667}, \ldots, H_7 = \text{0x5be0cd19}$.
 
-\textbf{Parametry SHA-256:}
-\begin{itemize}
-    \item Długość skrótu: 256 bitów (64 znaki szesnastkowe),
-    \item Rozmiar bloku: 512 bitów,
-    \item Liczba rund: 64,
-    \item Używa operacji bitowych (XOR, AND, OR, NOT, rotacje, przesunięcia).
-\end{itemize}
+\textbf{3. Kompresja 64 rund:} Harmonogram $W_0, \ldots, W_{63}$, funkcje $Ch(x,y,z) = (x \land y) \oplus (\neg x \land z)$, $Maj(x,y,z)$, $\Sigma$, $\sigma$.
 
-\subsection{Algorytm SHA-256}
-Proces haszowania SHA-256 składa się z następujących etapów:
+\textbf{4. Wynik:} Konkatenacja $H_0$ do $H_7$.
 
-\textbf{1. Preprocessing (przygotowanie wiadomości):}
-\begin{itemize}
-    \item Dodanie bitu '1' na końcu wiadomości,
-    \item Dodanie zer dopełniających do osiągnięcia długości $\equiv 448 \pmod{512}$ bitów,
-    \item Dodanie 64-bitowej reprezentacji długości oryginalnej wiadomości.
-\end{itemize}
+\subsection{Zastosowania}
+Podpisy cyfrowe, blockchain (Bitcoin), SSL/TLS, sumy kontrolne, HMAC, haszowanie haseł.
 
-\textbf{2. Inicjalizacja wartości początkowych (H):}
+\subsection{Bezpieczeństwo}
+Brak znanych ataków kolizyjnych. Złożoność brutalna: $2^{256}$, urodzinowy: $2^{128}$.
 
-Ośmiu 32-bitowych stałych (pierwsze 32 bity ułamkowych części pierwiastków kwadratowych pierwszych 8 liczb pierwszych):
-$$H_0 = \text{0x6a09e667}, H_1 = \text{0xbb67ae85}, \ldots, H_7 = \text{0x5be0cd19}$$
-
-\textbf{3. Przetwarzanie bloków 512-bitowych:}
-
-Dla każdego bloku:
-\begin{enumerate}
-    \item Przygotowanie harmonogramu wiadomości $W_0, W_1, \ldots, W_{63}$ (pierwsze 16 słów to dane wejściowe, pozostałe obliczane z funkcji $\sigma$),
-    \item 64 rundy kompresji z użyciem funkcji logicznych:
-    \begin{itemize}
-        \item $Ch(x,y,z) = (x \land y) \oplus (\neg x \land z)$ -- funkcja wyboru,
-        \item $Maj(x,y,z) = (x \land y) \oplus (x \land z) \oplus (y \land z)$ -- funkcja większości,
-        \item $\Sigma_0, \Sigma_1, \sigma_0, \sigma_1$ -- funkcje rotacji i przesunięć bitowych.
-    \end{itemize}
-    \item Aktualizacja wartości roboczych $a, b, c, d, e, f, g, h$,
-    \item Dodanie wyników do wartości $H_0, \ldots, H_7$.
-\end{enumerate}
-
-\textbf{4. Konkatenacja wyników:}
-
-Połączenie wartości $H_0$ do $H_7$ daje 256-bitowy skrót.
-
-\subsection{Zastosowania SHA-256}
-\begin{itemize}
-    \item \textbf{Podpisy cyfrowe} -- skrót dokumentu jest podpisywany zamiast całego dokumentu,
-    \item \textbf{Blockchain i Bitcoin} -- mechanizm proof-of-work, identyfikatory transakcji,
-    \item \textbf{Certyfikaty SSL/TLS} -- weryfikacja autentyczności certyfikatów,
-    \item \textbf{Sprawdzanie integralności plików} -- porównywanie sum kontrolnych,
-    \item \textbf{Przechowywanie haseł} -- haszowanie haseł przed zapisem w bazie danych,
-    \item \textbf{HMAC} -- uwierzytelnianie wiadomości z użyciem klucza tajnego.
-\end{itemize}
-
-\subsection{Bezpieczeństwo SHA-256}
-SHA-256 jest uznawany za bezpieczny algorytm:
-\begin{itemize}
-    \item Brak znanych praktycznych ataków kolizyjnych,
-    \item Złożoność czasowa ataku brutalnego: $2^{256}$ operacji,
-    \item Odporność na ataki urodzinowe: $2^{128}$ operacji,
-    \item Używany w krytycznych systemach bezpieczeństwa (TLS, IPsec, SSH).
-\end{itemize}
-
-\subsection{Implementacja w CryptoLab}
-Aplikacja zawiera pełną implementację algorytmu SHA-256 bez użycia zewnętrznych bibliotek.
-Implementacja obejmuje:
-\begin{itemize}
-    \item Preprocessing z padding i dodawaniem długości,
-    \item Wszystkie funkcje logiczne ($Ch$, $Maj$, $\Sigma$, $\sigma$),
-    \item 64 rundy kompresji dla każdego bloku,
-    \item Obsługę wiadomości UTF-8,
-    \item Szczegółowe logowanie każdego kroku procesu haszowania.
-\end{itemize}
-
-\textbf{Uwaga:} SHA-256 to funkcja jednokierunkowa, więc \textbf{nie ma operacji deszyfrowania}. 
-Próba "odszyfrowania" zwraca komunikat informujący o jednokierunkowości funkcji.
+\subsection{Implementacja}
+Pełna implementacja: preprocessing, funkcje $Ch$/$Maj$/$\Sigma$/$\sigma$, 64 rundy, UTF-8, szczegółowe logi. Funkcja jednokierunkowa - brak deszyfrowania.
 
 \section{Podpis Elektroniczny (Digital Signature)}
+\subsection{Wprowadzenie}
+Podpis cyfrowy zapewnia: autentyczność, integralność, niezaprzeczalność (w odróżnieniu od szyfrowania dającego poufność).
 
-\subsection{Wprowadzenie do podpisów cyfrowych}
-Podpis elektroniczny (cyfrowy) to kryptograficzny mechanizm zapewniający:
-\begin{itemize}
-    \item \textbf{Autentyczność} -- potwierdzenie tożsamości nadawcy,
-    \item \textbf{Integralność} -- gwarancja, że dokument nie został zmieniony,
-    \item \textbf{Niezaprzeczalność} -- nadawca nie może zaprzeczyć podpisaniu dokumentu.
-\end{itemize}
-
-W odróżnieniu od szyfrowania, które zapewnia \textit{poufność}, podpis cyfrowy zapewnia \textit{autentyczność} i \textit{integralność}.
 
 \subsection{Schemat podpisu RSA-SHA256}
 Aplikacja CryptoLab implementuje schemat podpisu cyfrowego łączący RSA z SHA-256:
@@ -819,84 +698,42 @@ Aplikacja CryptoLab implementuje schemat podpisu cyfrowego łączący RSA z SHA-
     \item Oblicz skrót SHA-256 otrzymanego dokumentu: $h' = \text{SHA-256}(dokument)$
     \item Porównaj $h'$ z oryginalnym hashem (sprawdzenie integralności)
     \item Odszyfruj podpis kluczem publicznym: $h'' = s^e \bmod n$
-    \item Porównaj $h'$ z $h''$ -- jeśli zgodne, podpis jest ważny
+    \item Porównaj $h'$ z $h''$ - jeśli zgodne, podpis jest ważny
 \end{enumerate}
 
-\subsection{Dlaczego SHA-256 + RSA?}
-Połączenie funkcji skrótu z RSA jest kluczowe z kilku powodów:
 
-\begin{itemize}
-    \item \textbf{Wydajność} -- RSA jest wolny dla dużych danych. Zamiast podpisywać cały dokument, podpisujemy tylko 256-bitowy hash.
-    \item \textbf{Bezpieczeństwo} -- bezpośrednie podpisywanie danych RSA jest podatne na ataki. Haszowanie eliminuje te problemy.
-    \item \textbf{Rozmiar} -- podpis ma stały rozmiar niezależnie od wielkości dokumentu.
-    \item \textbf{Standardy} -- RSA-SHA256 to powszechnie uznany standard (PKCS\#1, RFC 8017).
-\end{itemize}
-
-\subsection{Format podpisu w CryptoLab}
-Podpis w aplikacji ma format:
+\subsection{Format}
 $$\text{dokument}|\text{hash}|\text{podpis}|\text{klucz\_publiczny}$$
 
-Gdzie:
-\begin{itemize}
-    \item \textbf{dokument} -- oryginalny tekst (do weryfikacji integralności),
-    \item \textbf{hash} -- skrót SHA-256 dokumentu (64 znaki hex),
-    \item \textbf{podpis} -- zaszyfrowany hash kluczem prywatnym (hex),
-    \item \textbf{klucz\_publiczny} -- para $(n, e)$ do weryfikacji.
-\end{itemize}
+\subsection{Parametry RSA (edukacyjne)}
+$p = 61, q = 53, n = 3233, e = 17, d = 2753$. W produkcji: 2048-4096 bitów.
 
-\subsection{Parametry RSA dla celów edukacyjnych}
-Dla demonstracji algorytmu używamy małych liczb pierwszych:
-\begin{itemize}
-    \item $p = 61$, $q = 53$
-    \item $n = p \times q = 3233$
-    \item $\phi(n) = (p-1)(q-1) = 3120$
-    \item $e = 17$ (wykładnik publiczny)
-    \item $d = 2753$ (wykładnik prywatny, $e \cdot d \equiv 1 \pmod{\phi(n)}$)
-\end{itemize}
+\subsection{Bezpieczeństwo}
+Wymaga: tajnego klucza prywatnego, silnych kluczy, bezpiecznej funkcji skrótu (SHA-256), paddingu (PSS).
 
-\textbf{Uwaga:} W rzeczywistych zastosowaniach używa się kluczy 2048-4096 bitowych!
+\subsection{Zastosowania}
+SSL/TLS, podpisywanie oprogramowania, dokumenty elektroniczne (eIDAS), transakcje finansowe, blockchain, e-mail (S/MIME, PGP), aktualizacje systemu.
 
-\subsection{Bezpieczeństwo podpisu cyfrowego}
-Podpis cyfrowy RSA-SHA256 jest bezpieczny pod warunkiem:
-\begin{itemize}
-    \item \textbf{Klucz prywatny pozostaje tajny} -- tylko właściciel może podpisywać,
-    \item \textbf{Silne generowanie kluczy} -- losowe, duże liczby pierwsze,
-    \item \textbf{Bezpieczna funkcja skrótu} -- SHA-256 jest odporna na kolizje,
-    \item \textbf{Odpowiedni padding} -- w produkcji używa się PSS (Probabilistic Signature Scheme).
-\end{itemize}
+\subsection{Implementacja}
+Pełna implementacja: generowanie kluczy RSA (12-bit edukacyjne), integracja SHA-256, modular exponentiation, rozszerzony algorytm Euklidesa, szczegółowe logi, wykrywanie modyfikacji, walidacja WAŻNY/NIEWAŻNY.
 
-\subsection{Zastosowania podpisów cyfrowych}
-\begin{itemize}
-    \item \textbf{Certyfikaty SSL/TLS} -- weryfikacja autentyczności serwerów WWW,
-    \item \textbf{Podpisywanie oprogramowania} -- weryfikacja pochodzenia aplikacji,
-    \item \textbf{Dokumenty elektroniczne} -- prawnie wiążące podpisy (eIDAS, esignature),
-    \item \textbf{Transakcje finansowe} -- autoryzacja przelewów bankowych,
-    \item \textbf{Blockchain} -- potwierdzanie transakcji kryptowalut,
-    \item \textbf{E-mail} -- S/MIME, PGP do podpisywania wiadomości,
-    \item \textbf{Aktualizacje systemu} -- weryfikacja integralności pakietów.
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/podpis_podpisywanie.jpg}
+        \includegraphics[width=0.3\textwidth]{img/podpis_weryfikacja.jpg}
+    \caption{Ekran podpisywania dokumentu w aplikacji CryptoLab i weryfikacja podpisu}
+    \label{fig:digital_signature_sign}
+\end{figure}
+Rysunek \ref{fig:digital_signature_sign} przedstawia proces podpisywania dokumentu - system generuje pełny podpis cyfrowy (dokument|hash|podpis RSA|klucz publiczny).Natomiast rysunek obok, weryfikację podpisu - system sprawdza integralność (SHA-256) i autentyczność (klucz publiczny), wyświetlając PODPIS WAŻNY/NIEWAŻNY.
 
-\subsection{Implementacja w CryptoLab}
-Aplikacja zawiera pełną implementację podpisu elektronicznego:
-\begin{itemize}
-    \item Generowanie pary kluczy RSA (edukacyjna wersja 12-bitowa),
-    \item Integracja z SHA-256 do haszowania dokumentów,
-    \item Modular exponentiation dla operacji RSA,
-    \item Rozszerzony algorytm Euklidesa dla odwrotności modularnej,
-    \item Szczegółowe logowanie każdego kroku podpisywania i weryfikacji,
-    \item Wykrywanie modyfikacji dokumentu,
-    \item Walidacja podpisu z komunikatami WAŻNY / NIEWAŻNY.
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/logi_podpis.jpg}
+    \caption{Szczegółowe logi procesu podpisywania}
+    \label{fig:digital_signature_logs}
+\end{figure}
+Rysunek \ref{fig:digital_signature_logs} pokazuje szczegółowe logi procesu podpisywania: SHA-256, konwersja hasha, podpisywanie kluczem prywatnym.
 
-\textbf{Demonstracja:}
-\begin{enumerate}
-    \item Użytkownik wpisuje dokument i klika "Podpisz dokument"
-    \item System oblicza hash SHA-256 i podpisuje go kluczem prywatnym
-    \item Zwraca pełny podpis (dokument|hash|podpis|klucz\_publiczny)
-    \item Do weryfikacji użytkownik wkleja cały podpis i klika "Weryfikuj podpis"
-    \item System sprawdza integralność dokumentu i autentyczność podpisu
-    \item Wyświetla wynik: PODPIS WAŻNY lub PODPIS NIEWAŻNY
-\end{enumerate}
 
 \newpage
 \section{Wybrane fragmenty kodu}
@@ -938,42 +775,14 @@ export default class CryptographicAlgorithm {
 \end{figure}
 
 Rysunek \ref{fig:main} przedstawia ekran główny aplikacji CryptoLab Mobile, a rysunek \ref{fig:list} pokazuje listę dostępnych algorytmów kryptograficznych.
+\newpage
 \subsection{Implementacja szyfru Cezara}
-\begin{lstlisting}[language=TypeScript, caption={Szczegóły implementacji CaesarCipher}]
-export default class CaesarCipher extends CryptographicAlgorithm {
-  constructor() {
-    super(
-      'Szyfr Cezara',
-      'Prosty szyfr substytucyjny z przesunięciem',
-      'Szyfry klasyczne'
-    );
-  }
-
-  validateKey(key: string): { valid: boolean; error?: string } {
-    const numKey = parseInt(key, 10);
-    if (isNaN(numKey) || numKey < 1 || numKey > 25) {
-      return { 
-        valid: false, 
-        error: 'Klucz musi być liczbą od 1 do 25' 
-      };
-    }
-    return { valid: true };
-  }
-
-  encrypt(plaintext: string, key: string): string {
-    return this._process(plaintext, parseInt(key, 10));
-  }
-
-  decrypt(ciphertext: string, key: string): string {
-    const shift = 26 - (parseInt(key, 10) % 26);
-    return this._process(ciphertext, shift);
-  }
-
-  private _process(text: string, shift: number): string {
-    return text.split('').map(char => {
-      if (/[A-Za-z]/.test(char)) {
-        const base = char === char.toUpperCase() ? 65 : 97;
-        return String.fromCharCode(
+\begin{lstlisting}[language=TypeScript, caption={Fragment CaesarCipher}]
+encrypt(plaintext: string, key: string): string {
+  return text.split('').map(char => {
+    if (/[A-Za-z]/.test(char)) {
+      const base = char === char.toUpperCase() ? 65 : 97;
+      return String.fromCharCode(
           (char.charCodeAt(0) - base + shift) % 26 + base
         );
       }
@@ -992,43 +801,32 @@ Rysunek \ref{fig:testc} przedstawia przykładowy test szyfru Cezara w aplikacji 
 
 \newpage
 \subsection{Implementacja szyfru Vigenère'a}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy VigenereCipher}]
-export default class VigenereCipher extends CryptographicAlgorithm {
-  validateKey(key: string): { valid: boolean; error?: string } {
-    if (!key || key.trim().length === 0) {
-      return { valid: false, error: 'Klucz nie może być pusty' };
+\begin{lstlisting}[language=TypeScript, caption={Kluczowy fragment VigenereCipher}]
+private _process(text: string, key: string, encrypt: boolean): string {
+  let result = '';
+  let keyIndex = 0;
+  const normalizedKey = key.toUpperCase();
+  
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    if (/[A-Za-z]/.test(char)) {
+      const base = char === char.toUpperCase() ? 65 : 97;
+      const textCode = char.charCodeAt(0) - base;
+      // Klucz powtarza się cyklicznie
+      const keyCode = normalizedKey.charCodeAt(keyIndex % normalizedKey.length) - 65;
+      
+      // Operacja kryptograficzna Vigenere
+      const resultCode = encrypt 
+        ? (textCode + keyCode) % 26 
+        : (textCode - keyCode + 26) % 26;
+      
+      result += String.fromCharCode(resultCode + base);
+      keyIndex++;
+    } else {
+      result += char;
     }
-    const hasOnlyLetters = /^[a-zA-Z]+$/.test(key);
-    if (!hasOnlyLetters) {
-      return { valid: false, error: 'Klucz może zawierać tylko litery' };
-    }
-    return { valid: true };
   }
-
-  private _process(text: string, key: string, encrypt: boolean): string {
-    let result = '';
-    let keyIndex = 0;
-    const normalizedKey = key.toUpperCase();
-    
-    for (let i = 0; i < text.length; i++) {
-      const char = text[i];
-      if (/[A-Za-z]/.test(char)) {
-        const base = char === char.toUpperCase() ? 65 : 97;
-        const textCode = char.charCodeAt(0) - base;
-        const keyCode = normalizedKey.charCodeAt(keyIndex % normalizedKey.length) - 65;
-        
-        const resultCode = encrypt 
-          ? (textCode + keyCode) % 26 
-          : (textCode - keyCode + 26) % 26;
-        
-        result += String.fromCharCode(resultCode + base);
-        keyIndex++;
-      } else {
-        result += char;
-      }
-    }
-    return result;
-  }
+  return result;
 }
 \end{lstlisting}
 
@@ -1089,490 +887,221 @@ Rysunek \ref{fig:szyfrk} przedstawia interfejs użytkownika szyfru z kluczem bie
 
 \newpage
 \subsection{Implementacja szyfru AES}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy AESCipher}]
-export default class AESCipher extends CryptographicAlgorithm {
-  private mode: AESMode;
-  public static readonly DEFAULT_KEY = '2b7e151628aed2a6abf7158809cf4f3c';
+\begin{lstlisting}[language=TypeScript, caption={Kluczowe metody AESCipher}]
+// Szyfrowanie w zależności od trybu (ECB/CBC/CTR)
+encrypt(plaintext: string, key: string): string {
+  if (this.mode === 'ECB') return this.encryptECB(plaintext, key);
+  if (this.mode === 'CBC') return this.encryptCBC(plaintext, key);
+  if (this.mode === 'CTR') return this.encryptCTR(plaintext, key);
+}
 
-  constructor() {
-    super(
-      'AES (Advanced Encryption Standard)',
-      'Symetryczny szyfr blokowy z możliwością wyboru trybu (ECB, CBC, CTR)',
-      'Szyfry symetryczne'
-    );
-    this.mode = 'ECB'; // Domyślny tryb
-  }
+// ECB - każdy blok niezależnie (NIEZALECANY!)
+private encryptECB(plaintext: string, key: string): string {
+  const blocks = this.textToBlocks(plaintext);
+  return blocks.map(block => this.encryptBlock(block, key))
+              .join('');
+}
 
-  // Ustawia tryb pracy AES
-  setMode(mode: AESMode): void {
-    this.mode = mode;
-  }
-
-  validateKey(key: string): { valid: boolean; error?: string } {
-    if (!key || key.trim().length === 0) {
-      return { valid: false, error: 'Klucz nie może być pusty' };
-    }
-
-    // Sprawdź czy klucz jest w formacie hex
-    const hexPattern = /^[0-9a-fA-F]+$/;
-    if (!hexPattern.test(key)) {
-      return { 
-        valid: false, 
-        error: 'Klucz musi być ciągiem znaków szesnastkowych (0-9, A-F)' 
-      };
-    }
-
-    // Klucz musi mieć długość 32, 48 lub 64 znaków hex
-    if (key.length !== 32 && key.length !== 48 && key.length !== 64) {
-      return {
-        valid: false,
-        error: 'Klucz musi mieć długość 32 (AES-128), 48 (AES-192) lub 64 (AES-256)'
-      };
-    }
-
-    return { valid: true };
-  }
-
-  getKeyRequirements(): string {
-    return `Tryb: ${this.mode} | Klucz hex: 32 znaki (AES-128), 
-      48 (AES-192) lub 64 (AES-256)`;
-  }
-
-  // Główne metody szyfrowania wykorzystujące wybrany tryb
-  encrypt(plaintext: string, key: string): string {
-    if (this.mode === 'ECB') {
-      return this.encryptECB(plaintext, key);
-    } else if (this.mode === 'CBC') {
-      return this.encryptCBC(plaintext, key);
-    } else if (this.mode === 'CTR') {
-      return this.encryptCTR(plaintext, key);
-    }
-    throw new Error(`Tryb ${this.mode} nie jest obsługiwany`);
-  }
+// CBC - z wektorem IV, XOR z poprzednim blokiem
+private encryptCBC(plaintext: string, key: string): string {
+  const iv = this.generateIV();
+  let previousBlock = iv;
+  // XOR każdego bloku z poprzednim szyfrogramem
+  // ...
 }
 \end{lstlisting}
 
 \subsection{Implementacja szyfru RSA}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy RSACipher}]
-export default class RSACipher extends CryptographicAlgorithm {
-  private keyPair: RSAKeyPair | null = null;
+\begin{lstlisting}[language=TypeScript, caption={Kluczowe operacje RSA}]
+// Generowanie kluczy
+generateKeyPair(): RSAKeyPair {
+  const p = generatePrime(100, 300);
+  const q = generatePrime(100, 300);
+  const n = p * q;                    // Moduł
+  const phi = (p - 1) * (q - 1);      // Funkcja Eulera
+  const e = 65537;                    // Wykładnik publiczny
+  const d = modInverse(e, phi);       // Wykładnik prywatny
+  
+  return {
+    publicKey: { e, n },
+    privateKey: { d, n }
+  };
+}
 
-  constructor() {
-    super(
-      'RSA (Rivest-Shamir-Adleman)',
-      'Asymetryczny algorytm kryptograficzny z kluczem publicznym i prywatnym',
-      'Kryptografia asymetryczna'
-    );
+// Szyfrowanie: c = m^e mod n
+encrypt(plaintext: string, key: string): string {
+  const [e, n] = key.split(',').map(p => parseInt(p, 10));
+  const encrypted = [];
+  
+  for (const char of plaintext) {
+    const m = char.charCodeAt(0);
+    const c = modPow(BigInt(m), BigInt(e), BigInt(n));
+    encrypted.push(Number(c));
   }
+  return encrypted.join(' ');
+}
 
-  // Generuje pare kluczy RSA
-  generateKeyPair(bitSize: number = 512): RSAKeyPair {
-    const min = bitSize === 512 ? 100 : 50;
-    const max = bitSize === 512 ? 300 : 100;
-    
-    // Generuj dwie rozne liczby pierwsze
-    const p = generatePrime(min, max);
-    let q = generatePrime(min, max);
-    while (q === p) {
-      q = generatePrime(min, max);
-    }
-
-    const n = p * q;  // Modul
-    const phi = (p - 1) * (q - 1);  // Funkcja Eulera
-
-    // Wybierz e (wykladnik publiczny)
-    let e = 65537;
-    if (e >= phi) e = 17;
-    while (gcd(e, phi) !== 1) {
-      e++;
-    }
-
-    // Oblicz d (wykladnik prywatny)
-    const d = modInverse(e, phi);
-
-    this.keyPair = {
-      publicKey: { e, n },
-      privateKey: { d, n }
-    };
-
-    return this.keyPair;
-  }
-
-  encrypt(plaintext: string, key: string): string {
-    const [e, n] = key.split(',').map(p => parseInt(p.trim(), 10));
-
-    const encrypted: number[] = [];
-    for (let i = 0; i < plaintext.length; i++) {
-      const charCode = plaintext.charCodeAt(i);
-      
-      // Szyfrowanie: c = m^e mod n
-      const encryptedChar = Number(
-        modPow(BigInt(charCode), BigInt(e), BigInt(n))
-      );
-      encrypted.push(encryptedChar);
-    }
-
-    return encrypted.join(' ');
-  }
-
-  decrypt(ciphertext: string, key: string): string {
-    const [d, n] = key.split(',').map(p => parseInt(p.trim(), 10));
-    const encryptedNumbers = ciphertext.trim().split(/\s+/)
-      .map(s => parseInt(s, 10));
-    
-    const decrypted: string[] = [];
-    for (const encryptedChar of encryptedNumbers) {
-      // Deszyfrowanie: m = c^d mod n
-      const decryptedChar = Number(
-        modPow(BigInt(encryptedChar), BigInt(d), BigInt(n))
-      );
-      decrypted.push(String.fromCharCode(decryptedChar));
-    }
-
-    return decrypted.join('');
-  }
+// Deszyfrowanie: m = c^d mod n
+decrypt(ciphertext: string, key: string): string {
+  const [d, n] = key.split(',').map(p => parseInt(p, 10));
+  const numbers = ciphertext.split(' ').map(s => parseInt(s));
+  
+  return numbers.map(c => {
+    const m = modPow(BigInt(c), BigInt(d), BigInt(n));
+    return String.fromCharCode(Number(m));
+  }).join('');
 }
 \end{lstlisting}
-\newpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{img/RSA.jpg}
-    \caption{Ekran szyfru RSA}
+    \includegraphics[width=0.3\textwidth]{img/RSA_keygen.jpg}
+    \caption{Ekran szyfru RSA oraz generowanie kluczy}
     \label{fig:szyfrrsa}
 \end{figure}
-Rysunek \ref{fig:szyfrrsa} przedstawia interfejs użytkownika szyfru RSA w aplikacji CryptoLab Mobile.
-\newpage
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.3\textwidth]{img/RSA_keygen.jpg}
-    \caption{Generowanie kluczy RSA}
-    \label{fig:rsakeygen}
-\end{figure}
-Rysunek \ref{fig:rsakeygen} przedstawia ekran generowania kluczy RSA w aplikacji CryptoLab Mobile.
+Rysunek \ref{fig:szyfrrsa} przedstawia interfejs użytkownika szyfru RSA oraz generowania kluczy w aplikacji CryptoLab Mobile.
+
 \newpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{img/RSA_szyfrowanie.jpg}
-    \caption{Test szyfru RSA}
+        \includegraphics[width=0.3\textwidth]{img/RSA_deszyfr.jpg}
+    \caption{Test szyfru RSA i jego deszyfrowanie}
     \label{fig:testrsa}
 \end{figure}
-Rysunek \ref{fig:testrsa} przedstawia przykładowy test szyfru RSA w aplikacji CryptoLab Mobile.
-\newpage
-\begin{figure}
-    \centering
-    \includegraphics[width=0.3\textwidth]{img/RSA_deszyfr.jpg}
-    \caption{Deszyfrowanie w szyfrze RSA}
-    \label{fig:deszyfrrsa}
-\end{figure}
-Rysunek \ref{fig:deszyfrrsa} przedstawia ekran deszyfrowania w szyfrze RSA w aplikacji CryptoLab Mobile.
+Rysunek \ref{fig:testrsa} przedstawia przykładowy test szyfru RSA oraz jego deszyfrowanie w aplikacji CryptoLab Mobile.
 
 \newpage
 \subsection{Implementacja algorytmu ElGamal}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy ElGamalCipher}]
-export default class ElGamalCipher extends CryptographicAlgorithm {
-  // Generowanie kluczy
-  generateKeyPair(): ElGamalKeyPair {
-    // 1. Wybierz duza liczbe pierwsza p
-    const p = generatePrime(300, 1000);
-    
-    // 2. Znajdz generator g
-    const g = findPrimitiveRoot(p);
-    
-    // 3. Wybierz losowy klucz prywatny x
-    const x = Math.floor(Math.random() * (p - 2)) + 2;
-    
-    // 4. Oblicz klucz publiczny y = g^x mod p
-    const y = modPow(BigInt(g), BigInt(x), BigInt(p));
-
-    return {
-      publicKey: { p: p.toString(), g: g.toString(), y: y.toString() },
-      privateKey: { x: x.toString(), p: p.toString() }
-    };
-  }
-
-  encrypt(plaintext: string, key: string): string {
-    const [p, g, y] = key.split(',').map(n => BigInt(n));
-    const encryptedPairs: string[] = [];
-
-    for (let i = 0; i < plaintext.length; i++) {
-      const m = BigInt(plaintext.charCodeAt(i));
-      
-      // 1. Wybierz losowe k (klucz efemeryczny)
-      let k: bigint;
-      do {
-        k = BigInt(Math.floor(Math.random() * (Number(p) - 2)) + 1);
-      } while (gcd(k, p - 1n) !== 1n);
-
-      // 2. Oblicz a = g^k mod p
-      const a = modPow(g, k, p);
-
-      // 3. Oblicz b = (y^k * m) mod p
-      const b = (modPow(y, k, p) * m) % p;
-
-      encryptedPairs.push(`${a}:${b}`);
-    }
-    return encryptedPairs.join(' ');
-  }
-}
-\end{lstlisting}
-
-\subsection{Implementacja algorytmu ECDH}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy ECDHAlgorithm}]
-export default class ECDHAlgorithm extends CryptographicAlgorithm {
-  // Dodawanie punktow na krzywej eliptycznej
-  private addPoints(P: Point, Q: Point): Point {
-    if (P.isInfinity) return Q;
-    if (Q.isInfinity) return P;
-    
-    let m: bigint;
-    if (P.x === Q.x && P.y === Q.y) {
-      // Podwojenie punktu: m = (3x^2 + a) / (2y)
-      const num = (3n * P.x * P.x + CURVE.a) % CURVE.p;
-      const den = (2n * P.y) % CURVE.p;
-      m = (num * this.modInverse(den, CURVE.p)) % CURVE.p;
-    } else {
-      // Dodawanie: m = (y2 - y1) / (x2 - x1)
-      const num = (Q.y - P.y) % CURVE.p;
-      const den = (Q.x - P.x) % CURVE.p;
-      m = (num * this.modInverse(den, CURVE.p)) % CURVE.p;
-    }
-    
-    // Obliczanie x3, y3...
-    // ...
-    return { x: x3, y: y3, isInfinity: false };
-  }
-
-  encrypt(plaintext: string, key: string): string {
-    // key to klucz publiczny odbiorcy (Q)
-    const [qx, qy] = key.split(',').map(c => BigInt(c));
-    const Q: Point = { x: qx, y: qy, isInfinity: false };
-
-    // 1. Wygeneruj tymczasowa pare kluczy (k, R)
-    const k = BigInt(Math.floor(Math.random() * (Number(CURVE.p) - 2)) + 1);
-    const R = this.multiplyPoint(k, CURVE.G); // R = k * G
-    
-    // 2. Oblicz wspolny sekret S = k * Q
-    const S = this.multiplyPoint(k, Q);
-
-    // 3. Uzyj wspolrzednej x punktu S jako klucza symetrycznego
-    const symmetricKey = Number(S.x);
-
-    // 4. Szyfruj wiadomosc (XOR)
-    // ...
-    
-    return `${R.x},${R.y}|${ciphertextBody}`;
-  }
-}
-\end{lstlisting}
-
-\subsection{Implementacja funkcji SHA-256}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy SHA256Hash}]
-export default class SHA256Hash extends CryptographicAlgorithm {
-  // Stale K (pierwsze 32 bity ulamkowych czesci 
-  // szescianowych pierwiastkow pierwszych 64 liczb pierwszych)
-  private K: number[] = [
-    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
-    // ... 60 wiecej wartosci ...
-    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
-    0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
-  ];
-
-  // Wartosci poczatkowe H (pierwiastki kwadratowe 
-  // pierwszych 8 liczb pierwszych)
-  private H: number[] = [
-    0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
-    0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
-  ];
-
-  encrypt(plaintext: string, key: string = ''): string {
-    this.logStep('SHA-256 Hash Process Started', plaintext);
-    
-    const bytes = this.stringToBytes(plaintext);
-    const hash = this.sha256(bytes);
-    const hexHash = this.bytesToHex(hash);
-    
-    this.logStep('SHA-256 Hash Generated', plaintext, hexHash);
-    return hexHash;
-  }
-
-  // Glowny algorytm SHA-256
-  private sha256(message: number[]): number[] {
-    const preprocessed = this.preprocess(message);
-    const H = [...this.H];
-
-    // Przetwarzanie kazdego bloku 512-bitowego
-    for (let i = 0; i < preprocessed.length; i += 16) {
-      const block = preprocessed.slice(i, i + 16);
-      const W = this.prepareSchedule(block);
-      let [A, B, C, D, E, F, G, H_temp] = [...H];
-
-      // 64 rundy
-      for (let t = 0; t < 64; t++) {
-        const T1 = H_temp + this.Sigma1(E) + 
-                   this.Ch(E, F, G) + this.K[t] + W[t];
-        const T2 = this.Sigma0(A) + this.Maj(A, B, C);
-        
-        H_temp = G; G = F; F = E;
-        E = (D + T1) >>> 0;
-        D = C; C = B; B = A;
-        A = (T1 + T2) >>> 0;
-      }
-
-      // Aktualizacja wartosci H
-      H[0] = (H[0] + A) >>> 0;
-      H[1] = (H[1] + B) >>> 0;
-      // ... pozostale ...
-    }
-    return this.hashToBytes(H);
-  }
-
-  // Funkcje logiczne SHA-256
-  private Ch(x: number, y: number, z: number): number {
-    return (x & y) ^ (~x & z);
-  }
-
-  private Maj(x: number, y: number, z: number): number {
-    return (x & y) ^ (x & z) ^ (y & z);
-  }
-
-  private Sigma0(x: number): number {
-    return this.rightRotate(x, 2) ^ 
-           this.rightRotate(x, 13) ^ 
-           this.rightRotate(x, 22);
-  }
-
-  private Sigma1(x: number): number {
-    return this.rightRotate(x, 6) ^ 
-           this.rightRotate(x, 11) ^ 
-           this.rightRotate(x, 25);
-  }
-}
-\end{lstlisting}
-
-\subsection{Implementacja podpisu elektronicznego}
-\begin{lstlisting}[language=TypeScript, caption={Fragmenty klasy DigitalSignature}]
-export default class DigitalSignature extends CryptographicAlgorithm {
-  private sha256: SHA256Hash;
-  private keyPair: KeyPair | null = null;
+\begin{lstlisting}[language=TypeScript, caption={Kluczowe operacje ElGamal}]
+// Generowanie kluczy
+generateKeyPair(): ElGamalKeyPair {
+  const p = generatePrime(300, 1000);     // Liczba pierwsza
+  const g = findPrimitiveRoot(p);         // Generator
+  const x = random(2, p-2);               // Klucz prywatny
+  const y = modPow(g, x, p);              // Klucz publiczny: y = g^x mod p
   
-  // Parametry RSA dla celow edukacyjnych
-  private P: bigint = 61n;
-  private Q: bigint = 53n;
-  private N: bigint = this.P * this.Q; // 3233
-  private PHI: bigint = (this.P - 1n) * (this.Q - 1n); // 3120
-  private E: bigint = 17n; // Wykładnik publiczny
+  return { publicKey: {p, g, y}, privateKey: {x, p} };
+}
 
-  constructor() {
-    super(
-      'Podpis Elektroniczny',
-      'Podpisywanie i weryfikacja dokumentow za pomoca RSA-SHA256',
-      'Kryptografia asymetryczna'
-    );
-    this.sha256 = new SHA256Hash();
-    this.sha256.setLogging(false); // Wylacz logowanie SHA256
-    this.generateKeyPair();
+// Szyfrowanie: (a, b) = (g^k mod p, y^k * m mod p)
+encrypt(plaintext: string, key: string): string {
+  const [p, g, y] = key.split(',').map(BigInt);
+  const encrypted = [];
+  
+  for (const char of plaintext) {
+    const m = BigInt(char.charCodeAt(0));
+    const k = random(1, p-2);           // Losowy klucz efemeryczny
+    const a = modPow(g, k, p);          // a = g^k mod p
+    const b = (modPow(y, k, p) * m) % p;// b = (y^k * m) mod p
+    encrypted.push(`${a}:${b}`);
   }
+  return encrypted.join(' ');
+}
+\end{lstlisting}
+\newpage
+\subsection{Implementacja algorytmu ECDH}
+\begin{lstlisting}[language=TypeScript, caption={Kluczowe operacje ECDH}]
+// Dodawanie punktów na krzywej: y^2 = x^3 + ax + b (mod p)
+private addPoints(P: Point, Q: Point): Point {
+  if (P.isInfinity) return Q;
+  if (Q.isInfinity) return P;
+  
+  // Współczynnik nachylenia prostej
+  const m = (P === Q) 
+    ? (3n * P.x * P.x + CURVE.a) / (2n * P.y)  // Podwójenie
+    : (Q.y - P.y) / (Q.x - P.x);               // Dodawanie
+  
+  const x3 = (m * m - P.x - Q.x) % CURVE.p;
+  const y3 = (m * (P.x - x3) - P.y) % CURVE.p;
+  return { x: x3, y: y3 };
+}
 
-  // Generowanie pary kluczy RSA
-  private generateKeyPair(): void {
-    const d = this.modularInverse(this.E, this.PHI);
-    this.keyPair = {
-      publicKey: { n: this.N, e: this.E },
-      privateKey: { n: this.N, d: d }
-    };
-  }
+// Szyfrowanie ECIES
+encrypt(plaintext: string, key: string): string {
+  const Q = parsePoint(key);              // Klucz publiczny odbiorcy
+  const k = random(1, CURVE.p-1);         // Losowy klucz efemeryczny
+  const R = k * CURVE.G;                  // Punkt efemeryczny: R = k*G
+  const S = k * Q;                        // Wspólny sekret: S = k*Q
+  const symmetricKey = S.x;               // Klucz XOR
+  const ciphertext = XOR(plaintext, symmetricKey);
+  return `${R.x},${R.y}|${ciphertext}`;   // (R, szyfrogram)
+}
+\end{lstlisting}
+\newpage
+\subsection{Implementacja funkcji SHA-256}
+\begin{lstlisting}[language=TypeScript, caption={Kluczowe operacje SHA-256}]
+// Stałe i wartości początkowe
+private K: number[] = [0x428a2f98, /* ...63 wartości... */, 0xc67178f2];
+private H: number[] = [0x6a09e667, 0xbb67ae85, /* ...6 wartości... */];
 
-  // Podpisywanie dokumentu
-  encrypt(plaintext: string, key: string = ''): string {
-    // Krok 1: Oblicz hash SHA-256
-    const documentHash = this.sha256.encrypt(plaintext);
-    
-    // Krok 2: Konwertuj hash na liczbe (pierwsze 3 znaki)
-    const hashNumber = this.hashToNumber(documentHash);
-    
-    // Krok 3: Podpisz hash kluczem prywatnym
-    // signature = hash^d mod n
-    const signature = this.modularExponentiation(
-      hashNumber, 
-      this.keyPair.privateKey.d, 
-      this.keyPair.privateKey.n
-    );
-    
-    const signatureHex = signature.toString(16);
-    
-    // Krok 4: Zwroc format: dokument|hash|podpis|klucz_publiczny
-    const publicKeyStr = 
-      `${this.keyPair.publicKey.n},${this.keyPair.publicKey.e}`;
-    return `${plaintext}|${documentHash}|${signatureHex}|${publicKeyStr}`;
-  }
+encrypt(plaintext: string): string {
+  const bytes = stringToBytes(plaintext);
+  return bytesToHex(this.sha256(bytes));
+}
 
-  // Weryfikacja podpisu
-  decrypt(ciphertext: string, key: string = ''): string {
-    // Parsowanie: dokument|hash|podpis|klucz_publiczny
-    const [originalDoc, originalHash, signatureHex, publicKeyStr] 
-      = ciphertext.split('|');
+// Główny algorytm - 64 rundy kompresji
+private sha256(message: number[]): number[] {
+  const blocks = this.preprocess(message);  // Padding do 512-bit
+  let H = [...this.H];                      // Kopia wartości początkowych
+  
+  for (const block of blocks) {
+    const W = this.prepareSchedule(block);  // Harmonogram 64 słów
+    let [a, b, c, d, e, f, g, h] = H;
     
-    // Krok 1: Oblicz hash otrzymanego dokumentu
-    const currentHash = this.sha256.encrypt(originalDoc);
-    
-    // Krok 2: Sprawdz integralnosc
-    if (currentHash !== originalHash) {
-      return 'PODPIS NIEWAZNY - Dokument zostal zmieniony!';
+    // 64 rundy
+    for (let t = 0; t < 64; t++) {
+      const T1 = h + Sigma1(e) + Ch(e,f,g) + this.K[t] + W[t];
+      const T2 = Sigma0(a) + Maj(a,b,c);
+      [a,b,c,d,e,f,g,h] = [T1+T2, a, b, c, d+T1, e, f, g];
     }
     
-    // Krok 3: Parsuj klucz publiczny
-    const [nStr, eStr] = publicKeyStr.split(',');
-    const publicKey = { n: BigInt(nStr), e: BigInt(eStr) };
-    
-    // Krok 4: Odszyfruj podpis kluczem publicznym
-    const hashNumber = this.hashToNumber(currentHash);
-    const signatureNumber = BigInt('0x' + signatureHex);
-    const verifiedHash = this.modularExponentiation(
-      signatureNumber, 
-      publicKey.e, 
-      publicKey.n
-    );
-    
-    // Krok 5: Porownaj hashe
-    if (hashNumber === verifiedHash) {
-      return 'PODPIS WAZNY - Dokument autentyczny!';
-    } else {
-      return 'PODPIS NIEWAZNY - Podpis falszywy!';
-    }
+    // Dodaj do H
+    H = H.map((v, i) => (v + [a,b,c,d,e,f,g,h][i]) >>> 0);
   }
+  return H;
+}
 
-  // Modulowe potegowanie (binary exponentiation)
-  private modularExponentiation(
-    base: bigint, 
-    exp: bigint, 
-    modulus: bigint
-  ): bigint {
-    if (modulus === 1n) return 0n;
-    let result = 1n;
-    base = base % modulus;
-    
-    while (exp > 0n) {
-      if (exp % 2n === 1n) {
-        result = (result * base) % modulus;
-      }
-      exp = exp >> 1n;
-      base = (base * base) % modulus;
-    }
-    return result;
-  }
+// Funkcje logiczne
+Ch(x,y,z) { return (x & y) ^ (~x & z); }
+Maj(x,y,z) { return (x & y) ^ (x & z) ^ (y & z); }
+Sigma0(x) { return ROTR(x,2) ^ ROTR(x,13) ^ ROTR(x,22); }
+Sigma1(x) { return ROTR(x,6) ^ ROTR(x,11) ^ ROTR(x,25); }
+\end{lstlisting}
 
-  // Odwrotnosc modulowa (Extended Euclidean Algorithm)
-  private modularInverse(a: bigint, m: bigint): bigint {
-    let [old_r, r] = [a, m];
-    let [old_s, s] = [1n, 0n];
+\newpage
+\subsection{Implementacja podpisu elektronicznego}
+\begin{lstlisting}[language=TypeScript, caption={Kluczowe operacje DigitalSignature}]
+// Parametry RSA (edukacyjne): p=61, q=53, n=3233, e=17
+private P = 61n, Q = 53n, N = 3233n, E = 17n;
+private D = modularInverse(this.E, (P-1n)*(Q-1n)); // d=2753
 
-    while (r !== 0n) {
-      const quotient = old_r / r;
-      [old_r, r] = [r, old_r - quotient * r];
-      [old_s, s] = [s, old_s - quotient * s];
-    }
-    return old_s < 0n ? old_s + m : old_s;
-  }
+// Podpisywanie: sign(doc) = (doc | hash | hash^d mod n | public_key)
+encrypt(document: string): string {
+  const hash = SHA256(document);              // 1. Hash dokumentu
+  const hashNum = hashToNumber(hash);         // 2. Hash -> liczba (3 hex)
+  const signature = modPow(hashNum, D, N);    // 3. Podpis: hash^d mod n
+  return `${document}|${hash}|${signature.toString(16)}|${N},${E}`;
+}
+
+// Weryfikacja: verify(signed_doc)
+decrypt(signedDoc: string): string {
+  const [doc, origHash, sigHex, pubKey] = signedDoc.split('|');
+  const [n, e] = pubKey.split(',').map(BigInt);
+  
+  // 1. Sprawd\u017a integralno\u015b\u0107
+  const currentHash = SHA256(doc);
+  if (currentHash !== origHash) 
+    return 'PODPIS NIEWA\u017bNY - Dokument zmieniony!';
+  
+  // 2. Sprawd\u017a autentyczno\u015b\u0107
+  const hashNum = hashToNumber(currentHash);
+  const signature = BigInt('0x' + sigHex);
+  const verifiedHash = modPow(signature, e, n); // signature^e mod n
+  
+  return (hashNum === verifiedHash) 
+    ? 'PODPIS WA\u017bNY - Dokument autentyczny!'
+    : 'PODPIS NIEWA\u017bNY - Podpis fa\u0142szywy!';
 }
 \end{lstlisting}
 
@@ -1623,7 +1152,7 @@ Szyfr z kluczem bieżącym to krok w kierunku szyfrowania jednorazowego.
 
 \textbf{Zalety:}
 \begin{itemize}
-    \item gdy klucz jest losowy i używany raz -- teoretycznie nie do złamania,
+    \item gdy klucz jest losowy i używany raz - teoretycznie nie do złamania,
     \item koncepcja zbliża się do rzeczywistego bezpieczeństwa informacyjnego,
     \item edukacyjnie pokazuje znaczenie losowości klucza.
 \end{itemize}
@@ -1641,8 +1170,8 @@ W przeciwieństwie do szyfrów klasycznych, AES jest używany w realnych systema
 
 \textbf{Zalety:}
 \begin{itemize}
-    \item wysoki poziom bezpieczeństwa -- odporny na wszystkie znane praktyczne ataki,
-    \item elastyczność -- obsługa trzech długości kluczy (128, 192, 256 bitów),
+    \item wysoki poziom bezpieczeństwa - odporny na wszystkie znane praktyczne ataki,
+    \item elastyczność - obsługa trzech długości kluczy (128, 192, 256 bitów),
     \item różne tryby pracy (ECB, CBC, CTR) dostosowane do różnych zastosowań,
     \item szybkie działanie przy zachowaniu bezpieczeństwa,
     \item szeroko stosowany i przetestowany w praktyce,
@@ -1672,7 +1201,7 @@ bezpiecznej wymiany kluczy i wprowadził koncepcję kluczy publicznych.
 
 \textbf{Zalety:}
 \begin{itemize}
-    \item rozwiązuje problem wymiany kluczy -- nie wymaga bezpiecznego kanału,
+    \item rozwiązuje problem wymiany kluczy - nie wymaga bezpiecznego kanału,
     \item umożliwia podpisy cyfrowe i uwierzytelnianie,
     \item bezpieczny przy odpowiednio dużych kluczach (2048+ bitów),
     \item szeroko stosowany i przetestowany w praktyce,
@@ -1685,7 +1214,7 @@ bezpiecznej wymiany kluczy i wprowadził koncepcję kluczy publicznych.
     \item znacznie wolniejszy niż algorytmy symetryczne (100-1000x),
     \item wymaga dużych kluczy (2048-4096 bitów) dla bezpieczeństwa,
     \item zagrożenie ze strony komputerów kwantowych,
-    \item złożona implementacja -- łatwo popełnić błędy bezpieczeństwa,
+    \item złożona implementacja - łatwo popełnić błędy bezpieczeństwa,
     \item nie nadaje się do szyfrowania dużych ilości danych.
 \end{itemize}
 
@@ -1746,12 +1275,12 @@ SHA-256 jest kryptograficzną funkcją skrótu o fundamentalnym znaczeniu dla be
 
 \textbf{Zalety:}
 \begin{itemize}
-    \item \textbf{jednokierunkowość} -- niemożliwe odtworzenie oryginalnej wiadomości,
-    \item \textbf{deterministyczność} -- ten sam wejście zawsze daje ten sam wynik,
-    \item \textbf{efekt lawiny} -- minimalna zmiana wejścia drastycznie zmienia skrót,
-    \item \textbf{odporność na kolizje} -- praktycznie niemożliwe znalezienie dwóch wiadomości o tym samym skrócie,
-    \item \textbf{szybkość} -- wydajne obliczenia na nowoczesnym sprzęcie,
-    \item \textbf{wszechstronność} -- używana w blockchain, podpisach cyfrowych, TLS, weryfikacji integralności.
+    \item \textbf{jednokierunkowość} - niemożliwe odtworzenie oryginalnej wiadomości,
+    \item \textbf{deterministyczność} - ten sam wejście zawsze daje ten sam wynik,
+    \item \textbf{efekt lawiny} - minimalna zmiana wejścia drastycznie zmienia skrót,
+    \item \textbf{odporność na kolizje} - praktycznie niemożliwe znalezienie dwóch wiadomości o tym samym skrócie,
+    \item \textbf{szybkość} - wydajne obliczenia na nowoczesnym sprzęcie,
+    \item \textbf{wszechstronność} - używana w blockchain, podpisach cyfrowych, TLS, weryfikacji integralności.
 \end{itemize}
 
 \textbf{Wady i ograniczenia:}
@@ -1763,11 +1292,11 @@ SHA-256 jest kryptograficzną funkcją skrótu o fundamentalnym znaczeniu dla be
 
 \textbf{Zastosowania w praktyce:}
 \begin{itemize}
-    \item \textbf{Bitcoin i blockchain} -- proof-of-work, identyfikacja bloków i transakcji,
-    \item \textbf{Podpisy cyfrowe} -- haszowanie dokumentów przed podpisaniem,
-    \item \textbf{Certyfikaty SSL/TLS} -- weryfikacja integralności i autentyczności,
-    \item \textbf{Git} -- identyfikacja commitów i obiektów (choć Git używa SHA-1),
-    \item \textbf{Sumy kontrolne} -- weryfikacja pobranych plików.
+    \item \textbf{Bitcoin i blockchain} - proof-of-work, identyfikacja bloków i transakcji,
+    \item \textbf{Podpisy cyfrowe} - haszowanie dokumentów przed podpisaniem,
+    \item \textbf{Certyfikaty SSL/TLS} - weryfikacja integralności i autentyczności,
+    \item \textbf{Git} - identyfikacja commitów i obiektów (choć Git używa SHA-1),
+    \item \textbf{Sumy kontrolne} - weryfikacja pobranych plików.
 \end{itemize}
 \begin{figure}[H]
     \centering
@@ -1782,20 +1311,20 @@ Podpis elektroniczny to kryptograficzny mechanizm łączący SHA-256 z RSA do au
 
 \textbf{Zalety:}
 \begin{itemize}
-    \item \textbf{Autentyczność} -- potwierdza tożsamość nadawcy (tylko właściciel klucza prywatnego może podpisać),
-    \item \textbf{Integralność} -- wykrywa każdą modyfikację dokumentu,
-    \item \textbf{Niezaprzeczalność} -- nadawca nie może zaprzeczyć podpisaniu (non-repudiation),
-    \item \textbf{Efektywność} -- podpisywany jest tylko hash (256 bitów), nie cały dokument,
-    \item \textbf{Uniwersalność} -- działa dla dokumentów dowolnej wielkości,
-    \item \textbf{Zgodność ze standardami} -- RSA-SHA256 to powszechnie uznany standard (PKCS\#1).
+    \item \textbf{Autentyczność} - potwierdza tożsamość nadawcy (tylko właściciel klucza prywatnego może podpisać),
+    \item \textbf{Integralność} - wykrywa każdą modyfikację dokumentu,
+    \item \textbf{Niezaprzeczalność} - nadawca nie może zaprzeczyć podpisaniu (non-repudiation),
+    \item \textbf{Efektywność} - podpisywany jest tylko hash (256 bitów), nie cały dokument,
+    \item \textbf{Uniwersalność} - działa dla dokumentów dowolnej wielkości,
+    \item \textbf{Zgodność ze standardami} - RSA-SHA256 to powszechnie uznany standard (PKCS\#1).
 \end{itemize}
 
 \textbf{Wady i ograniczenia:}
 \begin{itemize}
-    \item \textbf{Zarządzanie kluczami} -- wymaga bezpiecznego przechowywania klucza prywatnego,
-    \item \textbf{Infrastruktura PKI} -- w praktyce potrzebne są certyfikaty i zaufane centra certyfikacji,
-    \item \textbf{Podatność kwantowa} -- RSA może być złamany przez komputery kwantowe (w przyszłości),
-    \item \textbf{Rozmiar klucza} -- duże klucze (2048-4096 bitów) wymagają więcej pamięci.
+    \item \textbf{Zarządzanie kluczami} - wymaga bezpiecznego przechowywania klucza prywatnego,
+    \item \textbf{Infrastruktura PKI} - w praktyce potrzebne są certyfikaty i zaufane centra certyfikacji,
+    \item \textbf{Podatność kwantowa} - RSA może być złamany przez komputery kwantowe (w przyszłości),
+    \item \textbf{Rozmiar klucza} - duże klucze (2048-4096 bitów) wymagają więcej pamięci.
 \end{itemize}
 
 \textbf{Proces w CryptoLab:}
@@ -1806,12 +1335,12 @@ Podpis elektroniczny to kryptograficzny mechanizm łączący SHA-256 z RSA do au
 
 \textbf{Zastosowania praktyczne:}
 \begin{itemize}
-    \item \textbf{SSL/TLS} -- certyfikaty serwerów WWW,
-    \item \textbf{Podpisy kwalifikowane} -- prawnie wiążące dokumenty (eIDAS),
-    \item \textbf{Kod aplikacji} -- weryfikacja pochodzenia oprogramowania,
-    \item \textbf{Blockchain} -- autoryzacja transakcji Bitcoin, Ethereum,
-    \item \textbf{E-mail} -- S/MIME, PGP dla bezpiecznej poczty,
-    \item \textbf{Aktualizacje systemu} -- weryfikacja integralności pakietów apt, yum.
+    \item \textbf{SSL/TLS} - certyfikaty serwerów WWW,
+    \item \textbf{Podpisy kwalifikowane} - prawnie wiążące dokumenty (eIDAS),
+    \item \textbf{Kod aplikacji} - weryfikacja pochodzenia oprogramowania,
+    \item \textbf{Blockchain} - autoryzacja transakcji Bitcoin, Ethereum,
+    \item \textbf{E-mail} - S/MIME, PGP dla bezpiecznej poczty,
+    \item \textbf{Aktualizacje systemu} - weryfikacja integralności pakietów apt, yum.
 \end{itemize}
 
 \textbf{Edukacyjne aspekty implementacji:}
@@ -1850,10 +1379,10 @@ System logowania składa się z trzech głównych komponentów:
     \item[\textbf{LogTypes.ts}] 
     Definicje typów TypeScript dla systemu logowania:
     \begin{itemize}
-        \item \texttt{LogStep} -- pojedynczy krok w algorytmie,
-        \item \texttt{CryptoLogEntry} -- kompletny wpis logu operacji,
-        \item \texttt{LogFilter} -- filtry wyszukiwania logów,
-        \item \texttt{LogStats} -- statystyki użycia algorytmów.
+        \item \texttt{LogStep} - pojedynczy krok w algorytmie,
+        \item \texttt{CryptoLogEntry} - kompletny wpis logu operacji,
+        \item \texttt{LogFilter} - filtry wyszukiwania logów,
+        \item \texttt{LogStats} - statystyki użycia algorytmów.
     \end{itemize}
 
     \item[\textbf{LogsViewer.tsx}] 
@@ -1911,10 +1440,10 @@ Rysunek \ref{fig:logdetails} przedstawia szczegółowe logi dla przykładowej op
 
 System automatycznie maskuje klucze w logach:
 \begin{itemize}
-    \item Krótkie klucze (do 10 znaków) -- wyświetlane w całości
-    \item Średnie klucze (11-30 znaków) -- maskowane środkowe znaki
-    \item Długie klucze (powyżej 30 znaków) -- pokazane tylko pierwsze i ostatnie 10 znaków
-    \item Klucze RSA -- maskowane dla bezpieczeństwa
+    \item Krótkie klucze (do 10 znaków) - wyświetlane w całości
+    \item Średnie klucze (11-30 znaków) - maskowane środkowe znaki
+    \item Długie klucze (powyżej 30 znaków) - pokazane tylko pierwsze i ostatnie 10 znaków
+    \item Klucze RSA - maskowane dla bezpieczeństwa
 \end{itemize}
 
 \subsection{Statystyki}
@@ -1950,12 +1479,12 @@ System logowania ma kluczowe znaczenie edukacyjne:
     Wsparcie dla kluczy AES-128, AES-192 i AES-256. \newline
     Dodanie paddingu PKCS\#7 i obsługi wektorów inicjalizujących (IV). \newline
     Pełna implementacja algorytmu AES bez użycia zewnętrznych bibliotek kryptograficznych.
-    \item \textbf{16.11.2025} Implementacja algorytmu RSA (Rivest-Shamir-Adleman) -- pierwszy algorytm kryptografii asymetrycznej w aplikacji. \newline
+    \item \textbf{16.11.2025} Implementacja algorytmu RSA (Rivest-Shamir-Adleman) - pierwszy algorytm kryptografii asymetrycznej w aplikacji. \newline
     Generowanie par kluczy publiczny/prywatny z losowymi liczbami pierwszymi. \newline
     Implementacja algorytmu Euklidesa, rozszerzonego algorytmu Euklidesa i szybkiego potęgowania modularnego. \newline
     Dodanie kategorii "Kryptografia asymetryczna" w rejestrze algorytmów. \newline
     Wprowadzenie koncepcji szyfrowania hybrydowego w dokumentacji. \newline
-    \textbf{Dodanie GUI do generowania kluczy RSA} -- przycisk "Generuj klucze" z modalem wyświetlającym klucz publiczny i prywatny, możliwość kopiowania i bezpośredniego użycia kluczy w aplikacji.
+    \textbf{Dodanie GUI do generowania kluczy RSA} - przycisk "Generuj klucze" z modalem wyświetlającym klucz publiczny i prywatny, możliwość kopiowania i bezpośredniego użycia kluczy w aplikacji.
     \item \textbf{24.11.2025} Implementacja zaawansowanego systemu logowania operacji kryptograficznych. \newline
     Utworzenie \texttt{LogManager} z wzorcem Singleton do centralnego zarządzania logami. \newline
     Dodanie komponentu \texttt{LogsViewer} do wyświetlania historii operacji z interfejsem użytkownika. \newline
@@ -1974,6 +1503,10 @@ System logowania ma kluczowe znaczenie edukacyjne:
     Rejestrowanie szczegółowych kroków funkcji skrótu w systemie logowania. \newline
     Dodanie zastosowań SHA-256 w praktyce (blockchain, podpisy cyfrowe). \newline
     Ulepszenie dokumentacji o funkcje skrótu i ich znaczenie w bezpieczeństwie.
+    \item \textbf{15.12.2025} Implementacja podpisu elektronicznego łączącego SHA-256 z RSA. \newline
+    Proces podpisywania: obliczanie hash SHA-256 → podpisywanie kluczem prywatnym RSA → formatowanie wyniku. \newline
+    Proces weryfikacji: obliczanie hash → sprawdzanie integralności → weryfikacja podpisu kluczem publicznym. \newline
+    Rejestracja kroków podpisywania i weryfikacji w systemie logowania.
 \end{itemize}
 
 

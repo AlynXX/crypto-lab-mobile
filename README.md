@@ -2,10 +2,6 @@
 
 Mobilna aplikacja do nauki kryptografii zbudowana w React Native z Expo.
 
-## Opis
-
-CryptoLab Mobile to edukacyjna platforma do nauki algorytmów kryptograficznych. Aplikacja została przeniesiona z projektu webowego "projekt drozd" i zoptymalizowana dla urządzeń mobilnych.
-
 ## Funkcjonalności
 
 ### Szyfry klasyczne
